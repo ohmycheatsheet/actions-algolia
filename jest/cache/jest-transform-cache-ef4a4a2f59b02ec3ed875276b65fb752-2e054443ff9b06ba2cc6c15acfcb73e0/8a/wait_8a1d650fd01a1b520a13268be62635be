@@ -1,0 +1,269 @@
+581d07a8ebf6e8d02748dd4a54ec9c9d
+"use strict";
+
+/* istanbul ignore next */
+function cov_g9oolqmwl() {
+  var path = "/Users/jiangwei/projects/actions-algolia/src/wait.ts";
+  var hash = "9a669190809f7836cbcc4f48ae598002d29217f3";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/jiangwei/projects/actions-algolia/src/wait.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 4,
+          column: 4
+        },
+        end: {
+          line: 9,
+          column: 7
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 8
+        },
+        end: {
+          line: 7,
+          column: 9
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 12
+        },
+        end: {
+          line: 6,
+          column: 57
+        }
+      },
+      "4": {
+        start: {
+          line: 8,
+          column: 8
+        },
+        end: {
+          line: 8,
+          column: 75
+        }
+      },
+      "5": {
+        start: {
+          line: 8,
+          column: 33
+        },
+        end: {
+          line: 8,
+          column: 57
+        }
+      },
+      "6": {
+        start: {
+          line: 11,
+          column: 0
+        },
+        end: {
+          line: 11,
+          column: 23
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "wait",
+        decl: {
+          start: {
+            line: 3,
+            column: 9
+          },
+          end: {
+            line: 3,
+            column: 13
+          }
+        },
+        loc: {
+          start: {
+            line: 3,
+            column: 28
+          },
+          end: {
+            line: 10,
+            column: 1
+          }
+        },
+        line: 3
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 4,
+            column: 23
+          },
+          end: {
+            line: 4,
+            column: 24
+          }
+        },
+        loc: {
+          start: {
+            line: 4,
+            column: 42
+          },
+          end: {
+            line: 9,
+            column: 5
+          }
+        },
+        line: 4
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 8,
+            column: 19
+          },
+          end: {
+            line: 8,
+            column: 20
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 31
+          },
+          end: {
+            line: 8,
+            column: 59
+          }
+        },
+        line: 8
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 5,
+            column: 8
+          },
+          end: {
+            line: 7,
+            column: 9
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 5,
+            column: 8
+          },
+          end: {
+            line: 7,
+            column: 9
+          }
+        }, {
+          start: {
+            line: 5,
+            column: 8
+          },
+          end: {
+            line: 7,
+            column: 9
+          }
+        }],
+        line: 5
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "9a669190809f7836cbcc4f48ae598002d29217f3"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_g9oolqmwl = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_g9oolqmwl();
+cov_g9oolqmwl().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function wait(milliseconds) {
+  /* istanbul ignore next */
+  cov_g9oolqmwl().f[0]++;
+  cov_g9oolqmwl().s[1]++;
+  return new Promise(function (resolve) {
+    /* istanbul ignore next */
+    cov_g9oolqmwl().f[1]++;
+    cov_g9oolqmwl().s[2]++;
+
+    if (typeof milliseconds !== 'number') {
+      /* istanbul ignore next */
+      cov_g9oolqmwl().b[0][0]++;
+      cov_g9oolqmwl().s[3]++;
+      throw new Error('milliseconds not a number');
+    } else
+    /* istanbul ignore next */
+    {
+      cov_g9oolqmwl().b[0][1]++;
+    }
+
+    cov_g9oolqmwl().s[4]++;
+    setTimeout(function () {
+      /* istanbul ignore next */
+      cov_g9oolqmwl().f[2]++;
+      cov_g9oolqmwl().s[5]++;
+      return resolve("done!");
+    }, milliseconds);
+  });
+}
+
+/* istanbul ignore next */
+cov_g9oolqmwl().s[6]++;
+exports.default = wait;
+;
