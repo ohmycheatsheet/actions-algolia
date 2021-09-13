@@ -1,1 +1,1 @@
-export default function wait(milliseconds: number): Promise<unknown>;
+export default function wait(milliseconds: number | string): Promise<unknown>;

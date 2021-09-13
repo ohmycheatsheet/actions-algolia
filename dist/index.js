@@ -796,11 +796,11 @@ function run() {
                     _a.trys.push([0, 2, , 3]);
                     ms = core_1.default.getInput('milliseconds');
                     core_1.default.info("Waiting " + ms + " milliseconds ...");
-                    core_1.default.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
+                    core_1.default.debug(new Date().toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
                     return [4 /*yield*/, (0, wait_1.default)(parseInt(ms))];
                 case 1:
                     _a.sent();
-                    core_1.default.info((new Date()).toTimeString());
+                    core_1.default.info(new Date().toTimeString());
                     core_1.default.setOutput('time', new Date().toTimeString());
                     return [3 /*break*/, 3];
                 case 2:
@@ -825,13 +825,12 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 function wait(milliseconds) {
     return new Promise(function (resolve) {
         if (typeof milliseconds !== 'number') {
-            throw new Error('milliseconds not a number');
+            throw new TypeError('milliseconds not a number');
         }
-        setTimeout(function () { return resolve("done!"); }, milliseconds);
+        setTimeout(function () { return resolve('done!'); }, milliseconds);
     });
 }
 exports.default = wait;
-;
 
 
 /***/ }),

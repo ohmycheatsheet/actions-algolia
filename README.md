@@ -1,8 +1,9 @@
-# Create a JavaScript Action
+# @aiou/actions-template
+*build github actions template with typescript*
 
-<p align="center">
-  <a href="https://github.com/actions/javascript-action/actions"><img alt="javscript-action status" src="https://github.com/actions/javascript-action/workflows/units-test/badge.svg"></a>
-</p>
+[![pnpm](https://img.shields.io/pnpm/v/@aiou/actions-template)](https://github.com/JiangWeixian/templates/tree/master/packages/actions-template) [![GitHub](https://img.shields.io/pnpm/l/@aiou/actions-template)](https://github.com/JiangWeixian/templates/tree/master/packages/actions-template) [![stackblitz](https://img.shields.io/badge/%E2%9A%A1%EF%B8%8Fstackblitz-online-blue)](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/actions-template)
+
+[Edit on StackBlitz ⚡️](https://stackblitz.com/github/JiangWeixian/templates/tree/master/packages/actions-template)
 
 Use this template to bootstrap the creation of a JavaScript action.:rocket:
 
@@ -10,39 +11,10 @@ This template includes tests, linting, a validation workflow, publishing, and ve
 
 If you are new, there's also a simpler introduction.  See the [Hello World JavaScript Action](https://github.com/actions/hello-world-javascript-action)
 
-## Create an action from this template
+## features
 
-Click the `Use this Template` and provide the new repo details for your action
-
-## Code in Main
-
-Install the dependencies
-
-```bash
-npm install
-```
-
-Run the tests :heavy_check_mark:
-
-```bash
-$ npm test
-
- PASS  ./index.test.js
-  ✓ throws invalid number (3ms)
-  ✓ wait 500 ms (504ms)
-  ✓ test runs (95ms)
-...
-```
-
-## Change action.yml
-
-The action.yml defines the inputs and output for your action.
-
-Update the action.yml with your name, description, inputs and outputs for your action.
-
-See the [documentation](https://help.github.com/en/articles/metadata-syntax-for-github-actions)
-
-## Change the Code
+- typescript
+## development
 
 Most toolkit and CI/CD operations involve async operations so the action is run in an async function.
 
@@ -64,7 +36,16 @@ run()
 
 See the [toolkit documentation](https://github.com/actions/toolkit/blob/master/README.md#packages) for the various packages.
 
-## Package for distribution
+### change action.yml
+
+The action.yml defines the inputs and output for your action.
+
+Update the action.yml with your name, description, inputs and outputs for your action.
+
+See the [documentation](https://help.github.com/en/articles/metadata-syntax-for-github-actions)
+
+
+### publish
 
 GitHub Actions will run the entry point from the action.yml. Packaging assembles the code into one file that can be checked in to Git, enabling fast and reliable execution and preventing the need to check in node_modules.
 
@@ -73,7 +54,7 @@ Actions are run from GitHub repos.  Packaging the action will create a packaged 
 Run prepare
 
 ```bash
-npm run prepare
+pnpm run prepare
 ```
 
 Since the packaged index.js is run from the dist folder.
@@ -82,7 +63,7 @@ Since the packaged index.js is run from the dist folder.
 git add dist
 ```
 
-## Create a release branch
+### release
 
 Users shouldn't consume the action from master since that would be latest code and actions can break compatibility between major versions.
 
@@ -103,14 +84,14 @@ Your action is now published! :rocket:
 
 See the [versioning documentation](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md)
 
-## Usage
+## usage
 
 You can now consume the action by referencing the v1 branch
 
 ```yaml
-uses: actions/javascript-action@v1
+uses: <namespace>/<repo>@v1
 with:
   milliseconds: 1000
 ```
 
-See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! :rocket:
+See the [actions tab]() for runs of this action! :rocket:
