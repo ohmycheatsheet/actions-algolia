@@ -1,17 +1,30 @@
 import core from '@actions/core'
-import wait from './wait'
+import { graphql } from '@octokit/graphql'
+
+const getIssues = async () => {
+  const response = await graphql(
+    `
+      query Issues {
+        repository(owner: "spring-projects", name: "spring-boot") {
+          issues(last: 3) {
+            edges {
+              node {
+                number
+                title
+              }
+            }
+          }
+        }
+      }
+    `,
+  )
+  console.log(response)
+}
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ms = core.getInput('milliseconds')
-    core.info(`Waiting ${ms} milliseconds ...`)
-
-    core.debug(new Date().toTimeString()) // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-    await wait(parseInt(ms))
-    core.info(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+    await getIssues()
   } catch (error) {
     core.setFailed((error as any).message)
   }
