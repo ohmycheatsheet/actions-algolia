@@ -7,11 +7,11 @@ const graphqlWithAuth = graphql.defaults({
   },
 })
 
-const getIssues = async () => {
+const getIssues = async (owner: string, name: string) => {
   const response = await graphqlWithAuth(
     `
-      query Issues {
-        repository(owner: "spring-projects", name: "spring-boot") {
+      query Issues($owner: String!, $name: String!) {
+        repository(owner: $owner, name: $name) {
           issues(last: 3) {
             edges {
               node {
@@ -23,14 +23,21 @@ const getIssues = async () => {
         }
       }
     `,
+    {
+      owner,
+      name,
+    },
   )
   console.log(response)
+  return response
 }
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    await getIssues()
+    const repo = process.env.GITHUB_REPOSITORY
+    const [owner, name] = repo?.split('/') || []
+    await getIssues(owner, name)
   } catch (error) {
     console.log(error)
     core.setFailed((error as any).message)

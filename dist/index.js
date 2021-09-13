@@ -3582,32 +3582,37 @@ var graphqlWithAuth = graphql_1.graphql.defaults({
         authorization: "token " + process.env.GITHUB_TOKEN,
     },
 });
-var getIssues = function () { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
+var getIssues = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
     var response;
     return (0, tslib_1.__generator)(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, graphqlWithAuth("\n      query Issues {\n        repository(owner: \"spring-projects\", name: \"spring-boot\") {\n          issues(last: 3) {\n            edges {\n              node {\n                number\n                title\n              }\n            }\n          }\n        }\n      }\n    ")];
+            case 0: return [4 /*yield*/, graphqlWithAuth("\n      query Issues($owner: String!, $name: String!) {\n        repository(owner: $owner, name: $name) {\n          issues(last: 3) {\n            edges {\n              node {\n                number\n                title\n              }\n            }\n          }\n        }\n      }\n    ", {
+                    owner: owner,
+                    name: name
+                })];
             case 1:
                 response = _a.sent();
                 console.log(response);
-                return [2 /*return*/];
+                return [2 /*return*/, response];
         }
     });
 }); };
 // most @actions toolkit packages have async methods
 function run() {
     return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
-        var error_1;
-        return (0, tslib_1.__generator)(this, function (_a) {
-            switch (_a.label) {
+        var repo, _a, owner, name_1, error_1;
+        return (0, tslib_1.__generator)(this, function (_b) {
+            switch (_b.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, getIssues()];
+                    _b.trys.push([0, 2, , 3]);
+                    repo = process.env.GITHUB_REPOSITORY;
+                    _a = (repo === null || repo === void 0 ? void 0 : repo.split('/')) || [], owner = _a[0], name_1 = _a[1];
+                    return [4 /*yield*/, getIssues(owner, name_1)];
                 case 1:
-                    _a.sent();
+                    _b.sent();
                     return [3 /*break*/, 3];
                 case 2:
-                    error_1 = _a.sent();
+                    error_1 = _b.sent();
                     console.log(error_1);
                     core.setFailed(error_1.message);
                     return [3 /*break*/, 3];
