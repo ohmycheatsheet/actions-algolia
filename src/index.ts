@@ -1,8 +1,14 @@
-import core from '@actions/core'
+import * as core from '@actions/core'
 import { graphql } from '@octokit/graphql'
 
+const graphqlWithAuth = graphql.defaults({
+  headers: {
+    authorization: `token ${process.env.GITHUB_TOKEN}`,
+  },
+})
+
 const getIssues = async () => {
-  const response = await graphql(
+  const response = await graphqlWithAuth(
     `
       query Issues {
         repository(owner: "spring-projects", name: "spring-boot") {
@@ -26,6 +32,7 @@ async function run() {
   try {
     await getIssues()
   } catch (error) {
+    console.log(error)
     core.setFailed((error as any).message)
   }
 }
