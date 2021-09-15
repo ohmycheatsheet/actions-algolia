@@ -3457,6 +3457,86 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
+/***/ 912:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.api = void 0;
+var tslib_1 = __nccwpck_require__(560);
+var graphql_1 = __nccwpck_require__(733);
+var graphqlWithAuth = graphql_1.graphql.defaults({
+    headers: {
+        authorization: "token " + process.env.GITHUB_TOKEN,
+    },
+});
+exports.api = {
+    issueCount: function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
+        var response;
+        return (0, tslib_1.__generator)(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, graphqlWithAuth("\n        query Issues($owner: String!, $name: String!) {\n          repository(owner: $owner, name: $name) {\n            totalCount\n          }\n        }\n      ", {
+                        owner: owner,
+                        name: name,
+                    })];
+                case 1:
+                    response = _a.sent();
+                    console.log(response);
+                    return [2 /*return*/, response];
+            }
+        });
+    }); },
+    labelCount: function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
+        var response;
+        return (0, tslib_1.__generator)(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, graphqlWithAuth("\n        query Issues($owner: String!, $name: String!) {\n          repository(owner: $owner, name: $name) {\n            labels {\n              totalCount\n            }\n          }\n        }\n      ", {
+                        owner: owner,
+                        name: name,
+                    })];
+                case 1:
+                    response = _a.sent();
+                    console.log(response);
+                    return [2 /*return*/, response];
+            }
+        });
+    }); },
+    labels: function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
+        var response;
+        return (0, tslib_1.__generator)(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, graphqlWithAuth("\n        query Issues($owner: String!, $name: String!) {\n          repository(owner: $owner, name: $name) {\n            labels(first: 10) {\n              edges {\n                node {\n                  id,\n                  description,\n                  name,\n                  color\n                }\n              }\n            }\n          }\n        }\n      ", {
+                        owner: owner,
+                        name: name,
+                    })];
+                case 1:
+                    response = _a.sent();
+                    console.log(response);
+                    return [2 /*return*/, response];
+            }
+        });
+    }); },
+    issues: function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
+        var response;
+        return (0, tslib_1.__generator)(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, graphqlWithAuth("\n        query Issues($owner: String!, $name: String!) {\n          repository(owner: $owner, name: $name) {\n            issues(last: 3, states: OPEN) {\n              edges {\n                node {\n                  id,\n                  number\n                  title,\n                  body,\n                  createdAt,\n                  updatedAt,\n                  state,\n                  labels(last: 10) {\n                    edges {\n                      node {\n                        id,\n                        color,\n                        description,\n                        name,\n                        createdAt,\n                        updatedAt\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      ", {
+                        owner: owner,
+                        name: name,
+                    })];
+                case 1:
+                    response = _a.sent();
+                    console.log(response);
+                    return [2 /*return*/, response];
+            }
+        });
+    }); },
+};
+
+
+/***/ }),
+
 /***/ 167:
 /***/ ((module) => {
 
@@ -3576,27 +3656,7 @@ var exports = __webpack_exports__;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var tslib_1 = __nccwpck_require__(560);
 var core = (0, tslib_1.__importStar)(__nccwpck_require__(703));
-var graphql_1 = __nccwpck_require__(733);
-var graphqlWithAuth = graphql_1.graphql.defaults({
-    headers: {
-        authorization: "token " + process.env.GITHUB_TOKEN,
-    },
-});
-var getIssues = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-    var response;
-    return (0, tslib_1.__generator)(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, graphqlWithAuth("\n      query Issues($owner: String!, $name: String!) {\n        repository(owner: $owner, name: $name) {\n          issues(last: 3) {\n            edges {\n              node {\n                number\n                title\n              }\n            }\n          }\n        }\n      }\n    ", {
-                    owner: owner,
-                    name: name
-                })];
-            case 1:
-                response = _a.sent();
-                console.log(response);
-                return [2 /*return*/, response];
-        }
-    });
-}); };
+var api_1 = __nccwpck_require__(912);
 // most @actions toolkit packages have async methods
 function run() {
     return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
@@ -3604,19 +3664,22 @@ function run() {
         return (0, tslib_1.__generator)(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    _b.trys.push([0, 2, , 3]);
+                    _b.trys.push([0, 3, , 4]);
                     repo = process.env.GITHUB_REPOSITORY;
                     _a = (repo === null || repo === void 0 ? void 0 : repo.split('/')) || [], owner = _a[0], name_1 = _a[1];
-                    return [4 /*yield*/, getIssues(owner, name_1)];
+                    return [4 /*yield*/, api_1.api.issueCount(owner, name_1)];
                 case 1:
                     _b.sent();
-                    return [3 /*break*/, 3];
+                    return [4 /*yield*/, api_1.api.issues(owner, name_1)];
                 case 2:
+                    _b.sent();
+                    return [3 /*break*/, 4];
+                case 3:
                     error_1 = _b.sent();
                     console.log(error_1);
                     core.setFailed(error_1.message);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
