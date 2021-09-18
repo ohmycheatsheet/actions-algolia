@@ -6131,7 +6131,7 @@ exports.algolia = {
                     attributesForFaceting: ['state', 'filterOnly(labels.name)'],
                 });
                 labelIndex.setSettings({
-                    searchableAttributes: ['name', 'description']
+                    searchableAttributes: ['name', 'description'],
                 });
                 return [2 /*return*/];
             });
@@ -6178,15 +6178,16 @@ exports.algolia = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.api = void 0;
+exports.github = exports.gql = void 0;
 var tslib_1 = __nccwpck_require__(560);
 var graphql_1 = __nccwpck_require__(733);
+exports.gql = String.raw;
 var graphqlWithAuth = graphql_1.graphql.defaults({
     headers: {
         authorization: "token " + process.env.GITHUB_TOKEN,
     },
 });
-exports.api = {
+exports.github = {
     issueCount: function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
         var response;
         return (0, tslib_1.__generator)(this, function (_a) {
@@ -6198,7 +6199,7 @@ exports.api = {
                 case 1:
                     response = _a.sent();
                     console.log(response);
-                    return [2 /*return*/, response];
+                    return [2 /*return*/, response.repository.issues.totalCount];
             }
         });
     }); },
@@ -6213,43 +6214,56 @@ exports.api = {
                 case 1:
                     response = _a.sent();
                     console.log(response);
-                    return [2 /*return*/, response];
+                    return [2 /*return*/, response.repository.labels.totalCount];
             }
         });
     }); },
-    labels: function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-        var response;
+    labels: function (owner, name, after) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
+        var response, labels, pageInfo;
         return (0, tslib_1.__generator)(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, graphqlWithAuth("\n        query Issues($owner: String!, $name: String!) {\n          repository(owner: $owner, name: $name) {\n            labels(first: 10) {\n              edges {\n                node {\n                  id,\n                  description,\n                  name,\n                  color\n                }\n              }\n            }\n          }\n        }\n      ", {
+                case 0: return [4 /*yield*/, graphqlWithAuth((0, exports.gql)(templateObject_1 || (templateObject_1 = (0, tslib_1.__makeTemplateObject)(["\n        query Labels($owner: String!, $name: String!, $after: String) {\n          repository(owner: $owner, name: $name) {\n            labels(first: 10, after: $after) {\n              edges {\n                node {\n                  id\n                  description\n                  name\n                  color\n                }\n              }\n              pageInfo {\n                endCursor\n                hasNextPage\n              }\n            }\n          }\n        }\n      "], ["\n        query Labels($owner: String!, $name: String!, $after: String) {\n          repository(owner: $owner, name: $name) {\n            labels(first: 10, after: $after) {\n              edges {\n                node {\n                  id\n                  description\n                  name\n                  color\n                }\n              }\n              pageInfo {\n                endCursor\n                hasNextPage\n              }\n            }\n          }\n        }\n      "]))), {
                         owner: owner,
                         name: name,
+                        after: after,
                     })];
                 case 1:
                     response = _a.sent();
                     console.log(response);
-                    return [2 /*return*/, response.repository.labels.edges.map(function (item) { return item.node; })];
+                    labels = response.repository.labels.edges.map(function (item) { return item.node; });
+                    pageInfo = response.repository.labels.pageInfo;
+                    return [2 /*return*/, {
+                            labels: labels,
+                            pageInfo: pageInfo,
+                        }];
             }
         });
     }); },
-    issues: function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-        var response;
+    issues: function (owner, name, after) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
+        var response, issues, pageInfo;
         return (0, tslib_1.__generator)(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, graphqlWithAuth("\n        query Issues($owner: String!, $name: String!) {\n          repository(owner: $owner, name: $name) {\n            issues(last: 3, states: OPEN) {\n              edges {\n                node {\n                  id,\n                  number\n                  title,\n                  body,\n                  createdAt,\n                  updatedAt,\n                  state,\n                  labels(last: 10) {\n                    edges {\n                      node {\n                        id,\n                        color,\n                        description,\n                        name,\n                        createdAt,\n                        updatedAt\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      ", {
+                case 0: return [4 /*yield*/, graphqlWithAuth((0, exports.gql)(templateObject_2 || (templateObject_2 = (0, tslib_1.__makeTemplateObject)(["\n        query Issues($owner: String!, $name: String!, $after: String) {\n          repository(owner: $owner, name: $name) {\n            issues(first: 10, after: $after, states: OPEN) {\n              edges {\n                node {\n                  id\n                  number\n                  title\n                  body\n                  createdAt\n                  updatedAt\n                  state\n                  labels(last: 10) {\n                    edges {\n                      node {\n                        id\n                        color\n                        description\n                        name\n                        createdAt\n                        updatedAt\n                      }\n                    }\n                  }\n                }\n              }\n              pageInfo {\n                endCursor\n                hasNextPage\n              }\n            }\n          }\n        }\n      "], ["\n        query Issues($owner: String!, $name: String!, $after: String) {\n          repository(owner: $owner, name: $name) {\n            issues(first: 10, after: $after, states: OPEN) {\n              edges {\n                node {\n                  id\n                  number\n                  title\n                  body\n                  createdAt\n                  updatedAt\n                  state\n                  labels(last: 10) {\n                    edges {\n                      node {\n                        id\n                        color\n                        description\n                        name\n                        createdAt\n                        updatedAt\n                      }\n                    }\n                  }\n                }\n              }\n              pageInfo {\n                endCursor\n                hasNextPage\n              }\n            }\n          }\n        }\n      "]))), {
                         owner: owner,
                         name: name,
+                        after: after,
                     })];
                 case 1:
                     response = _a.sent();
                     console.log(response.repository.issues.edges);
-                    return [2 /*return*/, response.repository.issues.edges.map(function (item) { return ((0, tslib_1.__assign)((0, tslib_1.__assign)({}, item.node), { 
-                            // unzip labels
-                            labels: item.node.labels.edges.map(function (label) { return label.node; }) })); })];
+                    issues = response.repository.issues.edges.map(function (item) { return ((0, tslib_1.__assign)((0, tslib_1.__assign)({}, item.node), { 
+                        // unzip labels
+                        labels: item.node.labels.edges.map(function (label) { return label.node; }) })); });
+                    pageInfo = response.repository.issues.pageInfo;
+                    return [2 /*return*/, {
+                            issues: issues,
+                            pageInfo: pageInfo,
+                        }];
             }
         });
     }); },
 };
+var templateObject_1, templateObject_2;
 
 
 /***/ }),
@@ -6383,44 +6397,87 @@ var tslib_1 = __nccwpck_require__(560);
 var core = (0, tslib_1.__importStar)(__nccwpck_require__(703));
 var github_1 = __nccwpck_require__(457);
 var algolia_1 = __nccwpck_require__(257);
+var syncIssues = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, issues, pageInfo, after, cheatsheets;
+    var _b;
+    return (0, tslib_1.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4 /*yield*/, github_1.github.issues(owner, name)];
+            case 1:
+                _a = _c.sent(), issues = _a.issues, pageInfo = _a.pageInfo;
+                _c.label = 2;
+            case 2:
+                if (!pageInfo.hasNextPage) return [3 /*break*/, 6];
+                ;
+                return [4 /*yield*/, github_1.github.issues(owner, name, after)];
+            case 3:
+                (_b = _c.sent(), issues = _b.issues, pageInfo = _b.pageInfo);
+                cheatsheets = issues.map(function (item) {
+                    return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectID: item.id });
+                });
+                return [4 /*yield*/, algolia_1.algolia.uploadCheatsheets(cheatsheets)];
+            case 4:
+                _c.sent();
+                _c.label = 5;
+            case 5:
+                after = pageInfo.endCursor;
+                return [3 /*break*/, 2];
+            case 6: return [2 /*return*/];
+        }
+    });
+}); };
+var syncLabels = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
+    var _a, labels, pageInfo, after, tags;
+    var _b;
+    return (0, tslib_1.__generator)(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4 /*yield*/, github_1.github.labels(owner, name)];
+            case 1:
+                _a = _c.sent(), labels = _a.labels, pageInfo = _a.pageInfo;
+                _c.label = 2;
+            case 2:
+                if (!pageInfo.hasNextPage) return [3 /*break*/, 6];
+                ;
+                return [4 /*yield*/, github_1.github.labels(owner, name, after)];
+            case 3:
+                (_b = _c.sent(), labels = _b.labels, pageInfo = _b.pageInfo);
+                tags = labels.map(function (item) {
+                    return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectID: item.id });
+                });
+                return [4 /*yield*/, algolia_1.algolia.uploadTags(tags)];
+            case 4:
+                _c.sent();
+                _c.label = 5;
+            case 5:
+                after = pageInfo.endCursor;
+                return [3 /*break*/, 2];
+            case 6: return [2 /*return*/];
+        }
+    });
+}); };
 // most @actions toolkit packages have async methods
 function run() {
     return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
-        var repo, _a, owner, name_1, issues, cheatsheets, labels, tags, error_1;
+        var repo, _a, owner, name_1, error_1;
         return (0, tslib_1.__generator)(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    _b.trys.push([0, 6, , 7]);
+                    _b.trys.push([0, 3, , 4]);
                     repo = process.env.GITHUB_REPOSITORY;
                     _a = (repo === null || repo === void 0 ? void 0 : repo.split('/')) || [], owner = _a[0], name_1 = _a[1];
-                    return [4 /*yield*/, github_1.api.issueCount(owner, name_1)];
+                    return [4 /*yield*/, syncIssues(owner, name_1)];
                 case 1:
                     _b.sent();
-                    return [4 /*yield*/, github_1.api.issues(owner, name_1)];
+                    return [4 /*yield*/, syncLabels(owner, name_1)];
                 case 2:
-                    issues = _b.sent();
-                    cheatsheets = issues.map(function (item) {
-                        return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectID: item.id });
-                    });
-                    return [4 /*yield*/, algolia_1.algolia.uploadCheatsheets(cheatsheets)];
+                    _b.sent();
+                    return [3 /*break*/, 4];
                 case 3:
-                    _b.sent();
-                    return [4 /*yield*/, github_1.api.labels(owner, name_1)];
-                case 4:
-                    labels = _b.sent();
-                    tags = labels.map(function (item) {
-                        return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectID: item.id });
-                    });
-                    return [4 /*yield*/, algolia_1.algolia.uploadTags(tags)];
-                case 5:
-                    _b.sent();
-                    return [3 /*break*/, 7];
-                case 6:
                     error_1 = _b.sent();
                     console.log(error_1);
                     core.setFailed(error_1.message);
-                    return [3 /*break*/, 7];
-                case 7: return [2 /*return*/];
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
