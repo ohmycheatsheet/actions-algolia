@@ -3457,7 +3457,7 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
-/***/ 912:
+/***/ 457:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -3656,7 +3656,7 @@ var exports = __webpack_exports__;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var tslib_1 = __nccwpck_require__(560);
 var core = (0, tslib_1.__importStar)(__nccwpck_require__(703));
-var api_1 = __nccwpck_require__(912);
+var github_1 = __nccwpck_require__(457);
 // most @actions toolkit packages have async methods
 function run() {
     return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
@@ -3667,10 +3667,10 @@ function run() {
                     _b.trys.push([0, 3, , 4]);
                     repo = process.env.GITHUB_REPOSITORY;
                     _a = (repo === null || repo === void 0 ? void 0 : repo.split('/')) || [], owner = _a[0], name_1 = _a[1];
-                    return [4 /*yield*/, api_1.api.issueCount(owner, name_1)];
+                    return [4 /*yield*/, github_1.api.issueCount(owner, name_1)];
                 case 1:
                     _b.sent();
-                    return [4 /*yield*/, api_1.api.issues(owner, name_1)];
+                    return [4 /*yield*/, github_1.api.issues(owner, name_1)];
                 case 2:
                     _b.sent();
                     return [3 /*break*/, 4];
