@@ -9,14 +9,13 @@ async function run() {
     const [owner, name] = repo?.split('/') || []
     await api.issueCount(owner, name)
     const issues = await api.issues(owner, name)
-    await algolia.ensureInit()
     const cheatsheets = issues.map(item => {
       return {
         ...item,
-        objectId: item.id,
+        objectID: item.id,
       }
     })
-    console.log(cheatsheets)
+    await algolia.upload(cheatsheets)
   } catch (error) {
     console.log(error)
     core.setFailed((error as any).message)

@@ -6118,13 +6118,29 @@ var tslib_1 = __nccwpck_require__(560);
 var algoliasearch_1 = (0, tslib_1.__importDefault)(__nccwpck_require__(944));
 var issueClient = (0, algoliasearch_1.default)(process.env.ALGOLIA_APPID, process.env.ALGOLIA_APP_KEY);
 var labelClient = (0, algoliasearch_1.default)(process.env.ALGOLIA_APPID, process.env.ALGOLIA_APP_KEY);
+var issueIndex;
 exports.algolia = {
     ensureInit: function () {
         return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
             return (0, tslib_1.__generator)(this, function (_a) {
                 labelClient.initIndex('actions_cheatsheet_labels');
-                issueClient.initIndex('actions_cheatsheet_issues');
+                issueIndex = issueClient.initIndex('actions_cheatsheet_issues');
                 return [2 /*return*/];
+            });
+        });
+    },
+    upload: function (cheatsheets) {
+        return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
+            return (0, tslib_1.__generator)(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.ensureInit()];
+                    case 1:
+                        _a.sent();
+                        issueIndex.saveObjects(cheatsheets, {
+                            autoGenerateObjectIDIfNotExist: true,
+                        });
+                        return [2 /*return*/];
+                }
             });
         });
     },
@@ -6358,13 +6374,12 @@ function run() {
                     return [4 /*yield*/, github_1.api.issues(owner, name_1)];
                 case 2:
                     issues = _b.sent();
-                    return [4 /*yield*/, algolia_1.algolia.ensureInit()];
+                    cheatsheets = issues.map(function (item) {
+                        return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectID: item.id });
+                    });
+                    return [4 /*yield*/, algolia_1.algolia.upload(cheatsheets)];
                 case 3:
                     _b.sent();
-                    cheatsheets = issues.map(function (item) {
-                        return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectId: item.id });
-                    });
-                    console.log(cheatsheets);
                     return [3 /*break*/, 5];
                 case 4:
                     error_1 = _b.sent();
