@@ -1,19 +1,26 @@
 import algoliasearch, { SearchIndex } from 'algoliasearch'
+import { Issue, Label } from './types'
 
 const issueClient = algoliasearch(process.env.ALGOLIA_APPID!, process.env.ALGOLIA_APP_KEY!)
-
 const labelClient = algoliasearch(process.env.ALGOLIA_APPID!, process.env.ALGOLIA_APP_KEY!)
 
 let issueIndex: SearchIndex
+let labelIndex: SearchIndex
 
 export const algolia = {
   async ensureInit() {
-    labelClient.initIndex('actions_cheatsheet_labels')
+    labelIndex = labelClient.initIndex('actions_cheatsheet_labels')
     issueIndex = issueClient.initIndex('actions_cheatsheet_issues')
   },
-  async upload(cheatsheets: any) {
+  async uploadCheatsheets(cheatsheets: Issue[]) {
     await this.ensureInit()
     issueIndex.saveObjects(cheatsheets, {
+      autoGenerateObjectIDIfNotExist: true,
+    })
+  },
+  async uploadTags(tags: Label[]) {
+    await this.ensureInit()
+    labelIndex.saveObjects(tags, {
       autoGenerateObjectIDIfNotExist: true,
     })
   },

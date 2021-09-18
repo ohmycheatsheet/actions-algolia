@@ -1,5 +1,5 @@
 import { graphql } from '@octokit/graphql'
-import { Issue } from './types'
+import { Issue, Label } from './types'
 
 const graphqlWithAuth = graphql.defaults({
   headers: {
@@ -46,8 +46,8 @@ export const api = {
     console.log(response)
     return response
   },
-  labels: async (owner: string, name: string) => {
-    const response = await graphqlWithAuth(
+  labels: async (owner: string, name: string): Promise<Label[]> => {
+    const response: any = await graphqlWithAuth(
       `
         query Issues($owner: String!, $name: String!) {
           repository(owner: $owner, name: $name) {
@@ -70,7 +70,7 @@ export const api = {
       },
     )
     console.log(response)
-    return response
+    return response.repository.labels.edges.map((item: { node: any }) => item.node)
   },
   issues: async (owner: string, name: string): Promise<Issue[]> => {
     const response: any = await graphqlWithAuth(

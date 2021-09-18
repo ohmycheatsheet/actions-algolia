@@ -15,7 +15,15 @@ async function run() {
         objectID: item.id,
       }
     })
-    await algolia.upload(cheatsheets)
+    await algolia.uploadCheatsheets(cheatsheets)
+    const labels = await api.labels(owner, name)
+    const tags = labels.map(item => {
+      return {
+        ...item,
+        objectID: item.id,
+      }
+    })
+    await algolia.uploadTags(tags)
   } catch (error) {
     console.log(error)
     core.setFailed((error as any).message)

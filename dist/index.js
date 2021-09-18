@@ -6119,17 +6119,18 @@ var algoliasearch_1 = (0, tslib_1.__importDefault)(__nccwpck_require__(944));
 var issueClient = (0, algoliasearch_1.default)(process.env.ALGOLIA_APPID, process.env.ALGOLIA_APP_KEY);
 var labelClient = (0, algoliasearch_1.default)(process.env.ALGOLIA_APPID, process.env.ALGOLIA_APP_KEY);
 var issueIndex;
+var labelIndex;
 exports.algolia = {
     ensureInit: function () {
         return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
             return (0, tslib_1.__generator)(this, function (_a) {
-                labelClient.initIndex('actions_cheatsheet_labels');
+                labelIndex = labelClient.initIndex('actions_cheatsheet_labels');
                 issueIndex = issueClient.initIndex('actions_cheatsheet_issues');
                 return [2 /*return*/];
             });
         });
     },
-    upload: function (cheatsheets) {
+    uploadCheatsheets: function (cheatsheets) {
         return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
             return (0, tslib_1.__generator)(this, function (_a) {
                 switch (_a.label) {
@@ -6137,6 +6138,21 @@ exports.algolia = {
                     case 1:
                         _a.sent();
                         issueIndex.saveObjects(cheatsheets, {
+                            autoGenerateObjectIDIfNotExist: true,
+                        });
+                        return [2 /*return*/];
+                }
+            });
+        });
+    },
+    uploadTags: function (tags) {
+        return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
+            return (0, tslib_1.__generator)(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.ensureInit()];
+                    case 1:
+                        _a.sent();
+                        labelIndex.saveObjects(tags, {
                             autoGenerateObjectIDIfNotExist: true,
                         });
                         return [2 /*return*/];
@@ -6205,7 +6221,7 @@ exports.api = {
                 case 1:
                     response = _a.sent();
                     console.log(response);
-                    return [2 /*return*/, response];
+                    return [2 /*return*/, response.repository.labels.edges.map(function (item) { return item.node; })];
             }
         });
     }); },
@@ -6361,11 +6377,11 @@ var algolia_1 = __nccwpck_require__(257);
 // most @actions toolkit packages have async methods
 function run() {
     return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
-        var repo, _a, owner, name_1, issues, cheatsheets, error_1;
+        var repo, _a, owner, name_1, issues, cheatsheets, labels, tags, error_1;
         return (0, tslib_1.__generator)(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    _b.trys.push([0, 4, , 5]);
+                    _b.trys.push([0, 6, , 7]);
                     repo = process.env.GITHUB_REPOSITORY;
                     _a = (repo === null || repo === void 0 ? void 0 : repo.split('/')) || [], owner = _a[0], name_1 = _a[1];
                     return [4 /*yield*/, github_1.api.issueCount(owner, name_1)];
@@ -6377,16 +6393,25 @@ function run() {
                     cheatsheets = issues.map(function (item) {
                         return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectID: item.id });
                     });
-                    return [4 /*yield*/, algolia_1.algolia.upload(cheatsheets)];
+                    return [4 /*yield*/, algolia_1.algolia.uploadCheatsheets(cheatsheets)];
                 case 3:
                     _b.sent();
-                    return [3 /*break*/, 5];
+                    return [4 /*yield*/, github_1.api.labels(owner, name_1)];
                 case 4:
+                    labels = _b.sent();
+                    tags = labels.map(function (item) {
+                        return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectID: item.id });
+                    });
+                    return [4 /*yield*/, algolia_1.algolia.uploadTags(tags)];
+                case 5:
+                    _b.sent();
+                    return [3 /*break*/, 7];
+                case 6:
                     error_1 = _b.sent();
                     console.log(error_1);
                     core.setFailed(error_1.message);
-                    return [3 /*break*/, 5];
-                case 5: return [2 /*return*/];
+                    return [3 /*break*/, 7];
+                case 7: return [2 /*return*/];
             }
         });
     });
