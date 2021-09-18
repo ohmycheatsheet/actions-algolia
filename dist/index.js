@@ -6126,6 +6126,13 @@ exports.algolia = {
             return (0, tslib_1.__generator)(this, function (_a) {
                 labelIndex = labelClient.initIndex('actions_cheatsheet_labels');
                 issueIndex = issueClient.initIndex('actions_cheatsheet_issues');
+                issueIndex.setSettings({
+                    searchableAttributes: ['title', 'description', 'body'],
+                    attributesForFaceting: ['state', 'filterOnly(labels.name)'],
+                });
+                labelIndex.setSettings({
+                    searchableAttributes: ['name', 'description']
+                });
                 return [2 /*return*/];
             });
         });
@@ -6236,7 +6243,9 @@ exports.api = {
                 case 1:
                     response = _a.sent();
                     console.log(response.repository.issues.edges);
-                    return [2 /*return*/, response.repository.issues.edges.map(function (item) { return item.node; })];
+                    return [2 /*return*/, response.repository.issues.edges.map(function (item) { return ((0, tslib_1.__assign)((0, tslib_1.__assign)({}, item.node), { 
+                            // unzip labels
+                            labels: item.node.labels.edges.map(function (label) { return label.node; }) })); })];
             }
         });
     }); },

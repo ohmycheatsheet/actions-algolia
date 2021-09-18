@@ -111,6 +111,11 @@ export const api = {
       },
     )
     console.log(response.repository.issues.edges)
-    return response.repository.issues.edges.map((item: { node: any }) => item.node)
+    return response.repository.issues.edges.map((item: { node: any }) => ({
+      // unzip issue connection
+      ...item.node,
+      // unzip labels
+      labels: item.node.labels.edges.map((label: { node: any }) => label.node),
+    }))
   },
 }

@@ -11,6 +11,13 @@ export const algolia = {
   async ensureInit() {
     labelIndex = labelClient.initIndex('actions_cheatsheet_labels')
     issueIndex = issueClient.initIndex('actions_cheatsheet_issues')
+    issueIndex.setSettings({
+      searchableAttributes: ['title', 'description', 'body'],
+      attributesForFaceting: ['state', 'filterOnly(labels.name)'],
+    })
+    labelIndex.setSettings({
+      searchableAttributes: ['name', 'description'],
+    })
   },
   async uploadCheatsheets(cheatsheets: Issue[]) {
     await this.ensureInit()
