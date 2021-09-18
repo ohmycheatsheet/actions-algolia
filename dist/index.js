@@ -3476,7 +3476,7 @@ exports.api = {
         var response;
         return (0, tslib_1.__generator)(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, graphqlWithAuth("\n        query Issues($owner: String!, $name: String!) {\n          repository(owner: $owner, name: $name) {\n            totalCount\n          }\n        }\n      ", {
+                case 0: return [4 /*yield*/, graphqlWithAuth("\n        query Issues($owner: String!, $name: String!) {\n          repository(owner: $owner, name: $name) {\n            issues {\n              totalCount\n            }\n          }\n        }\n      ", {
                         owner: owner,
                         name: name,
                     })];

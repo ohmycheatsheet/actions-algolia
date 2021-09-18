@@ -12,7 +12,9 @@ export const api = {
       `
         query Issues($owner: String!, $name: String!) {
           repository(owner: $owner, name: $name) {
-            totalCount
+            issues {
+              totalCount
+            }
           }
         }
       `,
