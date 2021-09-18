@@ -8,8 +8,15 @@ async function run() {
     const repo = process.env.GITHUB_REPOSITORY
     const [owner, name] = repo?.split('/') || []
     await api.issueCount(owner, name)
-    await api.issues(owner, name)
+    const issues = await api.issues(owner, name)
     await algolia.ensureInit()
+    const cheatsheets = issues.map(item => {
+      return {
+        ...item,
+        objectId: item.id,
+      }
+    })
+    console.log(cheatsheets)
   } catch (error) {
     console.log(error)
     core.setFailed((error as any).message)

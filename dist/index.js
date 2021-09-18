@@ -6122,8 +6122,8 @@ exports.algolia = {
     ensureInit: function () {
         return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
             return (0, tslib_1.__generator)(this, function (_a) {
-                labelClient.initIndex('cheatsheet_labels');
-                issueClient.initIndex('cheatsheet_issues');
+                labelClient.initIndex('actions_cheatsheet_labels');
+                issueClient.initIndex('actions_cheatsheet_issues');
                 return [2 /*return*/];
             });
         });
@@ -6203,8 +6203,8 @@ exports.api = {
                     })];
                 case 1:
                     response = _a.sent();
-                    console.log(response);
-                    return [2 /*return*/, response];
+                    console.log(response.repository.issues.edges);
+                    return [2 /*return*/, response.repository.issues.edges.map(function (item) { return item.node; })];
             }
         });
     }); },
@@ -6345,7 +6345,7 @@ var algolia_1 = __nccwpck_require__(257);
 // most @actions toolkit packages have async methods
 function run() {
     return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
-        var repo, _a, owner, name_1, error_1;
+        var repo, _a, owner, name_1, issues, cheatsheets, error_1;
         return (0, tslib_1.__generator)(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -6357,10 +6357,14 @@ function run() {
                     _b.sent();
                     return [4 /*yield*/, github_1.api.issues(owner, name_1)];
                 case 2:
-                    _b.sent();
+                    issues = _b.sent();
                     return [4 /*yield*/, algolia_1.algolia.ensureInit()];
                 case 3:
                     _b.sent();
+                    cheatsheets = issues.map(function (item) {
+                        return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectId: item.id });
+                    });
+                    console.log(cheatsheets);
                     return [3 /*break*/, 5];
                 case 4:
                     error_1 = _b.sent();

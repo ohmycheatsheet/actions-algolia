@@ -6,7 +6,7 @@ const labelClient = algoliasearch(process.env.ALGOLIA_APPID!, process.env.ALGOLI
 
 export const algolia = {
   async ensureInit() {
-    labelClient.initIndex('cheatsheet_labels')
-    issueClient.initIndex('cheatsheet_issues')
+    labelClient.initIndex('actions_cheatsheet_labels')
+    issueClient.initIndex('actions_cheatsheet_issues')
   },
 }
