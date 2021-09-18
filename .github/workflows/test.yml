@@ -16,3 +16,5 @@ jobs:
         milliseconds: 1000
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ALGOLIA_APPID: ${{ secrets.ALGOLIA_APPID }}
+        ALGOLIA_APP_KEY: ${{ secrets.ALGOLIA_APP_KEY }}
