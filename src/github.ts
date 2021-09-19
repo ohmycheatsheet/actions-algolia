@@ -1,5 +1,6 @@
 import { graphql } from '@octokit/graphql'
 import { Issue, Label } from './types'
+import dayjs from 'dayjs'
 
 export const gql = String.raw
 
@@ -87,7 +88,12 @@ export const github = {
       },
     )
     console.log(response)
-    const labels = response.repository.labels.edges.map((item: { node: any }) => item.node)
+    const labels = response.repository.labels.edges.map((item: { node: any }) => ({
+      ...item.node,
+      // date -> timestamp
+      createdAt: dayjs(item.node.createdAt).unix(),
+      updatedAt: dayjs(item.node.updatedAt).unix(),
+    }))
     const pageInfo = response.repository.labels.pageInfo
     return {
       labels,
@@ -153,6 +159,9 @@ export const github = {
       ...item.node,
       // unzip labels
       labels: item.node.labels.edges.map((label: { node: any }) => label.node),
+      // date -> timestamp
+      createdAt: dayjs(item.node.createdAt).unix(),
+      updatedAt: dayjs(item.node.updatedAt).unix(),
     }))
     const pageInfo = response.repository.issues.pageInfo
     return {
