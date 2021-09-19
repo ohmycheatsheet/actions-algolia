@@ -5,7 +5,7 @@ import { algolia } from './algolia'
 const syncIssues = async (owner: string, name: string) => {
   let { issues, pageInfo } = await github.issues(owner, name)
   let after
-  for (; pageInfo.hasNextPage; after = pageInfo.endCursor) {
+  for (; ; after = pageInfo.endCursor) {
     ;({ issues, pageInfo } = await github.issues(owner, name, after))
     const cheatsheets = issues.map(item => {
       return {
@@ -14,13 +14,16 @@ const syncIssues = async (owner: string, name: string) => {
       }
     })
     await algolia.uploadCheatsheets(cheatsheets)
+    if (!pageInfo.hasNextPage) {
+      break
+    }
   }
 }
 
 const syncLabels = async (owner: string, name: string) => {
   let { labels, pageInfo } = await github.labels(owner, name)
   let after
-  for (; pageInfo.hasNextPage; after = pageInfo.endCursor) {
+  for (; ; after = pageInfo.endCursor) {
     ;({ labels, pageInfo } = await github.labels(owner, name, after))
     const tags = labels.map(item => {
       return {
@@ -29,6 +32,9 @@ const syncLabels = async (owner: string, name: string) => {
       }
     })
     await algolia.uploadTags(tags)
+    if (!pageInfo.hasNextPage) {
+      break
+    }
   }
 }
 

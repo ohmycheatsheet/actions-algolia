@@ -6407,7 +6407,6 @@ var syncIssues = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, 
                 _a = _c.sent(), issues = _a.issues, pageInfo = _a.pageInfo;
                 _c.label = 2;
             case 2:
-                if (!pageInfo.hasNextPage) return [3 /*break*/, 6];
                 ;
                 return [4 /*yield*/, github_1.github.issues(owner, name, after)];
             case 3:
@@ -6418,6 +6417,9 @@ var syncIssues = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, 
                 return [4 /*yield*/, algolia_1.algolia.uploadCheatsheets(cheatsheets)];
             case 4:
                 _c.sent();
+                if (!pageInfo.hasNextPage) {
+                    return [3 /*break*/, 6];
+                }
                 _c.label = 5;
             case 5:
                 after = pageInfo.endCursor;
@@ -6436,7 +6438,6 @@ var syncLabels = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, 
                 _a = _c.sent(), labels = _a.labels, pageInfo = _a.pageInfo;
                 _c.label = 2;
             case 2:
-                if (!pageInfo.hasNextPage) return [3 /*break*/, 6];
                 ;
                 return [4 /*yield*/, github_1.github.labels(owner, name, after)];
             case 3:
@@ -6447,6 +6448,9 @@ var syncLabels = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, 
                 return [4 /*yield*/, algolia_1.algolia.uploadTags(tags)];
             case 4:
                 _c.sent();
+                if (!pageInfo.hasNextPage) {
+                    return [3 /*break*/, 6];
+                }
                 _c.label = 5;
             case 5:
                 after = pageInfo.endCursor;
