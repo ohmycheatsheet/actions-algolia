@@ -6136,11 +6136,10 @@ exports.algolia = {
                 issueIndex.setSettings({
                     searchableAttributes: ['title', 'description', 'body'],
                     attributesForFaceting: ['state', 'filterOnly(labels.name)'],
-                    customRanking: ['desc(updatedAt)'],
+                    customRanking: ['desc(updatedAt_timestamp)'],
                 });
                 labelIndex.setSettings({
                     searchableAttributes: ['name', 'description'],
-                    customRanking: ['desc(updatedAt)'],
                 });
                 return [2 /*return*/];
             });
@@ -6242,7 +6241,7 @@ exports.github = {
                     console.log(response);
                     labels = response.repository.labels.edges.map(function (item) { return ((0, tslib_1.__assign)((0, tslib_1.__assign)({}, item.node), { 
                         // date -> timestamp
-                        createdAt: (0, dayjs_1.default)(item.node.createdAt).unix(), updatedAt: (0, dayjs_1.default)(item.node.updatedAt).unix() })); });
+                        updatedAt_timestamp: (0, dayjs_1.default)(item.node.updatedAt).unix(), createdAt_timestamp: (0, dayjs_1.default)(item.node.createdAt).unix() })); });
                     pageInfo = response.repository.labels.pageInfo;
                     return [2 /*return*/, {
                             labels: labels,
@@ -6267,7 +6266,7 @@ exports.github = {
                         // unzip labels
                         labels: item.node.labels.edges.map(function (label) { return label.node; }), 
                         // date -> timestamp
-                        createdAt: (0, dayjs_1.default)(item.node.createdAt).unix(), updatedAt: (0, dayjs_1.default)(item.node.updatedAt).unix() })); });
+                        updatedAt_timestamp: (0, dayjs_1.default)(item.node.updatedAt).unix(), createdAt_timestamp: (0, dayjs_1.default)(item.node.createdAt).unix() })); });
                     pageInfo = response.repository.issues.pageInfo;
                     return [2 /*return*/, {
                             issues: issues,

@@ -14,11 +14,10 @@ export const algolia = {
     issueIndex.setSettings({
       searchableAttributes: ['title', 'description', 'body'],
       attributesForFaceting: ['state', 'filterOnly(labels.name)'],
-      customRanking: ['desc(updatedAt)'],
+      customRanking: ['desc(updatedAt_timestamp)'],
     })
     labelIndex.setSettings({
       searchableAttributes: ['name', 'description'],
-      customRanking: ['desc(updatedAt)'],
     })
   },
   async uploadCheatsheets(cheatsheets: Issue[]) {

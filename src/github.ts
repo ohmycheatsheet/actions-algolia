@@ -91,8 +91,8 @@ export const github = {
     const labels = response.repository.labels.edges.map((item: { node: any }) => ({
       ...item.node,
       // date -> timestamp
-      createdAt: dayjs(item.node.createdAt).unix(),
-      updatedAt: dayjs(item.node.updatedAt).unix(),
+      updatedAt_timestamp: dayjs(item.node.updatedAt).unix(),
+      createdAt_timestamp: dayjs(item.node.createdAt).unix(),
     }))
     const pageInfo = response.repository.labels.pageInfo
     return {
@@ -160,8 +160,8 @@ export const github = {
       // unzip labels
       labels: item.node.labels.edges.map((label: { node: any }) => label.node),
       // date -> timestamp
-      createdAt: dayjs(item.node.createdAt).unix(),
-      updatedAt: dayjs(item.node.updatedAt).unix(),
+      updatedAt_timestamp: dayjs(item.node.updatedAt).unix(),
+      createdAt_timestamp: dayjs(item.node.createdAt).unix(),
     }))
     const pageInfo = response.repository.issues.pageInfo
     return {
