@@ -1,4 +1,4 @@
-- [ ] query issue
+- [x] query issue
 
 ```graphql
 # Type queries into this side of the screen, and you will 
@@ -20,4 +20,44 @@ query Issues {
 }
 ```
 
-- [ ] upload to algolia
+- [ ] query all
+
+```graphql
+query Issues($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) {
+    issues(first: 20, states: OPEN, after:"Y3Vyc29yOnYyOpHOJHR-bw==") {
+      edges {
+        cursor
+        node {
+          id,
+          number
+          title,
+          body,
+          createdAt,
+          updatedAt,
+          state,
+          labels(last: 10) {
+            edges {
+              node {
+                id,
+                color,
+                description,
+                name,
+                createdAt,
+                updatedAt
+              }
+            }
+          }
+        }
+      },
+      pageInfo {
+        endCursor,
+        hasNextPage
+      }
+    }
+  }
+}
+```
+
+
+- [x] upload to algolia

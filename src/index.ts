@@ -1,18 +1,18 @@
-import core from '@actions/core'
-import wait from './wait'
+import * as core from '@actions/core'
+import * as github from '@actions/github'
+// import { api } from './api'
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ms = core.getInput('milliseconds')
-    core.info(`Waiting ${ms} milliseconds ...`)
-
-    core.debug(new Date().toTimeString()) // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-    await wait(parseInt(ms))
-    core.info(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+    // https://docs.github.com/cn/developers/webhooks-and-events/events/github-event-types#issuesevent
+    console.log(github.context.issue)
+    // const repo = process.env.GITHUB_REPOSITORY
+    // const [owner, name] = repo?.split('/') || []
+    // await syncIssues(owner, name)
+    // await syncLabels(owner, name)
   } catch (error) {
+    console.log(error)
     core.setFailed((error as any).message)
   }
 }

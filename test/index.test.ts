@@ -1,13 +1,15 @@
-import wait from '../src/wait'
+import { github } from '../src/github'
 
-test('throws invalid number', async () => {
-  await expect(wait('foo')).rejects.toThrow('milliseconds not a number')
-})
+describe('test', () => {
+  it('fetch repo issues should work', async () => {
+    const res = await github.issues('JiangWeixian', 'use-rematch')
+    expect(res.issues.length).not.toBe(0)
+    expect(res.pageInfo).toBeDefined()
+  })
 
-test('wait 500 ms', async () => {
-  const start = new Date()
-  await wait(500)
-  const end = new Date()
-  const delta = Math.abs(end.valueOf() - start.valueOf())
-  expect(delta).toBeGreaterThanOrEqual(500)
+  it('fetch repo issues should work', async () => {
+    const res = await github.labels('JiangWeixian', 'use-rematch')
+    expect(res.labels.length).not.toBe(0)
+    expect(res.pageInfo).toBeDefined()
+  })
 })
