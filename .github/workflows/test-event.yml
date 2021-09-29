@@ -1,7 +1,6 @@
 name: "units-test-event"
 on:
-  issues:
-    types: [opened, edited, deleted, closed, reopened, labeled, unlabeled]
+  issues
 
 jobs:
   # test action works running from the graph
