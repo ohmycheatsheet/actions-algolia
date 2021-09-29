@@ -6455,7 +6455,7 @@ var exports = __webpack_exports__;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var tslib_1 = __nccwpck_require__(560);
 var core = (0, tslib_1.__importStar)(__nccwpck_require__(703));
-var github_1 = (0, tslib_1.__importDefault)(__nccwpck_require__(445));
+var github = (0, tslib_1.__importStar)(__nccwpck_require__(445));
 // import { api } from './api'
 // most @actions toolkit packages have async methods
 function run() {
@@ -6463,7 +6463,7 @@ function run() {
         return (0, tslib_1.__generator)(this, function (_a) {
             try {
                 // https://docs.github.com/cn/developers/webhooks-and-events/events/github-event-types#issuesevent
-                console.log(github_1.default.context.issue);
+                console.log(github.context.issue);
                 // const repo = process.env.GITHUB_REPOSITORY
                 // const [owner, name] = repo?.split('/') || []
                 // await syncIssues(owner, name)

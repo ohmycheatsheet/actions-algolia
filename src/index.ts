@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import github from '@actions/github'
+import * as github from '@actions/github'
 // import { api } from './api'
 
 // most @actions toolkit packages have async methods
