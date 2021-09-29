@@ -1,5 +1,5 @@
 import { graphql } from '@octokit/graphql'
-import { Issue, Label } from './types'
+import { Issue, Label } from '../types'
 import dayjs from 'dayjs'
 
 export const gql = String.raw

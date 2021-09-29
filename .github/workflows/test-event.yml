@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - v1
+  issues:
+    types: [opened, edited, deleted, closed, reopened, labeled, unlabeled]
 
 jobs:
   # test action works running from the graph

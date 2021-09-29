@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@actions/core': ^1.5.0
+  '@actions/github': ^5.0.0
   '@aiou/eslint-config': ^0.2.2
   '@jest/types': ^27.1.1
   '@octokit/graphql': ^4.8.0
@@ -21,6 +22,7 @@ specifiers:
 
 dependencies:
   '@actions/core': 1.5.0
+  '@actions/github': 5.0.0
   '@octokit/graphql': 4.8.0
   algoliasearch: 4.10.5
   dayjs: 1.10.7
@@ -44,6 +46,21 @@ packages:
 
   /@actions/core/1.5.0:
     resolution: {integrity: sha512-eDOLH1Nq9zh+PJlYLqEMkS/jLQxhksPNmUGNBHfa4G+tQmnIhzpctxmchETtVGyBOvXgOVVpYuE40+eS4cUnwQ==}
+    dev: false
+
+  /@actions/github/5.0.0:
+    resolution: {integrity: sha512-QvE9eAAfEsS+yOOk0cylLBIO/d6WyWIOvsxxzdrPFaud39G6BOkUwScXZn1iBzQzHyu9SBkkLSWlohDWdsasAQ==}
+    dependencies:
+      '@actions/http-client': 1.0.11
+      '@octokit/core': 3.5.1
+      '@octokit/plugin-paginate-rest': 2.16.5_@octokit+core@3.5.1
+      '@octokit/plugin-rest-endpoint-methods': 5.11.3_@octokit+core@3.5.1
+    dev: false
+
+  /@actions/http-client/1.0.11:
+    resolution: {integrity: sha512-VRYHGQV1rqnROJqdMvGUbY/Kn8vriQe/F9HR2AlYHzmKuM/p3kjNuXhmdBfcVgsvRWTz5C5XW5xvndZrVBuAYg==}
+    dependencies:
+      tunnel: 0.0.6
     dev: false
 
   /@aiou/eslint-config-basic/0.1.5_eslint@7.32.0:
@@ -838,6 +855,24 @@ packages:
       fastq: 1.13.0
     dev: true
 
+  /@octokit/auth-token/2.5.0:
+    resolution: {integrity: sha512-r5FVUJCOLl19AxiuZD2VRZ/ORjp/4IN98Of6YJoJOkY75CIBuYfmiNHGrDwXr+aLGG55igl9QrxX3hbiXlLb+g==}
+    dependencies:
+      '@octokit/types': 6.27.1
+    dev: false
+
+  /@octokit/core/3.5.1:
+    resolution: {integrity: sha512-omncwpLVxMP+GLpLPgeGJBF6IWJFjXDS5flY5VbppePYX9XehevbDykRH9PdCdvqt9TS5AOTiDide7h0qrkHjw==}
+    dependencies:
+      '@octokit/auth-token': 2.5.0
+      '@octokit/graphql': 4.8.0
+      '@octokit/request': 5.6.1
+      '@octokit/request-error': 2.1.0
+      '@octokit/types': 6.27.1
+      before-after-hook: 2.2.2
+      universal-user-agent: 6.0.0
+    dev: false
+
   /@octokit/endpoint/6.0.12:
     resolution: {integrity: sha512-lF3puPwkQWGfkMClXb4k/eUT/nZKQfxinRWJrdZaJO85Dqwo/G0yOC434Jr2ojwafWJMYqFGFa5ms4jJUgujdA==}
     dependencies:
@@ -856,6 +891,29 @@ packages:
 
   /@octokit/openapi-types/10.1.4:
     resolution: {integrity: sha512-poafDt5Ac5GV86baVXDdj6xeIMrEVEuRweMwkZfoXwySYWA0eKgrOP/ZaDE7V/hlW32z6oO61Zy/5U2oSZlDWw==}
+    dev: false
+
+  /@octokit/openapi-types/10.6.1:
+    resolution: {integrity: sha512-53YKy8w8+sHQhUONhTiYt6MqNqPolejYr6rK/3VOevpORAIYGQEX2pmXnnhgdSsjHy176e5ZBgVt0ppOGziS7g==}
+    dev: false
+
+  /@octokit/plugin-paginate-rest/2.16.5_@octokit+core@3.5.1:
+    resolution: {integrity: sha512-2PfRGymdBypqRes4Xelu0BAZZRCV/Qg0xgo8UB10UKoghCM+zg640+T5WkRsRD0edwfLBPP3VsJgDyDTG4EIYg==}
+    peerDependencies:
+      '@octokit/core': '>=2'
+    dependencies:
+      '@octokit/core': 3.5.1
+      '@octokit/types': 6.31.1
+    dev: false
+
+  /@octokit/plugin-rest-endpoint-methods/5.11.3_@octokit+core@3.5.1:
+    resolution: {integrity: sha512-E19gqHqfP3uJa2/hx6Abhx2NrVP5tsNbst2/AeqGxlGM+eL4N8fRbzhd+NEIsGAB4y3R7e9kVE0y8OOghlXUXw==}
+    peerDependencies:
+      '@octokit/core': '>=3'
+    dependencies:
+      '@octokit/core': 3.5.1
+      '@octokit/types': 6.31.1
+      deprecation: 2.3.1
     dev: false
 
   /@octokit/request-error/2.1.0:
@@ -881,6 +939,12 @@ packages:
     resolution: {integrity: sha512-p8VR2OTO1ozxqdAvPeCDDMNmcBzkOL6sPogy2MaEQCapbeWcWNDbwZnqMT3VTZ0DLBBAO0PyHYzU8bA99zd1Fg==}
     dependencies:
       '@octokit/openapi-types': 10.1.4
+    dev: false
+
+  /@octokit/types/6.31.1:
+    resolution: {integrity: sha512-xkF46eaYcpT8ieO78mZWhMq3bt37zIsP5BUkN+zWgX+mTYDB7jOtUP1MOxcSF8hhJhsjjlB1YDgQAhX0z0oqPw==}
+    dependencies:
+      '@octokit/openapi-types': 10.6.1
     dev: false
 
   /@sinonjs/commons/1.8.3:
@@ -1381,6 +1445,10 @@ packages:
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: true
+
+  /before-after-hook/2.2.2:
+    resolution: {integrity: sha512-3pZEU3NT5BFUo/AD5ERPWOgQOCZITni6iavr5AUw5AUwQjMlI0kzu5btnyD39AF0gUEsDPwJT+oY1ORBJijPjQ==}
+    dev: false
 
   /brace-expansion/1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -4759,6 +4827,11 @@ packages:
       tslib: 1.14.1
       typescript: 4.4.3
     dev: true
+
+  /tunnel/0.0.6:
+    resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==}
+    engines: {node: '>=0.6.11 <=0.7.0 || >=0.7.3'}
+    dev: false
 
   /type-check/0.3.2:
     resolution: {integrity: sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=}

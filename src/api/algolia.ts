@@ -1,5 +1,5 @@
 import algoliasearch, { SearchIndex } from 'algoliasearch'
-import { Issue, Label } from './types'
+import { Issue, Label } from '../types'
 
 const issueClient = algoliasearch(process.env.ALGOLIA_APPID!, process.env.ALGOLIA_APP_KEY!)
 const labelClient = algoliasearch(process.env.ALGOLIA_APPID!, process.env.ALGOLIA_APP_KEY!)
