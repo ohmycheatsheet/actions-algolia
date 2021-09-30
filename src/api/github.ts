@@ -1,3 +1,4 @@
+// TODO: fetch all issue labels
 import { graphql } from '@octokit/graphql'
 import { Issue, Label } from '../types'
 import dayjs from 'dayjs'
@@ -168,5 +169,42 @@ export const github = {
       issues,
       pageInfo,
     }
+  },
+  issue: async (owner: string, name: string, number: number) => {
+    const response: any = await graphqlWithAuth(
+      gql`
+        query($owner: String!, $name: String!, $number: Int!) {
+          repository(owner: $owner, name: $name) {
+            issue(number: $number) {
+              id
+              number
+              title
+              body
+              createdAt
+              updatedAt
+              state
+              labels(last: 10) {
+                edges {
+                  node {
+                    id
+                    color
+                    description
+                    name
+                    createdAt
+                    updatedAt
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+      {
+        owner,
+        name,
+        number,
+      },
+    )
+    return response.repository.issue
   },
 }
