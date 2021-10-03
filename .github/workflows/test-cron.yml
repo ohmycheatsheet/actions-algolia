@@ -2,7 +2,7 @@ name: "unit-test-cronjob"
 
 on:
   schedule:
-    - cron: "0/5 * * * *"
+    - cron: "0 23 * * *"
 
 jobs:
   # test action works running from the schedule
