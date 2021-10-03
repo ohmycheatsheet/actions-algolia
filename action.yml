@@ -1,13 +1,9 @@
 name: 'OhMyCheatsheet x Algolia actions'
 description: 'Sync issues to algolia'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+  debug:  # id of input
+    description: 'manual sync all issues'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'

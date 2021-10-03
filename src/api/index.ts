@@ -40,7 +40,7 @@ const syncLabels = async (owner: string, name: string) => {
 export const api = {
   github,
   algolia,
-  cron: async (owner: string, name: string) => {
+  schedule: async (owner: string, name: string) => {
     await syncIssues(owner, name)
     await syncLabels(owner, name)
   },
