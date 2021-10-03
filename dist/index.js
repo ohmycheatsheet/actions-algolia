@@ -6461,10 +6461,6 @@ var github = (0, tslib_1.__importStar)(__nccwpck_require__(445));
 function run() {
     return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
         return (0, tslib_1.__generator)(this, function (_a) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 33c702a (:loud_sound:  event name)
             try {
                 // https://docs.github.com/cn/developers/webhooks-and-events/events/github-event-types#issuesevent
                 // const issue = await api.github.issue(
@@ -6482,25 +6478,6 @@ function run() {
             catch (error) {
                 console.log(error);
                 core.setFailed(error.message);
-<<<<<<< HEAD
-=======
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, api_1.api.github.issue(github.context.issue.owner, github.context.issue.repo, github.context.issue.number)];
-                case 1:
-                    issue = _a.sent();
-                    console.log(issue);
-                    return [3 /*break*/, 3];
-                case 2:
-                    error_1 = _a.sent();
-                    console.log(error_1);
-                    core.setFailed(error_1.message);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
->>>>>>> 31b7318 (:sparkles:  get issue)
-=======
->>>>>>> 33c702a (:loud_sound:  event name)
             }
             return [2 /*return*/];
         });
