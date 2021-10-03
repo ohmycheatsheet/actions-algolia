@@ -169,7 +169,7 @@ export const github = {
       pageInfo,
     }
   },
-  issue: async (owner: string, name: string, number: number) => {
+  issue: async (owner: string, name: string, number: number): Promise<Issue> => {
     const response: any = await graphqlWithAuth(
       gql`
         query($owner: String!, $name: String!, $number: Int!) {

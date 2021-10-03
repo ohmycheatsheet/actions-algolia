@@ -40,8 +40,11 @@ const syncLabels = async (owner: string, name: string) => {
 export const api = {
   github,
   algolia,
-  main: async (owner: string, name: string) => {
+  cron: async (owner: string, name: string) => {
     await syncIssues(owner, name)
     await syncLabels(owner, name)
+  },
+  issue: async (owner: string, name: string, number: number) => {
+    await api.github.issue(owner, name, number)
   },
 }
