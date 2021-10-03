@@ -1,7 +1,7 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 7134:
+/***/ 134:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -27,8 +27,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issue = exports.issueCommand = void 0;
-const os = __importStar(__nccwpck_require__(2087));
-const utils_1 = __nccwpck_require__(9953);
+const os = __importStar(__nccwpck_require__(87));
+const utils_1 = __nccwpck_require__(953);
 /**
  * Commands
  *
@@ -135,11 +135,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
-const command_1 = __nccwpck_require__(7134);
-const file_command_1 = __nccwpck_require__(8642);
-const utils_1 = __nccwpck_require__(9953);
-const os = __importStar(__nccwpck_require__(2087));
-const path = __importStar(__nccwpck_require__(5622));
+const command_1 = __nccwpck_require__(134);
+const file_command_1 = __nccwpck_require__(642);
+const utils_1 = __nccwpck_require__(953);
+const os = __importStar(__nccwpck_require__(87));
+const path = __importStar(__nccwpck_require__(622));
 /**
  * The code to exit an action
  */
@@ -412,7 +412,7 @@ exports.getState = getState;
 
 /***/ }),
 
-/***/ 8642:
+/***/ 642:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -441,9 +441,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issueCommand = void 0;
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const fs = __importStar(__nccwpck_require__(5747));
-const os = __importStar(__nccwpck_require__(2087));
-const utils_1 = __nccwpck_require__(9953);
+const fs = __importStar(__nccwpck_require__(747));
+const os = __importStar(__nccwpck_require__(87));
+const utils_1 = __nccwpck_require__(953);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -461,7 +461,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 9953:
+/***/ 953:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -507,15 +507,15 @@ exports.toCommandProperties = toCommandProperties;
 
 /***/ }),
 
-/***/ 5133:
+/***/ 133:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Context = void 0;
-const fs_1 = __nccwpck_require__(5747);
-const os_1 = __nccwpck_require__(2087);
+const fs_1 = __nccwpck_require__(747);
+const os_1 = __nccwpck_require__(87);
 class Context {
     /**
      * Hydrate the context from the environment
@@ -594,8 +594,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOctokit = exports.context = void 0;
-const Context = __importStar(__nccwpck_require__(5133));
-const utils_1 = __nccwpck_require__(4665);
+const Context = __importStar(__nccwpck_require__(133));
+const utils_1 = __nccwpck_require__(665);
 exports.context = new Context.Context();
 /**
  * Returns a hydrated octokit ready to use for GitHub Actions
@@ -611,7 +611,7 @@ exports.getOctokit = getOctokit;
 
 /***/ }),
 
-/***/ 2165:
+/***/ 165:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -637,7 +637,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getApiBaseUrl = exports.getProxyAgent = exports.getAuthString = void 0;
-const httpClient = __importStar(__nccwpck_require__(8397));
+const httpClient = __importStar(__nccwpck_require__(397));
 function getAuthString(token, options) {
     if (!token && !options.auth) {
         throw new Error('Parameter token or opts.auth is required');
@@ -661,7 +661,7 @@ exports.getApiBaseUrl = getApiBaseUrl;
 
 /***/ }),
 
-/***/ 4665:
+/***/ 665:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -687,12 +687,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOctokitOptions = exports.GitHub = exports.context = void 0;
-const Context = __importStar(__nccwpck_require__(5133));
-const Utils = __importStar(__nccwpck_require__(2165));
+const Context = __importStar(__nccwpck_require__(133));
+const Utils = __importStar(__nccwpck_require__(165));
 // octokit + plugins
-const core_1 = __nccwpck_require__(3909);
-const plugin_rest_endpoint_methods_1 = __nccwpck_require__(8953);
-const plugin_paginate_rest_1 = __nccwpck_require__(2271);
+const core_1 = __nccwpck_require__(909);
+const plugin_rest_endpoint_methods_1 = __nccwpck_require__(308);
+const plugin_paginate_rest_1 = __nccwpck_require__(271);
 exports.context = new Context.Context();
 const baseUrl = Utils.getApiBaseUrl();
 const defaults = {
@@ -722,15 +722,15 @@ exports.getOctokitOptions = getOctokitOptions;
 
 /***/ }),
 
-/***/ 8397:
+/***/ 397:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const http = __nccwpck_require__(8605);
-const https = __nccwpck_require__(7211);
-const pm = __nccwpck_require__(3197);
+const http = __nccwpck_require__(605);
+const https = __nccwpck_require__(211);
+const pm = __nccwpck_require__(197);
 let tunnel;
 var HttpCodes;
 (function (HttpCodes) {
@@ -1149,7 +1149,7 @@ class HttpClient {
         if (useProxy) {
             // If using proxy, need tunnel
             if (!tunnel) {
-                tunnel = __nccwpck_require__(4852);
+                tunnel = __nccwpck_require__(852);
             }
             const agentOptions = {
                 maxSockets: maxSockets,
@@ -1267,7 +1267,7 @@ exports.HttpClient = HttpClient;
 
 /***/ }),
 
-/***/ 3197:
+/***/ 197:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1332,2472 +1332,7 @@ exports.checkBypass = checkBypass;
 
 /***/ }),
 
-/***/ 2420:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-// @todo Add logger on options to debug when caches go wrong.
-function createFallbackableCache(options) {
-    const caches = [...options.caches];
-    const current = caches.shift(); // eslint-disable-line functional/immutable-data
-    if (current === undefined) {
-        return createNullCache();
-    }
-    return {
-        get(key, defaultValue, events = {
-            miss: () => Promise.resolve(),
-        }) {
-            return current.get(key, defaultValue, events).catch(() => {
-                return createFallbackableCache({ caches }).get(key, defaultValue, events);
-            });
-        },
-        set(key, value) {
-            return current.set(key, value).catch(() => {
-                return createFallbackableCache({ caches }).set(key, value);
-            });
-        },
-        delete(key) {
-            return current.delete(key).catch(() => {
-                return createFallbackableCache({ caches }).delete(key);
-            });
-        },
-        clear() {
-            return current.clear().catch(() => {
-                return createFallbackableCache({ caches }).clear();
-            });
-        },
-    };
-}
-
-function createNullCache() {
-    return {
-        get(_key, defaultValue, events = {
-            miss: () => Promise.resolve(),
-        }) {
-            const value = defaultValue();
-            return value
-                .then(result => Promise.all([result, events.miss(result)]))
-                .then(([result]) => result);
-        },
-        set(_key, value) {
-            return Promise.resolve(value);
-        },
-        delete(_key) {
-            return Promise.resolve();
-        },
-        clear() {
-            return Promise.resolve();
-        },
-    };
-}
-
-exports.createFallbackableCache = createFallbackableCache;
-exports.createNullCache = createNullCache;
-
-
-/***/ }),
-
-/***/ 199:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-// eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(2420);
-
-
-/***/ }),
-
-/***/ 8820:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-function createInMemoryCache(options = { serializable: true }) {
-    // eslint-disable-next-line functional/no-let
-    let cache = {};
-    return {
-        get(key, defaultValue, events = {
-            miss: () => Promise.resolve(),
-        }) {
-            const keyAsString = JSON.stringify(key);
-            if (keyAsString in cache) {
-                return Promise.resolve(options.serializable ? JSON.parse(cache[keyAsString]) : cache[keyAsString]);
-            }
-            const promise = defaultValue();
-            const miss = (events && events.miss) || (() => Promise.resolve());
-            return promise.then((value) => miss(value)).then(() => promise);
-        },
-        set(key, value) {
-            // eslint-disable-next-line functional/immutable-data
-            cache[JSON.stringify(key)] = options.serializable ? JSON.stringify(value) : value;
-            return Promise.resolve(value);
-        },
-        delete(key) {
-            // eslint-disable-next-line functional/immutable-data
-            delete cache[JSON.stringify(key)];
-            return Promise.resolve();
-        },
-        clear() {
-            cache = {};
-            return Promise.resolve();
-        },
-    };
-}
-
-exports.createInMemoryCache = createInMemoryCache;
-
-
-/***/ }),
-
-/***/ 8830:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-// eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(8820);
-
-
-/***/ }),
-
-/***/ 6858:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-var clientCommon = __nccwpck_require__(4659);
-var transporter = __nccwpck_require__(390);
-var requesterCommon = __nccwpck_require__(4882);
-
-const createAnalyticsClient = options => {
-    const region = options.region || 'us';
-    const auth = clientCommon.createAuth(clientCommon.AuthMode.WithinHeaders, options.appId, options.apiKey);
-    const transporter$1 = transporter.createTransporter({
-        hosts: [{ url: `analytics.${region}.algolia.com` }],
-        ...options,
-        headers: {
-            ...auth.headers(),
-            ...{ 'content-type': 'application/json' },
-            ...options.headers,
-        },
-        queryParameters: {
-            ...auth.queryParameters(),
-            ...options.queryParameters,
-        },
-    });
-    const appId = options.appId;
-    return clientCommon.addMethods({ appId, transporter: transporter$1 }, options.methods);
-};
-
-const addABTest = (base) => {
-    return (abTest, requestOptions) => {
-        return base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: '2/abtests',
-            data: abTest,
-        }, requestOptions);
-    };
-};
-
-const deleteABTest = (base) => {
-    return (abTestID, requestOptions) => {
-        return base.transporter.write({
-            method: requesterCommon.MethodEnum.Delete,
-            path: clientCommon.encode('2/abtests/%s', abTestID),
-        }, requestOptions);
-    };
-};
-
-const getABTest = (base) => {
-    return (abTestID, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: clientCommon.encode('2/abtests/%s', abTestID),
-        }, requestOptions);
-    };
-};
-
-const getABTests = (base) => {
-    return (requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: '2/abtests',
-        }, requestOptions);
-    };
-};
-
-const stopABTest = (base) => {
-    return (abTestID, requestOptions) => {
-        return base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('2/abtests/%s/stop', abTestID),
-        }, requestOptions);
-    };
-};
-
-exports.addABTest = addABTest;
-exports.createAnalyticsClient = createAnalyticsClient;
-exports.deleteABTest = deleteABTest;
-exports.getABTest = getABTest;
-exports.getABTests = getABTests;
-exports.stopABTest = stopABTest;
-
-
-/***/ }),
-
-/***/ 9037:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-// eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(6858);
-
-
-/***/ }),
-
-/***/ 6953:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-function createAuth(authMode, appId, apiKey) {
-    const credentials = {
-        'x-algolia-api-key': apiKey,
-        'x-algolia-application-id': appId,
-    };
-    return {
-        headers() {
-            return authMode === AuthMode.WithinHeaders ? credentials : {};
-        },
-        queryParameters() {
-            return authMode === AuthMode.WithinQueryParameters ? credentials : {};
-        },
-    };
-}
-
-function createRetryablePromise(callback) {
-    let retriesCount = 0; // eslint-disable-line functional/no-let
-    const retry = () => {
-        retriesCount++;
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(callback(retry));
-            }, Math.min(100 * retriesCount, 1000));
-        });
-    };
-    return callback(retry);
-}
-
-function createWaitablePromise(promise, wait = (_response, _requestOptions) => {
-    return Promise.resolve();
-}) {
-    // eslint-disable-next-line functional/immutable-data
-    return Object.assign(promise, {
-        wait(requestOptions) {
-            return createWaitablePromise(promise
-                .then(response => Promise.all([wait(response, requestOptions), response]))
-                .then(promiseResults => promiseResults[1]));
-        },
-    });
-}
-
-// eslint-disable-next-line functional/prefer-readonly-type
-function shuffle(array) {
-    let c = array.length - 1; // eslint-disable-line functional/no-let
-    // eslint-disable-next-line functional/no-loop-statement
-    for (c; c > 0; c--) {
-        const b = Math.floor(Math.random() * (c + 1));
-        const a = array[c];
-        array[c] = array[b]; // eslint-disable-line functional/immutable-data, no-param-reassign
-        array[b] = a; // eslint-disable-line functional/immutable-data, no-param-reassign
-    }
-    return array;
-}
-function addMethods(base, methods) {
-    if (!methods) {
-        return base;
-    }
-    Object.keys(methods).forEach(key => {
-        // eslint-disable-next-line functional/immutable-data, no-param-reassign
-        base[key] = methods[key](base);
-    });
-    return base;
-}
-function encode(format, ...args) {
-    // eslint-disable-next-line functional/no-let
-    let i = 0;
-    return format.replace(/%s/g, () => encodeURIComponent(args[i++]));
-}
-
-const version = '4.10.5';
-
-const destroy = (base) => {
-    return () => {
-        return base.transporter.requester.destroy();
-    };
-};
-
-const AuthMode = {
-    /**
-     * If auth credentials should be in query parameters.
-     */
-    WithinQueryParameters: 0,
-    /**
-     * If auth credentials should be in headers.
-     */
-    WithinHeaders: 1,
-};
-
-exports.AuthMode = AuthMode;
-exports.addMethods = addMethods;
-exports.createAuth = createAuth;
-exports.createRetryablePromise = createRetryablePromise;
-exports.createWaitablePromise = createWaitablePromise;
-exports.destroy = destroy;
-exports.encode = encode;
-exports.shuffle = shuffle;
-exports.version = version;
-
-
-/***/ }),
-
-/***/ 4659:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-// eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(6953);
-
-
-/***/ }),
-
-/***/ 2969:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-var clientCommon = __nccwpck_require__(4659);
-var transporter = __nccwpck_require__(390);
-var requesterCommon = __nccwpck_require__(4882);
-
-const createPersonalizationClient = options => {
-    const region = options.region || 'us';
-    const auth = clientCommon.createAuth(clientCommon.AuthMode.WithinHeaders, options.appId, options.apiKey);
-    const transporter$1 = transporter.createTransporter({
-        hosts: [{ url: `personalization.${region}.algolia.com` }],
-        ...options,
-        headers: {
-            ...auth.headers(),
-            ...{ 'content-type': 'application/json' },
-            ...options.headers,
-        },
-        queryParameters: {
-            ...auth.queryParameters(),
-            ...options.queryParameters,
-        },
-    });
-    return clientCommon.addMethods({ appId: options.appId, transporter: transporter$1 }, options.methods);
-};
-
-const getPersonalizationStrategy = (base) => {
-    return (requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: '1/strategies/personalization',
-        }, requestOptions);
-    };
-};
-
-const setPersonalizationStrategy = (base) => {
-    return (personalizationStrategy, requestOptions) => {
-        return base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: '1/strategies/personalization',
-            data: personalizationStrategy,
-        }, requestOptions);
-    };
-};
-
-exports.createPersonalizationClient = createPersonalizationClient;
-exports.getPersonalizationStrategy = getPersonalizationStrategy;
-exports.setPersonalizationStrategy = setPersonalizationStrategy;
-
-
-/***/ }),
-
-/***/ 9006:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-// eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(2969);
-
-
-/***/ }),
-
-/***/ 6073:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-var clientCommon = __nccwpck_require__(4659);
-var transporter = __nccwpck_require__(390);
-var requesterCommon = __nccwpck_require__(4882);
-var crypto = __nccwpck_require__(6417);
-
-function createBrowsablePromise(options) {
-    const browse = (data) => {
-        return options.request(data).then(response => {
-            /**
-             * First we send to the developer the
-             * batch retrieved from the API.
-             */
-            if (options.batch !== undefined) {
-                options.batch(response.hits);
-            }
-            /**
-             * Then, we ask to the browse concrete implementation
-             * if we should stop browsing. As example, the `browseObjects`
-             * method will stop if the cursor is not present on the response.
-             */
-            if (options.shouldStop(response)) {
-                return undefined;
-            }
-            /**
-             * Finally, if the response contains a cursor, we browse to the next
-             * batch using that same cursor. Otherwise, we just use the traditional
-             * browsing using the page element.
-             */
-            if (response.cursor) {
-                return browse({
-                    cursor: response.cursor,
-                });
-            }
-            return browse({
-                page: (data.page || 0) + 1,
-            });
-        });
-    };
-    return browse({});
-}
-
-const createSearchClient = options => {
-    const appId = options.appId;
-    const auth = clientCommon.createAuth(options.authMode !== undefined ? options.authMode : clientCommon.AuthMode.WithinHeaders, appId, options.apiKey);
-    const transporter$1 = transporter.createTransporter({
-        hosts: [
-            { url: `${appId}-dsn.algolia.net`, accept: transporter.CallEnum.Read },
-            { url: `${appId}.algolia.net`, accept: transporter.CallEnum.Write },
-        ].concat(clientCommon.shuffle([
-            { url: `${appId}-1.algolianet.com` },
-            { url: `${appId}-2.algolianet.com` },
-            { url: `${appId}-3.algolianet.com` },
-        ])),
-        ...options,
-        headers: {
-            ...auth.headers(),
-            ...{ 'content-type': 'application/x-www-form-urlencoded' },
-            ...options.headers,
-        },
-        queryParameters: {
-            ...auth.queryParameters(),
-            ...options.queryParameters,
-        },
-    });
-    const base = {
-        transporter: transporter$1,
-        appId,
-        addAlgoliaAgent(segment, version) {
-            transporter$1.userAgent.add({ segment, version });
-        },
-        clearCache() {
-            return Promise.all([
-                transporter$1.requestsCache.clear(),
-                transporter$1.responsesCache.clear(),
-            ]).then(() => undefined);
-        },
-    };
-    return clientCommon.addMethods(base, options.methods);
-};
-
-function createMissingObjectIDError() {
-    return {
-        name: 'MissingObjectIDError',
-        message: 'All objects must have an unique objectID ' +
-            '(like a primary key) to be valid. ' +
-            'Algolia is also able to generate objectIDs ' +
-            "automatically but *it's not recommended*. " +
-            "To do it, use the `{'autoGenerateObjectIDIfNotExist': true}` option.",
-    };
-}
-
-function createObjectNotFoundError() {
-    return {
-        name: 'ObjectNotFoundError',
-        message: 'Object not found.',
-    };
-}
-
-function createValidUntilNotFoundError() {
-    return {
-        name: 'ValidUntilNotFoundError',
-        message: 'ValidUntil not found in given secured api key.',
-    };
-}
-
-const addApiKey = (base) => {
-    return (acl, requestOptions) => {
-        const { queryParameters, ...options } = requestOptions || {};
-        const data = {
-            acl,
-            ...(queryParameters !== undefined ? { queryParameters } : {}),
-        };
-        const wait = (response, waitRequestOptions) => {
-            return clientCommon.createRetryablePromise(retry => {
-                return getApiKey(base)(response.key, waitRequestOptions).catch((apiError) => {
-                    if (apiError.status !== 404) {
-                        throw apiError;
-                    }
-                    return retry();
-                });
-            });
-        };
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: '1/keys',
-            data,
-        }, options), wait);
-    };
-};
-
-const assignUserID = (base) => {
-    return (userID, clusterName, requestOptions) => {
-        const mappedRequestOptions = transporter.createMappedRequestOptions(requestOptions);
-        // eslint-disable-next-line functional/immutable-data
-        mappedRequestOptions.queryParameters['X-Algolia-User-ID'] = userID;
-        return base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: '1/clusters/mapping',
-            data: { cluster: clusterName },
-        }, mappedRequestOptions);
-    };
-};
-
-const assignUserIDs = (base) => {
-    return (userIDs, clusterName, requestOptions) => {
-        return base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: '1/clusters/mapping/batch',
-            data: {
-                users: userIDs,
-                cluster: clusterName,
-            },
-        }, requestOptions);
-    };
-};
-
-const clearDictionaryEntries = (base) => {
-    return (dictionary, requestOptions) => {
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('/1/dictionaries/%s/batch', dictionary),
-            data: {
-                clearExistingDictionaryEntries: true,
-                requests: { action: 'addEntry', body: [] },
-            },
-        }, requestOptions), (response, waitRequestOptions) => waitAppTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const copyIndex = (base) => {
-    return (from, to, requestOptions) => {
-        const wait = (response, waitRequestOptions) => {
-            return initIndex(base)(from, {
-                methods: { waitTask },
-            }).waitTask(response.taskID, waitRequestOptions);
-        };
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/operation', from),
-            data: {
-                operation: 'copy',
-                destination: to,
-            },
-        }, requestOptions), wait);
-    };
-};
-
-const copyRules = (base) => {
-    return (from, to, requestOptions) => {
-        return copyIndex(base)(from, to, {
-            ...requestOptions,
-            scope: [ScopeEnum.Rules],
-        });
-    };
-};
-
-const copySettings = (base) => {
-    return (from, to, requestOptions) => {
-        return copyIndex(base)(from, to, {
-            ...requestOptions,
-            scope: [ScopeEnum.Settings],
-        });
-    };
-};
-
-const copySynonyms = (base) => {
-    return (from, to, requestOptions) => {
-        return copyIndex(base)(from, to, {
-            ...requestOptions,
-            scope: [ScopeEnum.Synonyms],
-        });
-    };
-};
-
-const deleteApiKey = (base) => {
-    return (apiKey, requestOptions) => {
-        const wait = (_, waitRequestOptions) => {
-            return clientCommon.createRetryablePromise(retry => {
-                return getApiKey(base)(apiKey, waitRequestOptions)
-                    .then(retry)
-                    .catch((apiError) => {
-                    if (apiError.status !== 404) {
-                        throw apiError;
-                    }
-                });
-            });
-        };
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Delete,
-            path: clientCommon.encode('1/keys/%s', apiKey),
-        }, requestOptions), wait);
-    };
-};
-
-const deleteDictionaryEntries = (base) => {
-    return (dictionary, objectIDs, requestOptions) => {
-        const requests = objectIDs.map(objectID => ({
-            action: 'deleteEntry',
-            body: { objectID },
-        }));
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('/1/dictionaries/%s/batch', dictionary),
-            data: { clearExistingDictionaryEntries: false, requests },
-        }, requestOptions), (response, waitRequestOptions) => waitAppTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const generateSecuredApiKey = () => {
-    return (parentApiKey, restrictions) => {
-        const queryParameters = transporter.serializeQueryParameters(restrictions);
-        const securedKey = crypto.createHmac('sha256', parentApiKey)
-            .update(queryParameters)
-            .digest('hex');
-        return Buffer.from(securedKey + queryParameters).toString('base64');
-    };
-};
-
-const getApiKey = (base) => {
-    return (apiKey, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: clientCommon.encode('1/keys/%s', apiKey),
-        }, requestOptions);
-    };
-};
-
-const getDictionarySettings = (base) => {
-    return (requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: '/1/dictionaries/*/settings',
-        }, requestOptions);
-    };
-};
-
-const getLogs = (base) => {
-    return (requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: '1/logs',
-        }, requestOptions);
-    };
-};
-
-const getSecuredApiKeyRemainingValidity = () => {
-    return (securedApiKey) => {
-        const decodedString = Buffer.from(securedApiKey, 'base64').toString('ascii');
-        const regex = /validUntil=(\d+)/;
-        const match = decodedString.match(regex);
-        if (match === null) {
-            throw createValidUntilNotFoundError();
-        }
-        return parseInt(match[1], 10) - Math.round(new Date().getTime() / 1000);
-    };
-};
-
-const getTopUserIDs = (base) => {
-    return (requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: '1/clusters/mapping/top',
-        }, requestOptions);
-    };
-};
-
-const getAppTask = (base) => {
-    return (taskID, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: clientCommon.encode('1/task/%s', taskID.toString()),
-        }, requestOptions);
-    };
-};
-
-const getUserID = (base) => {
-    return (userID, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: clientCommon.encode('1/clusters/mapping/%s', userID),
-        }, requestOptions);
-    };
-};
-
-const hasPendingMappings = (base) => {
-    return (requestOptions) => {
-        const { retrieveMappings, ...options } = requestOptions || {};
-        if (retrieveMappings === true) {
-            // eslint-disable-next-line functional/immutable-data
-            options.getClusters = true;
-        }
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: '1/clusters/mapping/pending',
-        }, options);
-    };
-};
-
-const initIndex = (base) => {
-    return (indexName, options = {}) => {
-        const searchIndex = {
-            transporter: base.transporter,
-            appId: base.appId,
-            indexName,
-        };
-        return clientCommon.addMethods(searchIndex, options.methods);
-    };
-};
-
-const listApiKeys = (base) => {
-    return (requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: '1/keys',
-        }, requestOptions);
-    };
-};
-
-const listClusters = (base) => {
-    return (requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: '1/clusters',
-        }, requestOptions);
-    };
-};
-
-const listIndices = (base) => {
-    return (requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: '1/indexes',
-        }, requestOptions);
-    };
-};
-
-const listUserIDs = (base) => {
-    return (requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: '1/clusters/mapping',
-        }, requestOptions);
-    };
-};
-
-const moveIndex = (base) => {
-    return (from, to, requestOptions) => {
-        const wait = (response, waitRequestOptions) => {
-            return initIndex(base)(from, {
-                methods: { waitTask },
-            }).waitTask(response.taskID, waitRequestOptions);
-        };
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/operation', from),
-            data: {
-                operation: 'move',
-                destination: to,
-            },
-        }, requestOptions), wait);
-    };
-};
-
-const multipleBatch = (base) => {
-    return (requests, requestOptions) => {
-        const wait = (response, waitRequestOptions) => {
-            return Promise.all(Object.keys(response.taskID).map(indexName => {
-                return initIndex(base)(indexName, {
-                    methods: { waitTask },
-                }).waitTask(response.taskID[indexName], waitRequestOptions);
-            }));
-        };
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: '1/indexes/*/batch',
-            data: {
-                requests,
-            },
-        }, requestOptions), wait);
-    };
-};
-
-const multipleGetObjects = (base) => {
-    return (requests, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Post,
-            path: '1/indexes/*/objects',
-            data: {
-                requests,
-            },
-        }, requestOptions);
-    };
-};
-
-const multipleQueries = (base) => {
-    return (queries, requestOptions) => {
-        const requests = queries.map(query => {
-            return {
-                ...query,
-                params: transporter.serializeQueryParameters(query.params || {}),
-            };
-        });
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Post,
-            path: '1/indexes/*/queries',
-            data: {
-                requests,
-            },
-            cacheable: true,
-        }, requestOptions);
-    };
-};
-
-const multipleSearchForFacetValues = (base) => {
-    return (queries, requestOptions) => {
-        return Promise.all(queries.map(query => {
-            const { facetName, facetQuery, ...params } = query.params;
-            return initIndex(base)(query.indexName, {
-                methods: { searchForFacetValues },
-            }).searchForFacetValues(facetName, facetQuery, {
-                ...requestOptions,
-                ...params,
-            });
-        }));
-    };
-};
-
-const removeUserID = (base) => {
-    return (userID, requestOptions) => {
-        const mappedRequestOptions = transporter.createMappedRequestOptions(requestOptions);
-        // eslint-disable-next-line functional/immutable-data
-        mappedRequestOptions.queryParameters['X-Algolia-User-ID'] = userID;
-        return base.transporter.write({
-            method: requesterCommon.MethodEnum.Delete,
-            path: '1/clusters/mapping',
-        }, mappedRequestOptions);
-    };
-};
-
-const replaceDictionaryEntries = (base) => {
-    return (dictionary, entries, requestOptions) => {
-        const requests = entries.map(entry => ({
-            action: 'addEntry',
-            body: entry,
-        }));
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('/1/dictionaries/%s/batch', dictionary),
-            data: { clearExistingDictionaryEntries: true, requests },
-        }, requestOptions), (response, waitRequestOptions) => waitAppTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const restoreApiKey = (base) => {
-    return (apiKey, requestOptions) => {
-        const wait = (_, waitRequestOptions) => {
-            return clientCommon.createRetryablePromise(retry => {
-                return getApiKey(base)(apiKey, waitRequestOptions).catch((apiError) => {
-                    if (apiError.status !== 404) {
-                        throw apiError;
-                    }
-                    return retry();
-                });
-            });
-        };
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/keys/%s/restore', apiKey),
-        }, requestOptions), wait);
-    };
-};
-
-const saveDictionaryEntries = (base) => {
-    return (dictionary, entries, requestOptions) => {
-        const requests = entries.map(entry => ({
-            action: 'addEntry',
-            body: entry,
-        }));
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('/1/dictionaries/%s/batch', dictionary),
-            data: { clearExistingDictionaryEntries: false, requests },
-        }, requestOptions), (response, waitRequestOptions) => waitAppTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const searchDictionaryEntries = (base) => {
-    return (dictionary, query, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('/1/dictionaries/%s/search', dictionary),
-            data: {
-                query,
-            },
-            cacheable: true,
-        }, requestOptions);
-    };
-};
-
-const searchUserIDs = (base) => {
-    return (query, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Post,
-            path: '1/clusters/mapping/search',
-            data: {
-                query,
-            },
-        }, requestOptions);
-    };
-};
-
-const setDictionarySettings = (base) => {
-    return (settings, requestOptions) => {
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Put,
-            path: '/1/dictionaries/*/settings',
-            data: settings,
-        }, requestOptions), (response, waitRequestOptions) => waitAppTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const updateApiKey = (base) => {
-    return (apiKey, requestOptions) => {
-        const updatedFields = Object.assign({}, requestOptions);
-        const { queryParameters, ...options } = requestOptions || {};
-        const data = queryParameters ? { queryParameters } : {};
-        const apiKeyFields = [
-            'acl',
-            'indexes',
-            'referers',
-            'restrictSources',
-            'queryParameters',
-            'description',
-            'maxQueriesPerIPPerHour',
-            'maxHitsPerQuery',
-        ];
-        const hasChanged = (getApiKeyResponse) => {
-            return Object.keys(updatedFields)
-                .filter((updatedField) => apiKeyFields.indexOf(updatedField) !== -1)
-                .every(updatedField => {
-                return getApiKeyResponse[updatedField] === updatedFields[updatedField];
-            });
-        };
-        const wait = (_, waitRequestOptions) => clientCommon.createRetryablePromise(retry => {
-            return getApiKey(base)(apiKey, waitRequestOptions).then(getApiKeyResponse => {
-                return hasChanged(getApiKeyResponse) ? Promise.resolve() : retry();
-            });
-        });
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Put,
-            path: clientCommon.encode('1/keys/%s', apiKey),
-            data,
-        }, options), wait);
-    };
-};
-
-const waitAppTask = (base) => {
-    return (taskID, requestOptions) => {
-        return clientCommon.createRetryablePromise(retry => {
-            return getAppTask(base)(taskID, requestOptions).then(response => {
-                return response.status !== 'published' ? retry() : undefined;
-            });
-        });
-    };
-};
-
-const batch = (base) => {
-    return (requests, requestOptions) => {
-        const wait = (response, waitRequestOptions) => {
-            return waitTask(base)(response.taskID, waitRequestOptions);
-        };
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/batch', base.indexName),
-            data: {
-                requests,
-            },
-        }, requestOptions), wait);
-    };
-};
-
-const browseObjects = (base) => {
-    return (requestOptions) => {
-        return createBrowsablePromise({
-            shouldStop: response => response.cursor === undefined,
-            ...requestOptions,
-            request: (data) => base.transporter.read({
-                method: requesterCommon.MethodEnum.Post,
-                path: clientCommon.encode('1/indexes/%s/browse', base.indexName),
-                data,
-            }, requestOptions),
-        });
-    };
-};
-
-const browseRules = (base) => {
-    return (requestOptions) => {
-        const options = {
-            hitsPerPage: 1000,
-            ...requestOptions,
-        };
-        return createBrowsablePromise({
-            shouldStop: response => response.hits.length < options.hitsPerPage,
-            ...options,
-            request(data) {
-                return searchRules(base)('', { ...options, ...data }).then((response) => {
-                    return {
-                        ...response,
-                        hits: response.hits.map(rule => {
-                            // eslint-disable-next-line functional/immutable-data,no-param-reassign
-                            delete rule._highlightResult;
-                            return rule;
-                        }),
-                    };
-                });
-            },
-        });
-    };
-};
-
-const browseSynonyms = (base) => {
-    return (requestOptions) => {
-        const options = {
-            hitsPerPage: 1000,
-            ...requestOptions,
-        };
-        return createBrowsablePromise({
-            shouldStop: response => response.hits.length < options.hitsPerPage,
-            ...options,
-            request(data) {
-                return searchSynonyms(base)('', { ...options, ...data }).then((response) => {
-                    return {
-                        ...response,
-                        hits: response.hits.map(synonym => {
-                            // eslint-disable-next-line functional/immutable-data,no-param-reassign
-                            delete synonym._highlightResult;
-                            return synonym;
-                        }),
-                    };
-                });
-            },
-        });
-    };
-};
-
-const chunkedBatch = (base) => {
-    return (bodies, action, requestOptions) => {
-        const { batchSize, ...options } = requestOptions || {};
-        const response = {
-            taskIDs: [],
-            objectIDs: [],
-        };
-        const forEachBatch = (lastIndex = 0) => {
-            // eslint-disable-next-line functional/prefer-readonly-type
-            const bodiesChunk = [];
-            // eslint-disable-next-line functional/no-let
-            let index;
-            /* eslint-disable-next-line functional/no-loop-statement */
-            for (index = lastIndex; index < bodies.length; index++) {
-                // eslint-disable-next-line functional/immutable-data
-                bodiesChunk.push(bodies[index]);
-                if (bodiesChunk.length === (batchSize || 1000)) {
-                    break;
-                }
-            }
-            if (bodiesChunk.length === 0) {
-                return Promise.resolve(response);
-            }
-            return batch(base)(bodiesChunk.map(body => {
-                return {
-                    action,
-                    body,
-                };
-            }), options).then(res => {
-                response.objectIDs = response.objectIDs.concat(res.objectIDs); // eslint-disable-line functional/immutable-data
-                response.taskIDs.push(res.taskID); // eslint-disable-line functional/immutable-data
-                index++;
-                return forEachBatch(index);
-            });
-        };
-        return clientCommon.createWaitablePromise(forEachBatch(), (chunkedBatchResponse, waitRequestOptions) => {
-            return Promise.all(chunkedBatchResponse.taskIDs.map(taskID => {
-                return waitTask(base)(taskID, waitRequestOptions);
-            }));
-        });
-    };
-};
-
-const clearObjects = (base) => {
-    return (requestOptions) => {
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/clear', base.indexName),
-        }, requestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const clearRules = (base) => {
-    return (requestOptions) => {
-        const { forwardToReplicas, ...options } = requestOptions || {};
-        const mappedRequestOptions = transporter.createMappedRequestOptions(options);
-        if (forwardToReplicas) {
-            mappedRequestOptions.queryParameters.forwardToReplicas = 1; // eslint-disable-line functional/immutable-data
-        }
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/rules/clear', base.indexName),
-        }, mappedRequestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const clearSynonyms = (base) => {
-    return (requestOptions) => {
-        const { forwardToReplicas, ...options } = requestOptions || {};
-        const mappedRequestOptions = transporter.createMappedRequestOptions(options);
-        if (forwardToReplicas) {
-            mappedRequestOptions.queryParameters.forwardToReplicas = 1; // eslint-disable-line functional/immutable-data
-        }
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/synonyms/clear', base.indexName),
-        }, mappedRequestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const deleteBy = (base) => {
-    return (filters, requestOptions) => {
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/deleteByQuery', base.indexName),
-            data: filters,
-        }, requestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const deleteIndex = (base) => {
-    return (requestOptions) => {
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Delete,
-            path: clientCommon.encode('1/indexes/%s', base.indexName),
-        }, requestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const deleteObject = (base) => {
-    return (objectID, requestOptions) => {
-        return clientCommon.createWaitablePromise(deleteObjects(base)([objectID], requestOptions).then(response => {
-            return { taskID: response.taskIDs[0] };
-        }), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const deleteObjects = (base) => {
-    return (objectIDs, requestOptions) => {
-        const objects = objectIDs.map(objectID => {
-            return { objectID };
-        });
-        return chunkedBatch(base)(objects, BatchActionEnum.DeleteObject, requestOptions);
-    };
-};
-
-const deleteRule = (base) => {
-    return (objectID, requestOptions) => {
-        const { forwardToReplicas, ...options } = requestOptions || {};
-        const mappedRequestOptions = transporter.createMappedRequestOptions(options);
-        if (forwardToReplicas) {
-            mappedRequestOptions.queryParameters.forwardToReplicas = 1; // eslint-disable-line functional/immutable-data
-        }
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Delete,
-            path: clientCommon.encode('1/indexes/%s/rules/%s', base.indexName, objectID),
-        }, mappedRequestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const deleteSynonym = (base) => {
-    return (objectID, requestOptions) => {
-        const { forwardToReplicas, ...options } = requestOptions || {};
-        const mappedRequestOptions = transporter.createMappedRequestOptions(options);
-        if (forwardToReplicas) {
-            mappedRequestOptions.queryParameters.forwardToReplicas = 1; // eslint-disable-line functional/immutable-data
-        }
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Delete,
-            path: clientCommon.encode('1/indexes/%s/synonyms/%s', base.indexName, objectID),
-        }, mappedRequestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const exists = (base) => {
-    return (requestOptions) => {
-        return getSettings(base)(requestOptions)
-            .then(() => true)
-            .catch(error => {
-            if (error.status !== 404) {
-                throw error;
-            }
-            return false;
-        });
-    };
-};
-
-const findAnswers = (base) => {
-    return (query, queryLanguages, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/answers/%s/prediction', base.indexName),
-            data: {
-                query,
-                queryLanguages,
-            },
-            cacheable: true,
-        }, requestOptions);
-    };
-};
-
-const findObject = (base) => {
-    return (callback, requestOptions) => {
-        const { query, paginate, ...options } = requestOptions || {};
-        // eslint-disable-next-line functional/no-let
-        let page = 0;
-        const forEachPage = () => {
-            return search(base)(query || '', { ...options, page }).then(result => {
-                // eslint-disable-next-line functional/no-loop-statement
-                for (const [position, hit] of Object.entries(result.hits)) {
-                    // eslint-disable-next-line promise/no-callback-in-promise
-                    if (callback(hit)) {
-                        return {
-                            object: hit,
-                            position: parseInt(position, 10),
-                            page,
-                        };
-                    }
-                }
-                page++;
-                // paginate if option was set and has next page
-                if (paginate === false || page >= result.nbPages) {
-                    throw createObjectNotFoundError();
-                }
-                return forEachPage();
-            });
-        };
-        return forEachPage();
-    };
-};
-
-const getObject = (base) => {
-    return (objectID, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: clientCommon.encode('1/indexes/%s/%s', base.indexName, objectID),
-        }, requestOptions);
-    };
-};
-
-const getObjectPosition = () => {
-    return (searchResponse, objectID) => {
-        // eslint-disable-next-line functional/no-loop-statement
-        for (const [position, hit] of Object.entries(searchResponse.hits)) {
-            if (hit.objectID === objectID) {
-                return parseInt(position, 10);
-            }
-        }
-        return -1;
-    };
-};
-
-const getObjects = (base) => {
-    return (objectIDs, requestOptions) => {
-        const { attributesToRetrieve, ...options } = requestOptions || {};
-        const requests = objectIDs.map(objectID => {
-            return {
-                indexName: base.indexName,
-                objectID,
-                ...(attributesToRetrieve ? { attributesToRetrieve } : {}),
-            };
-        });
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Post,
-            path: '1/indexes/*/objects',
-            data: {
-                requests,
-            },
-        }, options);
-    };
-};
-
-const getRule = (base) => {
-    return (objectID, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: clientCommon.encode('1/indexes/%s/rules/%s', base.indexName, objectID),
-        }, requestOptions);
-    };
-};
-
-const getSettings = (base) => {
-    return (requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: clientCommon.encode('1/indexes/%s/settings', base.indexName),
-            data: {
-                getVersion: 2,
-            },
-        }, requestOptions);
-    };
-};
-
-const getSynonym = (base) => {
-    return (objectID, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: clientCommon.encode(`1/indexes/%s/synonyms/%s`, base.indexName, objectID),
-        }, requestOptions);
-    };
-};
-
-const getTask = (base) => {
-    return (taskID, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Get,
-            path: clientCommon.encode('1/indexes/%s/task/%s', base.indexName, taskID.toString()),
-        }, requestOptions);
-    };
-};
-
-const partialUpdateObject = (base) => {
-    return (object, requestOptions) => {
-        return clientCommon.createWaitablePromise(partialUpdateObjects(base)([object], requestOptions).then(response => {
-            return {
-                objectID: response.objectIDs[0],
-                taskID: response.taskIDs[0],
-            };
-        }), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const partialUpdateObjects = (base) => {
-    return (objects, requestOptions) => {
-        const { createIfNotExists, ...options } = requestOptions || {};
-        const action = createIfNotExists
-            ? BatchActionEnum.PartialUpdateObject
-            : BatchActionEnum.PartialUpdateObjectNoCreate;
-        return chunkedBatch(base)(objects, action, options);
-    };
-};
-
-const replaceAllObjects = (base) => {
-    return (objects, requestOptions) => {
-        const { safe, autoGenerateObjectIDIfNotExist, batchSize, ...options } = requestOptions || {};
-        const operation = (from, to, type, operationRequestOptions) => {
-            return clientCommon.createWaitablePromise(base.transporter.write({
-                method: requesterCommon.MethodEnum.Post,
-                path: clientCommon.encode('1/indexes/%s/operation', from),
-                data: {
-                    operation: type,
-                    destination: to,
-                },
-            }, operationRequestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-        };
-        const randomSuffix = Math.random()
-            .toString(36)
-            .substring(7);
-        const temporaryIndexName = `${base.indexName}_tmp_${randomSuffix}`;
-        const saveObjectsInTemporary = saveObjects({
-            appId: base.appId,
-            transporter: base.transporter,
-            indexName: temporaryIndexName,
-        });
-        // @ts-ignore
-        // eslint-disable-next-line prefer-const, functional/no-let, functional/prefer-readonly-type
-        let responses = [];
-        const copyWaitablePromise = operation(base.indexName, temporaryIndexName, 'copy', {
-            ...options,
-            scope: ['settings', 'synonyms', 'rules'],
-        });
-        // eslint-disable-next-line functional/immutable-data
-        responses.push(copyWaitablePromise);
-        const result = (safe
-            ? copyWaitablePromise.wait(options)
-            : copyWaitablePromise)
-            .then(() => {
-            const saveObjectsWaitablePromise = saveObjectsInTemporary(objects, {
-                ...options,
-                autoGenerateObjectIDIfNotExist,
-                batchSize,
-            });
-            // eslint-disable-next-line functional/immutable-data
-            responses.push(saveObjectsWaitablePromise);
-            return safe ? saveObjectsWaitablePromise.wait(options) : saveObjectsWaitablePromise;
-        })
-            .then(() => {
-            const moveWaitablePromise = operation(temporaryIndexName, base.indexName, 'move', options);
-            // eslint-disable-next-line functional/immutable-data
-            responses.push(moveWaitablePromise);
-            return safe ? moveWaitablePromise.wait(options) : moveWaitablePromise;
-        })
-            .then(() => Promise.all(responses))
-            .then(([copyResponse, saveObjectsResponse, moveResponse]) => {
-            return {
-                objectIDs: saveObjectsResponse.objectIDs,
-                taskIDs: [copyResponse.taskID, ...saveObjectsResponse.taskIDs, moveResponse.taskID],
-            };
-        });
-        return clientCommon.createWaitablePromise(result, (_, waitRequestOptions) => {
-            return Promise.all(responses.map(response => response.wait(waitRequestOptions)));
-        });
-    };
-};
-
-const replaceAllRules = (base) => {
-    return (rules, requestOptions) => {
-        return saveRules(base)(rules, {
-            ...requestOptions,
-            clearExistingRules: true,
-        });
-    };
-};
-
-const replaceAllSynonyms = (base) => {
-    return (synonyms, requestOptions) => {
-        return saveSynonyms(base)(synonyms, {
-            ...requestOptions,
-            clearExistingSynonyms: true,
-        });
-    };
-};
-
-const saveObject = (base) => {
-    return (object, requestOptions) => {
-        return clientCommon.createWaitablePromise(saveObjects(base)([object], requestOptions).then(response => {
-            return {
-                objectID: response.objectIDs[0],
-                taskID: response.taskIDs[0],
-            };
-        }), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const saveObjects = (base) => {
-    return (objects, requestOptions) => {
-        const { autoGenerateObjectIDIfNotExist, ...options } = requestOptions || {};
-        const action = autoGenerateObjectIDIfNotExist
-            ? BatchActionEnum.AddObject
-            : BatchActionEnum.UpdateObject;
-        if (action === BatchActionEnum.UpdateObject) {
-            // eslint-disable-next-line functional/no-loop-statement
-            for (const object of objects) {
-                if (object.objectID === undefined) {
-                    return clientCommon.createWaitablePromise(Promise.reject(createMissingObjectIDError()));
-                }
-            }
-        }
-        return chunkedBatch(base)(objects, action, options);
-    };
-};
-
-const saveRule = (base) => {
-    return (rule, requestOptions) => {
-        return saveRules(base)([rule], requestOptions);
-    };
-};
-
-const saveRules = (base) => {
-    return (rules, requestOptions) => {
-        const { forwardToReplicas, clearExistingRules, ...options } = requestOptions || {};
-        const mappedRequestOptions = transporter.createMappedRequestOptions(options);
-        if (forwardToReplicas) {
-            mappedRequestOptions.queryParameters.forwardToReplicas = 1; // eslint-disable-line functional/immutable-data
-        }
-        if (clearExistingRules) {
-            mappedRequestOptions.queryParameters.clearExistingRules = 1; // eslint-disable-line functional/immutable-data
-        }
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/rules/batch', base.indexName),
-            data: rules,
-        }, mappedRequestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const saveSynonym = (base) => {
-    return (synonym, requestOptions) => {
-        return saveSynonyms(base)([synonym], requestOptions);
-    };
-};
-
-const saveSynonyms = (base) => {
-    return (synonyms, requestOptions) => {
-        const { forwardToReplicas, clearExistingSynonyms, replaceExistingSynonyms, ...options } = requestOptions || {};
-        const mappedRequestOptions = transporter.createMappedRequestOptions(options);
-        if (forwardToReplicas) {
-            mappedRequestOptions.queryParameters.forwardToReplicas = 1; // eslint-disable-line functional/immutable-data
-        }
-        if (replaceExistingSynonyms || clearExistingSynonyms) {
-            mappedRequestOptions.queryParameters.replaceExistingSynonyms = 1; // eslint-disable-line functional/immutable-data
-        }
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/synonyms/batch', base.indexName),
-            data: synonyms,
-        }, mappedRequestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const search = (base) => {
-    return (query, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/query', base.indexName),
-            data: {
-                query,
-            },
-            cacheable: true,
-        }, requestOptions);
-    };
-};
-
-const searchForFacetValues = (base) => {
-    return (facetName, facetQuery, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/facets/%s/query', base.indexName, facetName),
-            data: {
-                facetQuery,
-            },
-            cacheable: true,
-        }, requestOptions);
-    };
-};
-
-const searchRules = (base) => {
-    return (query, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/rules/search', base.indexName),
-            data: {
-                query,
-            },
-        }, requestOptions);
-    };
-};
-
-const searchSynonyms = (base) => {
-    return (query, requestOptions) => {
-        return base.transporter.read({
-            method: requesterCommon.MethodEnum.Post,
-            path: clientCommon.encode('1/indexes/%s/synonyms/search', base.indexName),
-            data: {
-                query,
-            },
-        }, requestOptions);
-    };
-};
-
-const setSettings = (base) => {
-    return (settings, requestOptions) => {
-        const { forwardToReplicas, ...options } = requestOptions || {};
-        const mappedRequestOptions = transporter.createMappedRequestOptions(options);
-        if (forwardToReplicas) {
-            mappedRequestOptions.queryParameters.forwardToReplicas = 1; // eslint-disable-line functional/immutable-data
-        }
-        return clientCommon.createWaitablePromise(base.transporter.write({
-            method: requesterCommon.MethodEnum.Put,
-            path: clientCommon.encode('1/indexes/%s/settings', base.indexName),
-            data: settings,
-        }, mappedRequestOptions), (response, waitRequestOptions) => waitTask(base)(response.taskID, waitRequestOptions));
-    };
-};
-
-const waitTask = (base) => {
-    return (taskID, requestOptions) => {
-        return clientCommon.createRetryablePromise(retry => {
-            return getTask(base)(taskID, requestOptions).then(response => {
-                return response.status !== 'published' ? retry() : undefined;
-            });
-        });
-    };
-};
-
-const ApiKeyACLEnum = {
-    AddObject: 'addObject',
-    Analytics: 'analytics',
-    Browser: 'browse',
-    DeleteIndex: 'deleteIndex',
-    DeleteObject: 'deleteObject',
-    EditSettings: 'editSettings',
-    ListIndexes: 'listIndexes',
-    Logs: 'logs',
-    Personalization: 'personalization',
-    Recommendation: 'recommendation',
-    Search: 'search',
-    SeeUnretrievableAttributes: 'seeUnretrievableAttributes',
-    Settings: 'settings',
-    Usage: 'usage',
-};
-
-const BatchActionEnum = {
-    AddObject: 'addObject',
-    UpdateObject: 'updateObject',
-    PartialUpdateObject: 'partialUpdateObject',
-    PartialUpdateObjectNoCreate: 'partialUpdateObjectNoCreate',
-    DeleteObject: 'deleteObject',
-    DeleteIndex: 'delete',
-    ClearIndex: 'clear',
-};
-
-const ScopeEnum = {
-    Settings: 'settings',
-    Synonyms: 'synonyms',
-    Rules: 'rules',
-};
-
-const StrategyEnum = {
-    None: 'none',
-    StopIfEnoughMatches: 'stopIfEnoughMatches',
-};
-
-const SynonymEnum = {
-    Synonym: 'synonym',
-    OneWaySynonym: 'oneWaySynonym',
-    AltCorrection1: 'altCorrection1',
-    AltCorrection2: 'altCorrection2',
-    Placeholder: 'placeholder',
-};
-
-exports.ApiKeyACLEnum = ApiKeyACLEnum;
-exports.BatchActionEnum = BatchActionEnum;
-exports.ScopeEnum = ScopeEnum;
-exports.StrategyEnum = StrategyEnum;
-exports.SynonymEnum = SynonymEnum;
-exports.addApiKey = addApiKey;
-exports.assignUserID = assignUserID;
-exports.assignUserIDs = assignUserIDs;
-exports.batch = batch;
-exports.browseObjects = browseObjects;
-exports.browseRules = browseRules;
-exports.browseSynonyms = browseSynonyms;
-exports.chunkedBatch = chunkedBatch;
-exports.clearDictionaryEntries = clearDictionaryEntries;
-exports.clearObjects = clearObjects;
-exports.clearRules = clearRules;
-exports.clearSynonyms = clearSynonyms;
-exports.copyIndex = copyIndex;
-exports.copyRules = copyRules;
-exports.copySettings = copySettings;
-exports.copySynonyms = copySynonyms;
-exports.createBrowsablePromise = createBrowsablePromise;
-exports.createMissingObjectIDError = createMissingObjectIDError;
-exports.createObjectNotFoundError = createObjectNotFoundError;
-exports.createSearchClient = createSearchClient;
-exports.createValidUntilNotFoundError = createValidUntilNotFoundError;
-exports.deleteApiKey = deleteApiKey;
-exports.deleteBy = deleteBy;
-exports.deleteDictionaryEntries = deleteDictionaryEntries;
-exports.deleteIndex = deleteIndex;
-exports.deleteObject = deleteObject;
-exports.deleteObjects = deleteObjects;
-exports.deleteRule = deleteRule;
-exports.deleteSynonym = deleteSynonym;
-exports.exists = exists;
-exports.findAnswers = findAnswers;
-exports.findObject = findObject;
-exports.generateSecuredApiKey = generateSecuredApiKey;
-exports.getApiKey = getApiKey;
-exports.getAppTask = getAppTask;
-exports.getDictionarySettings = getDictionarySettings;
-exports.getLogs = getLogs;
-exports.getObject = getObject;
-exports.getObjectPosition = getObjectPosition;
-exports.getObjects = getObjects;
-exports.getRule = getRule;
-exports.getSecuredApiKeyRemainingValidity = getSecuredApiKeyRemainingValidity;
-exports.getSettings = getSettings;
-exports.getSynonym = getSynonym;
-exports.getTask = getTask;
-exports.getTopUserIDs = getTopUserIDs;
-exports.getUserID = getUserID;
-exports.hasPendingMappings = hasPendingMappings;
-exports.initIndex = initIndex;
-exports.listApiKeys = listApiKeys;
-exports.listClusters = listClusters;
-exports.listIndices = listIndices;
-exports.listUserIDs = listUserIDs;
-exports.moveIndex = moveIndex;
-exports.multipleBatch = multipleBatch;
-exports.multipleGetObjects = multipleGetObjects;
-exports.multipleQueries = multipleQueries;
-exports.multipleSearchForFacetValues = multipleSearchForFacetValues;
-exports.partialUpdateObject = partialUpdateObject;
-exports.partialUpdateObjects = partialUpdateObjects;
-exports.removeUserID = removeUserID;
-exports.replaceAllObjects = replaceAllObjects;
-exports.replaceAllRules = replaceAllRules;
-exports.replaceAllSynonyms = replaceAllSynonyms;
-exports.replaceDictionaryEntries = replaceDictionaryEntries;
-exports.restoreApiKey = restoreApiKey;
-exports.saveDictionaryEntries = saveDictionaryEntries;
-exports.saveObject = saveObject;
-exports.saveObjects = saveObjects;
-exports.saveRule = saveRule;
-exports.saveRules = saveRules;
-exports.saveSynonym = saveSynonym;
-exports.saveSynonyms = saveSynonyms;
-exports.search = search;
-exports.searchDictionaryEntries = searchDictionaryEntries;
-exports.searchForFacetValues = searchForFacetValues;
-exports.searchRules = searchRules;
-exports.searchSynonyms = searchSynonyms;
-exports.searchUserIDs = searchUserIDs;
-exports.setDictionarySettings = setDictionarySettings;
-exports.setSettings = setSettings;
-exports.updateApiKey = updateApiKey;
-exports.waitAppTask = waitAppTask;
-exports.waitTask = waitTask;
-
-
-/***/ }),
-
-/***/ 9688:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-// eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(6073);
-
-
-/***/ }),
-
-/***/ 7327:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-function createNullLogger() {
-    return {
-        debug(_message, _args) {
-            return Promise.resolve();
-        },
-        info(_message, _args) {
-            return Promise.resolve();
-        },
-        error(_message, _args) {
-            return Promise.resolve();
-        },
-    };
-}
-
-const LogLevelEnum = {
-    Debug: 1,
-    Info: 2,
-    Error: 3,
-};
-
-exports.LogLevelEnum = LogLevelEnum;
-exports.createNullLogger = createNullLogger;
-
-
-/***/ }),
-
-/***/ 8380:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-// eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(7327);
-
-
-/***/ }),
-
-/***/ 486:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-const MethodEnum = {
-    Delete: 'DELETE',
-    Get: 'GET',
-    Post: 'POST',
-    Put: 'PUT',
-};
-
-exports.MethodEnum = MethodEnum;
-
-
-/***/ }),
-
-/***/ 4882:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-// eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(486);
-
-
-/***/ }),
-
-/***/ 6527:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-var http = __nccwpck_require__(8605);
-var https = __nccwpck_require__(7211);
-var URL = __nccwpck_require__(8835);
-
-/* eslint functional/prefer-readonly-type: 0 */
-const agentOptions = { keepAlive: true };
-const defaultHttpAgent = new http.Agent(agentOptions);
-const defaultHttpsAgent = new https.Agent(agentOptions);
-function createNodeHttpRequester({ agent: userGlobalAgent, httpAgent: userHttpAgent, httpsAgent: userHttpsAgent, requesterOptions = {}, } = {}) {
-    const httpAgent = userHttpAgent || userGlobalAgent || defaultHttpAgent;
-    const httpsAgent = userHttpsAgent || userGlobalAgent || defaultHttpsAgent;
-    return {
-        send(request) {
-            return new Promise(resolve => {
-                const url = URL.parse(request.url);
-                const path = url.query === null ? url.pathname : `${url.pathname}?${url.query}`;
-                const options = {
-                    ...requesterOptions,
-                    agent: url.protocol === 'https:' ? httpsAgent : httpAgent,
-                    hostname: url.hostname,
-                    path,
-                    method: request.method,
-                    headers: {
-                        ...(requesterOptions && requesterOptions.headers ? requesterOptions.headers : {}),
-                        ...request.headers,
-                    },
-                    ...(url.port !== undefined ? { port: url.port || '' } : {}),
-                };
-                const req = (url.protocol === 'https:' ? https : http).request(options, response => {
-                    // eslint-disable-next-line functional/no-let
-                    let contentBuffers = [];
-                    response.on('data', chunk => {
-                        contentBuffers = contentBuffers.concat(chunk);
-                    });
-                    response.on('end', () => {
-                        // eslint-disable-next-line @typescript-eslint/no-use-before-define
-                        clearTimeout(connectTimeout);
-                        // eslint-disable-next-line @typescript-eslint/no-use-before-define
-                        clearTimeout(responseTimeout);
-                        resolve({
-                            status: response.statusCode || 0,
-                            content: Buffer.concat(contentBuffers).toString(),
-                            isTimedOut: false,
-                        });
-                    });
-                });
-                const createTimeout = (timeout, content) => {
-                    return setTimeout(() => {
-                        req.abort();
-                        resolve({
-                            status: 0,
-                            content,
-                            isTimedOut: true,
-                        });
-                    }, timeout * 1000);
-                };
-                const connectTimeout = createTimeout(request.connectTimeout, 'Connection timeout');
-                // eslint-disable-next-line functional/no-let
-                let responseTimeout;
-                req.on('error', error => {
-                    clearTimeout(connectTimeout);
-                    clearTimeout(responseTimeout);
-                    resolve({ status: 0, content: error.message, isTimedOut: false });
-                });
-                req.once('response', () => {
-                    clearTimeout(connectTimeout);
-                    responseTimeout = createTimeout(request.responseTimeout, 'Socket timeout');
-                });
-                if (request.data !== undefined) {
-                    req.write(request.data);
-                }
-                req.end();
-            });
-        },
-        destroy() {
-            httpAgent.destroy();
-            httpsAgent.destroy();
-            return Promise.resolve();
-        },
-    };
-}
-
-exports.createNodeHttpRequester = createNodeHttpRequester;
-
-
-/***/ }),
-
-/***/ 7930:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-// eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(6527);
-
-
-/***/ }),
-
-/***/ 6579:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-
-var requesterCommon = __nccwpck_require__(4882);
-
-function createMappedRequestOptions(requestOptions, timeout) {
-    const options = requestOptions || {};
-    const data = options.data || {};
-    Object.keys(options).forEach(key => {
-        if (['timeout', 'headers', 'queryParameters', 'data', 'cacheable'].indexOf(key) === -1) {
-            data[key] = options[key]; // eslint-disable-line functional/immutable-data
-        }
-    });
-    return {
-        data: Object.entries(data).length > 0 ? data : undefined,
-        timeout: options.timeout || timeout,
-        headers: options.headers || {},
-        queryParameters: options.queryParameters || {},
-        cacheable: options.cacheable,
-    };
-}
-
-const CallEnum = {
-    /**
-     * If the host is read only.
-     */
-    Read: 1,
-    /**
-     * If the host is write only.
-     */
-    Write: 2,
-    /**
-     * If the host is both read and write.
-     */
-    Any: 3,
-};
-
-const HostStatusEnum = {
-    Up: 1,
-    Down: 2,
-    Timeouted: 3,
-};
-
-// By default, API Clients at Algolia have expiration delay
-// of 5 mins. In the JavaScript client, we have 2 mins.
-const EXPIRATION_DELAY = 2 * 60 * 1000;
-function createStatefulHost(host, status = HostStatusEnum.Up) {
-    return {
-        ...host,
-        status,
-        lastUpdate: Date.now(),
-    };
-}
-function isStatefulHostUp(host) {
-    return host.status === HostStatusEnum.Up || Date.now() - host.lastUpdate > EXPIRATION_DELAY;
-}
-function isStatefulHostTimeouted(host) {
-    return (host.status === HostStatusEnum.Timeouted && Date.now() - host.lastUpdate <= EXPIRATION_DELAY);
-}
-
-function createStatelessHost(options) {
-    if (typeof options === 'string') {
-        return {
-            protocol: 'https',
-            url: options,
-            accept: CallEnum.Any,
-        };
-    }
-    return {
-        protocol: options.protocol || 'https',
-        url: options.url,
-        accept: options.accept || CallEnum.Any,
-    };
-}
-
-function createRetryableOptions(hostsCache, statelessHosts) {
-    return Promise.all(statelessHosts.map(statelessHost => {
-        return hostsCache.get(statelessHost, () => {
-            return Promise.resolve(createStatefulHost(statelessHost));
-        });
-    })).then(statefulHosts => {
-        const hostsUp = statefulHosts.filter(host => isStatefulHostUp(host));
-        const hostsTimeouted = statefulHosts.filter(host => isStatefulHostTimeouted(host));
-        /**
-         * Note, we put the hosts that previously timeouted on the end of the list.
-         */
-        const hostsAvailable = [...hostsUp, ...hostsTimeouted];
-        const statelessHostsAvailable = hostsAvailable.length > 0
-            ? hostsAvailable.map(host => createStatelessHost(host))
-            : statelessHosts;
-        return {
-            getTimeout(timeoutsCount, baseTimeout) {
-                /**
-                 * Imagine that you have 4 hosts, if timeouts will increase
-                 * on the following way: 1 (timeouted) > 4 (timeouted) > 5 (200)
-                 *
-                 * Note that, the very next request, we start from the previous timeout
-                 *
-                 *  5 (timeouted) > 6 (timeouted) > 7 ...
-                 *
-                 * This strategy may need to be reviewed, but is the strategy on the our
-                 * current v3 version.
-                 */
-                const timeoutMultiplier = hostsTimeouted.length === 0 && timeoutsCount === 0
-                    ? 1
-                    : hostsTimeouted.length + 3 + timeoutsCount;
-                return timeoutMultiplier * baseTimeout;
-            },
-            statelessHosts: statelessHostsAvailable,
-        };
-    });
-}
-
-const isNetworkError = ({ isTimedOut, status }) => {
-    return !isTimedOut && ~~status === 0;
-};
-const isRetryable = (response) => {
-    const status = response.status;
-    const isTimedOut = response.isTimedOut;
-    return (isTimedOut || isNetworkError(response) || (~~(status / 100) !== 2 && ~~(status / 100) !== 4));
-};
-const isSuccess = ({ status }) => {
-    return ~~(status / 100) === 2;
-};
-const retryDecision = (response, outcomes) => {
-    if (isRetryable(response)) {
-        return outcomes.onRetry(response);
-    }
-    if (isSuccess(response)) {
-        return outcomes.onSuccess(response);
-    }
-    return outcomes.onFail(response);
-};
-
-function retryableRequest(transporter, statelessHosts, request, requestOptions) {
-    const stackTrace = []; // eslint-disable-line functional/prefer-readonly-type
-    /**
-     * First we prepare the payload that do not depend from hosts.
-     */
-    const data = serializeData(request, requestOptions);
-    const headers = serializeHeaders(transporter, requestOptions);
-    const method = request.method;
-    // On `GET`, the data is proxied to query parameters.
-    const dataQueryParameters = request.method !== requesterCommon.MethodEnum.Get
-        ? {}
-        : {
-            ...request.data,
-            ...requestOptions.data,
-        };
-    const queryParameters = {
-        'x-algolia-agent': transporter.userAgent.value,
-        ...transporter.queryParameters,
-        ...dataQueryParameters,
-        ...requestOptions.queryParameters,
-    };
-    let timeoutsCount = 0; // eslint-disable-line functional/no-let
-    const retry = (hosts, // eslint-disable-line functional/prefer-readonly-type
-    getTimeout) => {
-        /**
-         * We iterate on each host, until there is no host left.
-         */
-        const host = hosts.pop(); // eslint-disable-line functional/immutable-data
-        if (host === undefined) {
-            throw createRetryError(stackTraceWithoutCredentials(stackTrace));
-        }
-        const payload = {
-            data,
-            headers,
-            method,
-            url: serializeUrl(host, request.path, queryParameters),
-            connectTimeout: getTimeout(timeoutsCount, transporter.timeouts.connect),
-            responseTimeout: getTimeout(timeoutsCount, requestOptions.timeout),
-        };
-        /**
-         * The stackFrame is pushed to the stackTrace so we
-         * can have information about onRetry and onFailure
-         * decisions.
-         */
-        const pushToStackTrace = (response) => {
-            const stackFrame = {
-                request: payload,
-                response,
-                host,
-                triesLeft: hosts.length,
-            };
-            // eslint-disable-next-line functional/immutable-data
-            stackTrace.push(stackFrame);
-            return stackFrame;
-        };
-        const decisions = {
-            onSuccess: response => deserializeSuccess(response),
-            onRetry(response) {
-                const stackFrame = pushToStackTrace(response);
-                /**
-                 * If response is a timeout, we increaset the number of
-                 * timeouts so we can increase the timeout later.
-                 */
-                if (response.isTimedOut) {
-                    timeoutsCount++;
-                }
-                return Promise.all([
-                    /**
-                     * Failures are individually send the logger, allowing
-                     * the end user to debug / store stack frames even
-                     * when a retry error does not happen.
-                     */
-                    transporter.logger.info('Retryable failure', stackFrameWithoutCredentials(stackFrame)),
-                    /**
-                     * We also store the state of the host in failure cases. If the host, is
-                     * down it will remain down for the next 2 minutes. In a timeout situation,
-                     * this host will be added end of the list of hosts on the next request.
-                     */
-                    transporter.hostsCache.set(host, createStatefulHost(host, response.isTimedOut ? HostStatusEnum.Timeouted : HostStatusEnum.Down)),
-                ]).then(() => retry(hosts, getTimeout));
-            },
-            onFail(response) {
-                pushToStackTrace(response);
-                throw deserializeFailure(response, stackTraceWithoutCredentials(stackTrace));
-            },
-        };
-        return transporter.requester.send(payload).then(response => {
-            return retryDecision(response, decisions);
-        });
-    };
-    /**
-     * Finally, for each retryable host perform request until we got a non
-     * retryable response. Some notes here:
-     *
-     * 1. The reverse here is applied so we can apply a `pop` later on => more performant.
-     * 2. We also get from the retryable options a timeout multiplier that is tailored
-     * for the current context.
-     */
-    return createRetryableOptions(transporter.hostsCache, statelessHosts).then(options => {
-        return retry([...options.statelessHosts].reverse(), options.getTimeout);
-    });
-}
-
-function createTransporter(options) {
-    const { hostsCache, logger, requester, requestsCache, responsesCache, timeouts, userAgent, hosts, queryParameters, headers, } = options;
-    const transporter = {
-        hostsCache,
-        logger,
-        requester,
-        requestsCache,
-        responsesCache,
-        timeouts,
-        userAgent,
-        headers,
-        queryParameters,
-        hosts: hosts.map(host => createStatelessHost(host)),
-        read(request, requestOptions) {
-            /**
-             * First, we compute the user request options. Now, keep in mind,
-             * that using request options the user is able to modified the intire
-             * payload of the request. Such as headers, query parameters, and others.
-             */
-            const mappedRequestOptions = createMappedRequestOptions(requestOptions, transporter.timeouts.read);
-            const createRetryableRequest = () => {
-                /**
-                 * Then, we prepare a function factory that contains the construction of
-                 * the retryable request. At this point, we may *not* perform the actual
-                 * request. But we want to have the function factory ready.
-                 */
-                return retryableRequest(transporter, transporter.hosts.filter(host => (host.accept & CallEnum.Read) !== 0), request, mappedRequestOptions);
-            };
-            /**
-             * Once we have the function factory ready, we need to determine of the
-             * request is "cacheable" - should be cached. Note that, once again,
-             * the user can force this option.
-             */
-            const cacheable = mappedRequestOptions.cacheable !== undefined
-                ? mappedRequestOptions.cacheable
-                : request.cacheable;
-            /**
-             * If is not "cacheable", we immediatly trigger the retryable request, no
-             * need to check cache implementations.
-             */
-            if (cacheable !== true) {
-                return createRetryableRequest();
-            }
-            /**
-             * If the request is "cacheable", we need to first compute the key to ask
-             * the cache implementations if this request is on progress or if the
-             * response already exists on the cache.
-             */
-            const key = {
-                request,
-                mappedRequestOptions,
-                transporter: {
-                    queryParameters: transporter.queryParameters,
-                    headers: transporter.headers,
-                },
-            };
-            /**
-             * With the computed key, we first ask the responses cache
-             * implemention if this request was been resolved before.
-             */
-            return transporter.responsesCache.get(key, () => {
-                /**
-                 * If the request has never resolved before, we actually ask if there
-                 * is a current request with the same key on progress.
-                 */
-                return transporter.requestsCache.get(key, () => {
-                    return (transporter.requestsCache
-                        /**
-                         * Finally, if there is no request in progress with the same key,
-                         * this `createRetryableRequest()` will actually trigger the
-                         * retryable request.
-                         */
-                        .set(key, createRetryableRequest())
-                        .then(response => Promise.all([transporter.requestsCache.delete(key), response]), err => Promise.all([transporter.requestsCache.delete(key), Promise.reject(err)]))
-                        .then(([_, response]) => response));
-                });
-            }, {
-                /**
-                 * Of course, once we get this response back from the server, we
-                 * tell response cache to actually store the received response
-                 * to be used later.
-                 */
-                miss: response => transporter.responsesCache.set(key, response),
-            });
-        },
-        write(request, requestOptions) {
-            /**
-             * On write requests, no cache mechanisms are applied, and we
-             * proxy the request immediately to the requester.
-             */
-            return retryableRequest(transporter, transporter.hosts.filter(host => (host.accept & CallEnum.Write) !== 0), request, createMappedRequestOptions(requestOptions, transporter.timeouts.write));
-        },
-    };
-    return transporter;
-}
-
-function createUserAgent(version) {
-    const userAgent = {
-        value: `Algolia for JavaScript (${version})`,
-        add(options) {
-            const addedUserAgent = `; ${options.segment}${options.version !== undefined ? ` (${options.version})` : ''}`;
-            if (userAgent.value.indexOf(addedUserAgent) === -1) {
-                // eslint-disable-next-line functional/immutable-data
-                userAgent.value = `${userAgent.value}${addedUserAgent}`;
-            }
-            return userAgent;
-        },
-    };
-    return userAgent;
-}
-
-function deserializeSuccess(response) {
-    // eslint-disable-next-line functional/no-try-statement
-    try {
-        return JSON.parse(response.content);
-    }
-    catch (e) {
-        throw createDeserializationError(e.message, response);
-    }
-}
-function deserializeFailure({ content, status }, stackFrame) {
-    // eslint-disable-next-line functional/no-let
-    let message = content;
-    // eslint-disable-next-line functional/no-try-statement
-    try {
-        message = JSON.parse(content).message;
-    }
-    catch (e) {
-        // ..
-    }
-    return createApiError(message, status, stackFrame);
-}
-
-// eslint-disable-next-line functional/prefer-readonly-type
-function encode(format, ...args) {
-    // eslint-disable-next-line functional/no-let
-    let i = 0;
-    return format.replace(/%s/g, () => encodeURIComponent(args[i++]));
-}
-
-function serializeUrl(host, path, queryParameters) {
-    const queryParametersAsString = serializeQueryParameters(queryParameters);
-    // eslint-disable-next-line functional/no-let
-    let url = `${host.protocol}://${host.url}/${path.charAt(0) === '/' ? path.substr(1) : path}`;
-    if (queryParametersAsString.length) {
-        url += `?${queryParametersAsString}`;
-    }
-    return url;
-}
-function serializeQueryParameters(parameters) {
-    const isObjectOrArray = (value) => Object.prototype.toString.call(value) === '[object Object]' ||
-        Object.prototype.toString.call(value) === '[object Array]';
-    return Object.keys(parameters)
-        .map(key => encode('%s=%s', key, isObjectOrArray(parameters[key]) ? JSON.stringify(parameters[key]) : parameters[key]))
-        .join('&');
-}
-function serializeData(request, requestOptions) {
-    if (request.method === requesterCommon.MethodEnum.Get ||
-        (request.data === undefined && requestOptions.data === undefined)) {
-        return undefined;
-    }
-    const data = Array.isArray(request.data)
-        ? request.data
-        : { ...request.data, ...requestOptions.data };
-    return JSON.stringify(data);
-}
-function serializeHeaders(transporter, requestOptions) {
-    const headers = {
-        ...transporter.headers,
-        ...requestOptions.headers,
-    };
-    const serializedHeaders = {};
-    Object.keys(headers).forEach(header => {
-        const value = headers[header];
-        // @ts-ignore
-        // eslint-disable-next-line functional/immutable-data
-        serializedHeaders[header.toLowerCase()] = value;
-    });
-    return serializedHeaders;
-}
-
-function stackTraceWithoutCredentials(stackTrace) {
-    return stackTrace.map(stackFrame => stackFrameWithoutCredentials(stackFrame));
-}
-function stackFrameWithoutCredentials(stackFrame) {
-    const modifiedHeaders = stackFrame.request.headers['x-algolia-api-key']
-        ? { 'x-algolia-api-key': '*****' }
-        : {};
-    return {
-        ...stackFrame,
-        request: {
-            ...stackFrame.request,
-            headers: {
-                ...stackFrame.request.headers,
-                ...modifiedHeaders,
-            },
-        },
-    };
-}
-
-function createApiError(message, status, transporterStackTrace) {
-    return {
-        name: 'ApiError',
-        message,
-        status,
-        transporterStackTrace,
-    };
-}
-
-function createDeserializationError(message, response) {
-    return {
-        name: 'DeserializationError',
-        message,
-        response,
-    };
-}
-
-function createRetryError(transporterStackTrace) {
-    return {
-        name: 'RetryError',
-        message: 'Unreachable hosts - your application id may be incorrect. If the error persists, contact support@algolia.com.',
-        transporterStackTrace,
-    };
-}
-
-exports.CallEnum = CallEnum;
-exports.HostStatusEnum = HostStatusEnum;
-exports.createApiError = createApiError;
-exports.createDeserializationError = createDeserializationError;
-exports.createMappedRequestOptions = createMappedRequestOptions;
-exports.createRetryError = createRetryError;
-exports.createStatefulHost = createStatefulHost;
-exports.createStatelessHost = createStatelessHost;
-exports.createTransporter = createTransporter;
-exports.createUserAgent = createUserAgent;
-exports.deserializeFailure = deserializeFailure;
-exports.deserializeSuccess = deserializeSuccess;
-exports.isStatefulHostTimeouted = isStatefulHostTimeouted;
-exports.isStatefulHostUp = isStatefulHostUp;
-exports.serializeData = serializeData;
-exports.serializeHeaders = serializeHeaders;
-exports.serializeQueryParameters = serializeQueryParameters;
-exports.serializeUrl = serializeUrl;
-exports.stackFrameWithoutCredentials = stackFrameWithoutCredentials;
-exports.stackTraceWithoutCredentials = stackTraceWithoutCredentials;
-
-
-/***/ }),
-
-/***/ 390:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-// eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(6579);
-
-
-/***/ }),
-
-/***/ 7023:
+/***/ 23:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -3860,7 +1395,7 @@ exports.createTokenAuth = createTokenAuth;
 
 /***/ }),
 
-/***/ 3909:
+/***/ 909:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -3868,11 +1403,11 @@ exports.createTokenAuth = createTokenAuth;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var universalUserAgent = __nccwpck_require__(4844);
-var beforeAfterHook = __nccwpck_require__(8147);
+var universalUserAgent = __nccwpck_require__(844);
+var beforeAfterHook = __nccwpck_require__(147);
 var request = __nccwpck_require__(684);
-var graphql = __nccwpck_require__(7733);
-var authToken = __nccwpck_require__(7023);
+var graphql = __nccwpck_require__(733);
+var authToken = __nccwpck_require__(23);
 
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
@@ -4044,7 +1579,7 @@ exports.Octokit = Octokit;
 
 /***/ }),
 
-/***/ 3192:
+/***/ 192:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -4052,8 +1587,8 @@ exports.Octokit = Octokit;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var isPlainObject = __nccwpck_require__(5263);
-var universalUserAgent = __nccwpck_require__(4844);
+var isPlainObject = __nccwpck_require__(263);
+var universalUserAgent = __nccwpck_require__(844);
 
 function lowercaseKeys(object) {
   if (!object) {
@@ -4442,7 +1977,7 @@ exports.endpoint = endpoint;
 
 /***/ }),
 
-/***/ 7733:
+/***/ 733:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -4451,7 +1986,7 @@ exports.endpoint = endpoint;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 var request = __nccwpck_require__(684);
-var universalUserAgent = __nccwpck_require__(4844);
+var universalUserAgent = __nccwpck_require__(844);
 
 const VERSION = "4.8.0";
 
@@ -4568,7 +2103,7 @@ exports.withCustomRequest = withCustomRequest;
 
 /***/ }),
 
-/***/ 2271:
+/***/ 271:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -4793,7 +2328,7 @@ exports.paginatingEndpoints = paginatingEndpoints;
 
 /***/ }),
 
-/***/ 8953:
+/***/ 308:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -5888,8 +3423,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var deprecation = __nccwpck_require__(2375);
-var once = _interopDefault(__nccwpck_require__(9266));
+var deprecation = __nccwpck_require__(375);
+var once = _interopDefault(__nccwpck_require__(266));
 
 const logOnceCode = once(deprecation => console.warn(deprecation));
 const logOnceHeaders = once(deprecation => console.warn(deprecation));
@@ -5970,10 +3505,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var endpoint = __nccwpck_require__(3192);
-var universalUserAgent = __nccwpck_require__(4844);
-var isPlainObject = __nccwpck_require__(5263);
-var nodeFetch = _interopDefault(__nccwpck_require__(8143));
+var endpoint = __nccwpck_require__(192);
+var universalUserAgent = __nccwpck_require__(844);
+var isPlainObject = __nccwpck_require__(263);
+var nodeFetch = _interopDefault(__nccwpck_require__(143));
 var requestError = __nccwpck_require__(247);
 
 const VERSION = "5.6.1";
@@ -6145,197 +3680,12 @@ exports.request = request;
 
 /***/ }),
 
-/***/ 8123:
+/***/ 147:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
-
-
-var cacheCommon = __nccwpck_require__(199);
-var cacheInMemory = __nccwpck_require__(8830);
-var clientAnalytics = __nccwpck_require__(9037);
-var clientCommon = __nccwpck_require__(4659);
-var clientPersonalization = __nccwpck_require__(9006);
-var clientSearch = __nccwpck_require__(9688);
-var loggerCommon = __nccwpck_require__(8380);
-var requesterNodeHttp = __nccwpck_require__(7930);
-var transporter = __nccwpck_require__(390);
-
-function algoliasearch(appId, apiKey, options) {
-    const commonOptions = {
-        appId,
-        apiKey,
-        timeouts: {
-            connect: 2,
-            read: 5,
-            write: 30,
-        },
-        requester: requesterNodeHttp.createNodeHttpRequester(),
-        logger: loggerCommon.createNullLogger(),
-        responsesCache: cacheCommon.createNullCache(),
-        requestsCache: cacheCommon.createNullCache(),
-        hostsCache: cacheInMemory.createInMemoryCache(),
-        userAgent: transporter.createUserAgent(clientCommon.version).add({
-            segment: 'Node.js',
-            version: process.versions.node,
-        }),
-    };
-    const searchClientOptions = { ...commonOptions, ...options };
-    const initPersonalization = () => (clientOptions) => {
-        return clientPersonalization.createPersonalizationClient({
-            ...commonOptions,
-            ...clientOptions,
-            methods: {
-                getPersonalizationStrategy: clientPersonalization.getPersonalizationStrategy,
-                setPersonalizationStrategy: clientPersonalization.setPersonalizationStrategy,
-            },
-        });
-    };
-    return clientSearch.createSearchClient({
-        ...searchClientOptions,
-        methods: {
-            search: clientSearch.multipleQueries,
-            searchForFacetValues: clientSearch.multipleSearchForFacetValues,
-            multipleBatch: clientSearch.multipleBatch,
-            multipleGetObjects: clientSearch.multipleGetObjects,
-            multipleQueries: clientSearch.multipleQueries,
-            copyIndex: clientSearch.copyIndex,
-            copySettings: clientSearch.copySettings,
-            copyRules: clientSearch.copyRules,
-            copySynonyms: clientSearch.copySynonyms,
-            moveIndex: clientSearch.moveIndex,
-            listIndices: clientSearch.listIndices,
-            getLogs: clientSearch.getLogs,
-            listClusters: clientSearch.listClusters,
-            multipleSearchForFacetValues: clientSearch.multipleSearchForFacetValues,
-            getApiKey: clientSearch.getApiKey,
-            addApiKey: clientSearch.addApiKey,
-            listApiKeys: clientSearch.listApiKeys,
-            updateApiKey: clientSearch.updateApiKey,
-            deleteApiKey: clientSearch.deleteApiKey,
-            restoreApiKey: clientSearch.restoreApiKey,
-            assignUserID: clientSearch.assignUserID,
-            assignUserIDs: clientSearch.assignUserIDs,
-            getUserID: clientSearch.getUserID,
-            searchUserIDs: clientSearch.searchUserIDs,
-            listUserIDs: clientSearch.listUserIDs,
-            getTopUserIDs: clientSearch.getTopUserIDs,
-            removeUserID: clientSearch.removeUserID,
-            hasPendingMappings: clientSearch.hasPendingMappings,
-            generateSecuredApiKey: clientSearch.generateSecuredApiKey,
-            getSecuredApiKeyRemainingValidity: clientSearch.getSecuredApiKeyRemainingValidity,
-            destroy: clientCommon.destroy,
-            clearDictionaryEntries: clientSearch.clearDictionaryEntries,
-            deleteDictionaryEntries: clientSearch.deleteDictionaryEntries,
-            getDictionarySettings: clientSearch.getDictionarySettings,
-            getAppTask: clientSearch.getAppTask,
-            replaceDictionaryEntries: clientSearch.replaceDictionaryEntries,
-            saveDictionaryEntries: clientSearch.saveDictionaryEntries,
-            searchDictionaryEntries: clientSearch.searchDictionaryEntries,
-            setDictionarySettings: clientSearch.setDictionarySettings,
-            waitAppTask: clientSearch.waitAppTask,
-            initIndex: base => (indexName) => {
-                return clientSearch.initIndex(base)(indexName, {
-                    methods: {
-                        batch: clientSearch.batch,
-                        delete: clientSearch.deleteIndex,
-                        findAnswers: clientSearch.findAnswers,
-                        getObject: clientSearch.getObject,
-                        getObjects: clientSearch.getObjects,
-                        saveObject: clientSearch.saveObject,
-                        saveObjects: clientSearch.saveObjects,
-                        search: clientSearch.search,
-                        searchForFacetValues: clientSearch.searchForFacetValues,
-                        waitTask: clientSearch.waitTask,
-                        setSettings: clientSearch.setSettings,
-                        getSettings: clientSearch.getSettings,
-                        partialUpdateObject: clientSearch.partialUpdateObject,
-                        partialUpdateObjects: clientSearch.partialUpdateObjects,
-                        deleteObject: clientSearch.deleteObject,
-                        deleteObjects: clientSearch.deleteObjects,
-                        deleteBy: clientSearch.deleteBy,
-                        clearObjects: clientSearch.clearObjects,
-                        browseObjects: clientSearch.browseObjects,
-                        getObjectPosition: clientSearch.getObjectPosition,
-                        findObject: clientSearch.findObject,
-                        exists: clientSearch.exists,
-                        saveSynonym: clientSearch.saveSynonym,
-                        saveSynonyms: clientSearch.saveSynonyms,
-                        getSynonym: clientSearch.getSynonym,
-                        searchSynonyms: clientSearch.searchSynonyms,
-                        browseSynonyms: clientSearch.browseSynonyms,
-                        deleteSynonym: clientSearch.deleteSynonym,
-                        clearSynonyms: clientSearch.clearSynonyms,
-                        replaceAllObjects: clientSearch.replaceAllObjects,
-                        replaceAllSynonyms: clientSearch.replaceAllSynonyms,
-                        searchRules: clientSearch.searchRules,
-                        getRule: clientSearch.getRule,
-                        deleteRule: clientSearch.deleteRule,
-                        saveRule: clientSearch.saveRule,
-                        saveRules: clientSearch.saveRules,
-                        replaceAllRules: clientSearch.replaceAllRules,
-                        browseRules: clientSearch.browseRules,
-                        clearRules: clientSearch.clearRules,
-                    },
-                });
-            },
-            initAnalytics: () => (clientOptions) => {
-                return clientAnalytics.createAnalyticsClient({
-                    ...commonOptions,
-                    ...clientOptions,
-                    methods: {
-                        addABTest: clientAnalytics.addABTest,
-                        getABTest: clientAnalytics.getABTest,
-                        getABTests: clientAnalytics.getABTests,
-                        stopABTest: clientAnalytics.stopABTest,
-                        deleteABTest: clientAnalytics.deleteABTest,
-                    },
-                });
-            },
-            initPersonalization,
-            initRecommendation: () => (clientOptions) => {
-                searchClientOptions.logger.info('The `initRecommendation` method is deprecated. Use `initPersonalization` instead.');
-                return initPersonalization()(clientOptions);
-            },
-        },
-    });
-}
-// eslint-disable-next-line functional/immutable-data
-algoliasearch.version = clientCommon.version;
-
-module.exports = algoliasearch;
-
-
-/***/ }),
-
-/***/ 6944:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-/* eslint-disable functional/immutable-data, import/no-commonjs */
-const algoliasearch = __nccwpck_require__(8123);
-
-/**
- * The Common JS build is the default entry point for the Node environment. Keep in
- * in mind, that for the browser environment, we hint the bundler to use the UMD
- * build instead as specified on the key `browser` of our `package.json` file.
- */
-module.exports = algoliasearch;
-
-/**
- * In addition, we also set explicitly the default export below making
- * this Common JS module in compliance with es6 modules specification.
- */
-module.exports.default = algoliasearch;
-
-
-/***/ }),
-
-/***/ 8147:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-var register = __nccwpck_require__(9669)
-var addHook = __nccwpck_require__(3299)
-var removeHook = __nccwpck_require__(7499)
+var register = __nccwpck_require__(491)
+var addHook = __nccwpck_require__(299)
+var removeHook = __nccwpck_require__(499)
 
 // bind with array of arguments: https://stackoverflow.com/a/21792913
 var bind = Function.bind
@@ -6394,7 +3744,7 @@ module.exports.Collection = Hook.Collection
 
 /***/ }),
 
-/***/ 3299:
+/***/ 299:
 /***/ ((module) => {
 
 module.exports = addHook;
@@ -6447,7 +3797,7 @@ function addHook(state, kind, name, hook) {
 
 /***/ }),
 
-/***/ 9669:
+/***/ 491:
 /***/ ((module) => {
 
 module.exports = register;
@@ -6481,7 +3831,7 @@ function register(state, name, method, options) {
 
 /***/ }),
 
-/***/ 7499:
+/***/ 499:
 /***/ ((module) => {
 
 module.exports = removeHook;
@@ -6507,14 +3857,7 @@ function removeHook(state, name, method) {
 
 /***/ }),
 
-/***/ 3945:
-/***/ (function(module) {
-
-!function(t,e){ true?module.exports=e():0}(this,(function(){"use strict";var t=1e3,e=6e4,n=36e5,r="millisecond",i="second",s="minute",u="hour",a="day",o="week",f="month",h="quarter",c="year",d="date",$="Invalid Date",l=/^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,y=/\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,M={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_")},m=function(t,e,n){var r=String(t);return!r||r.length>=e?t:""+Array(e+1-r.length).join(n)+t},g={s:m,z:function(t){var e=-t.utcOffset(),n=Math.abs(e),r=Math.floor(n/60),i=n%60;return(e<=0?"+":"-")+m(r,2,"0")+":"+m(i,2,"0")},m:function t(e,n){if(e.date()<n.date())return-t(n,e);var r=12*(n.year()-e.year())+(n.month()-e.month()),i=e.clone().add(r,f),s=n-i<0,u=e.clone().add(r+(s?-1:1),f);return+(-(r+(n-i)/(s?i-u:u-i))||0)},a:function(t){return t<0?Math.ceil(t)||0:Math.floor(t)},p:function(t){return{M:f,y:c,w:o,d:a,D:d,h:u,m:s,s:i,ms:r,Q:h}[t]||String(t||"").toLowerCase().replace(/s$/,"")},u:function(t){return void 0===t}},D="en",v={};v[D]=M;var p=function(t){return t instanceof _},S=function(t,e,n){var r;if(!t)return D;if("string"==typeof t)v[t]&&(r=t),e&&(v[t]=e,r=t);else{var i=t.name;v[i]=t,r=i}return!n&&r&&(D=r),r||!n&&D},w=function(t,e){if(p(t))return t.clone();var n="object"==typeof e?e:{};return n.date=t,n.args=arguments,new _(n)},O=g;O.l=S,O.i=p,O.w=function(t,e){return w(t,{locale:e.$L,utc:e.$u,x:e.$x,$offset:e.$offset})};var _=function(){function M(t){this.$L=S(t.locale,null,!0),this.parse(t)}var m=M.prototype;return m.parse=function(t){this.$d=function(t){var e=t.date,n=t.utc;if(null===e)return new Date(NaN);if(O.u(e))return new Date;if(e instanceof Date)return new Date(e);if("string"==typeof e&&!/Z$/i.test(e)){var r=e.match(l);if(r){var i=r[2]-1||0,s=(r[7]||"0").substring(0,3);return n?new Date(Date.UTC(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)):new Date(r[1],i,r[3]||1,r[4]||0,r[5]||0,r[6]||0,s)}}return new Date(e)}(t),this.$x=t.x||{},this.init()},m.init=function(){var t=this.$d;this.$y=t.getFullYear(),this.$M=t.getMonth(),this.$D=t.getDate(),this.$W=t.getDay(),this.$H=t.getHours(),this.$m=t.getMinutes(),this.$s=t.getSeconds(),this.$ms=t.getMilliseconds()},m.$utils=function(){return O},m.isValid=function(){return!(this.$d.toString()===$)},m.isSame=function(t,e){var n=w(t);return this.startOf(e)<=n&&n<=this.endOf(e)},m.isAfter=function(t,e){return w(t)<this.startOf(e)},m.isBefore=function(t,e){return this.endOf(e)<w(t)},m.$g=function(t,e,n){return O.u(t)?this[e]:this.set(n,t)},m.unix=function(){return Math.floor(this.valueOf()/1e3)},m.valueOf=function(){return this.$d.getTime()},m.startOf=function(t,e){var n=this,r=!!O.u(e)||e,h=O.p(t),$=function(t,e){var i=O.w(n.$u?Date.UTC(n.$y,e,t):new Date(n.$y,e,t),n);return r?i:i.endOf(a)},l=function(t,e){return O.w(n.toDate()[t].apply(n.toDate("s"),(r?[0,0,0,0]:[23,59,59,999]).slice(e)),n)},y=this.$W,M=this.$M,m=this.$D,g="set"+(this.$u?"UTC":"");switch(h){case c:return r?$(1,0):$(31,11);case f:return r?$(1,M):$(0,M+1);case o:var D=this.$locale().weekStart||0,v=(y<D?y+7:y)-D;return $(r?m-v:m+(6-v),M);case a:case d:return l(g+"Hours",0);case u:return l(g+"Minutes",1);case s:return l(g+"Seconds",2);case i:return l(g+"Milliseconds",3);default:return this.clone()}},m.endOf=function(t){return this.startOf(t,!1)},m.$set=function(t,e){var n,o=O.p(t),h="set"+(this.$u?"UTC":""),$=(n={},n[a]=h+"Date",n[d]=h+"Date",n[f]=h+"Month",n[c]=h+"FullYear",n[u]=h+"Hours",n[s]=h+"Minutes",n[i]=h+"Seconds",n[r]=h+"Milliseconds",n)[o],l=o===a?this.$D+(e-this.$W):e;if(o===f||o===c){var y=this.clone().set(d,1);y.$d[$](l),y.init(),this.$d=y.set(d,Math.min(this.$D,y.daysInMonth())).$d}else $&&this.$d[$](l);return this.init(),this},m.set=function(t,e){return this.clone().$set(t,e)},m.get=function(t){return this[O.p(t)]()},m.add=function(r,h){var d,$=this;r=Number(r);var l=O.p(h),y=function(t){var e=w($);return O.w(e.date(e.date()+Math.round(t*r)),$)};if(l===f)return this.set(f,this.$M+r);if(l===c)return this.set(c,this.$y+r);if(l===a)return y(1);if(l===o)return y(7);var M=(d={},d[s]=e,d[u]=n,d[i]=t,d)[l]||1,m=this.$d.getTime()+r*M;return O.w(m,this)},m.subtract=function(t,e){return this.add(-1*t,e)},m.format=function(t){var e=this,n=this.$locale();if(!this.isValid())return n.invalidDate||$;var r=t||"YYYY-MM-DDTHH:mm:ssZ",i=O.z(this),s=this.$H,u=this.$m,a=this.$M,o=n.weekdays,f=n.months,h=function(t,n,i,s){return t&&(t[n]||t(e,r))||i[n].substr(0,s)},c=function(t){return O.s(s%12||12,t,"0")},d=n.meridiem||function(t,e,n){var r=t<12?"AM":"PM";return n?r.toLowerCase():r},l={YY:String(this.$y).slice(-2),YYYY:this.$y,M:a+1,MM:O.s(a+1,2,"0"),MMM:h(n.monthsShort,a,f,3),MMMM:h(f,a),D:this.$D,DD:O.s(this.$D,2,"0"),d:String(this.$W),dd:h(n.weekdaysMin,this.$W,o,2),ddd:h(n.weekdaysShort,this.$W,o,3),dddd:o[this.$W],H:String(s),HH:O.s(s,2,"0"),h:c(1),hh:c(2),a:d(s,u,!0),A:d(s,u,!1),m:String(u),mm:O.s(u,2,"0"),s:String(this.$s),ss:O.s(this.$s,2,"0"),SSS:O.s(this.$ms,3,"0"),Z:i};return r.replace(y,(function(t,e){return e||l[t]||i.replace(":","")}))},m.utcOffset=function(){return 15*-Math.round(this.$d.getTimezoneOffset()/15)},m.diff=function(r,d,$){var l,y=O.p(d),M=w(r),m=(M.utcOffset()-this.utcOffset())*e,g=this-M,D=O.m(this,M);return D=(l={},l[c]=D/12,l[f]=D,l[h]=D/3,l[o]=(g-m)/6048e5,l[a]=(g-m)/864e5,l[u]=g/n,l[s]=g/e,l[i]=g/t,l)[y]||g,$?D:O.a(D)},m.daysInMonth=function(){return this.endOf(f).$D},m.$locale=function(){return v[this.$L]},m.locale=function(t,e){if(!t)return this.$L;var n=this.clone(),r=S(t,e,!0);return r&&(n.$L=r),n},m.clone=function(){return O.w(this.$d,this)},m.toDate=function(){return new Date(this.valueOf())},m.toJSON=function(){return this.isValid()?this.toISOString():null},m.toISOString=function(){return this.$d.toISOString()},m.toString=function(){return this.$d.toUTCString()},M}(),b=_.prototype;return w.prototype=b,[["$ms",r],["$s",i],["$m",s],["$H",u],["$W",a],["$M",f],["$y",c],["$D",d]].forEach((function(t){b[t[1]]=function(e){return this.$g(e,t[0],t[1])}})),w.extend=function(t,e){return t.$i||(t(e,_,w),t.$i=!0),w},w.locale=S,w.isDayjs=p,w.unix=function(t){return w(1e3*t)},w.en=v[D],w.Ls=v,w.p={},w}));
-
-/***/ }),
-
-/***/ 2375:
+/***/ 375:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -6542,7 +3885,7 @@ exports.Deprecation = Deprecation;
 
 /***/ }),
 
-/***/ 5263:
+/***/ 263:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -6588,7 +3931,7 @@ exports.isPlainObject = isPlainObject;
 
 /***/ }),
 
-/***/ 8143:
+/***/ 143:
 /***/ ((module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -6598,11 +3941,11 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var Stream = _interopDefault(__nccwpck_require__(2413));
-var http = _interopDefault(__nccwpck_require__(8605));
-var Url = _interopDefault(__nccwpck_require__(8835));
-var https = _interopDefault(__nccwpck_require__(7211));
-var zlib = _interopDefault(__nccwpck_require__(8761));
+var Stream = _interopDefault(__nccwpck_require__(413));
+var http = _interopDefault(__nccwpck_require__(605));
+var Url = _interopDefault(__nccwpck_require__(835));
+var https = _interopDefault(__nccwpck_require__(211));
+var zlib = _interopDefault(__nccwpck_require__(761));
 
 // Based on https://github.com/tmpvar/jsdom/blob/aa85b2abf07766ff7bf5c1f6daafb3726f2f2db5/lib/jsdom/living/blob.js
 
@@ -6753,7 +4096,7 @@ FetchError.prototype.name = 'FetchError';
 
 let convert;
 try {
-	convert = __nccwpck_require__(4167).convert;
+	convert = __nccwpck_require__(167).convert;
 } catch (e) {}
 
 const INTERNALS = Symbol('Body internals');
@@ -8245,10 +5588,10 @@ exports.FetchError = FetchError;
 
 /***/ }),
 
-/***/ 9266:
+/***/ 266:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var wrappy = __nccwpck_require__(1399)
+var wrappy = __nccwpck_require__(399)
 module.exports = wrappy(once)
 module.exports.strict = wrappy(onceStrict)
 
@@ -8294,7 +5637,7 @@ function onceStrict (fn) {
 
 /***/ }),
 
-/***/ 8560:
+/***/ 560:
 /***/ ((module) => {
 
 /*! *****************************************************************************
@@ -8607,27 +5950,27 @@ var __createBinding;
 
 /***/ }),
 
-/***/ 4852:
+/***/ 852:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-module.exports = __nccwpck_require__(8342);
+module.exports = __nccwpck_require__(342);
 
 
 /***/ }),
 
-/***/ 8342:
+/***/ 342:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var net = __nccwpck_require__(1631);
-var tls = __nccwpck_require__(4016);
-var http = __nccwpck_require__(8605);
-var https = __nccwpck_require__(7211);
-var events = __nccwpck_require__(8614);
-var assert = __nccwpck_require__(2357);
-var util = __nccwpck_require__(1669);
+var net = __nccwpck_require__(631);
+var tls = __nccwpck_require__(16);
+var http = __nccwpck_require__(605);
+var https = __nccwpck_require__(211);
+var events = __nccwpck_require__(614);
+var assert = __nccwpck_require__(357);
+var util = __nccwpck_require__(669);
 
 
 exports.httpOverHttp = httpOverHttp;
@@ -8887,7 +6230,7 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 4844:
+/***/ 844:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -8913,7 +6256,7 @@ exports.getUserAgent = getUserAgent;
 
 /***/ }),
 
-/***/ 1399:
+/***/ 399:
 /***/ ((module) => {
 
 // Returns a wrapper function that returns a wrapped callback
@@ -8953,283 +6296,7 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
-/***/ 574:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.algolia = void 0;
-var tslib_1 = __nccwpck_require__(8560);
-var algoliasearch_1 = (0, tslib_1.__importDefault)(__nccwpck_require__(6944));
-var issueClient = (0, algoliasearch_1.default)(process.env.ALGOLIA_APPID, process.env.ALGOLIA_APP_KEY);
-var labelClient = (0, algoliasearch_1.default)(process.env.ALGOLIA_APPID, process.env.ALGOLIA_APP_KEY);
-var issueIndex;
-var labelIndex;
-exports.algolia = {
-    ensureInit: function () {
-        return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
-            return (0, tslib_1.__generator)(this, function (_a) {
-                labelIndex = labelClient.initIndex('actions_cheatsheet_labels');
-                issueIndex = issueClient.initIndex('actions_cheatsheet_issues');
-                issueIndex.setSettings({
-                    searchableAttributes: ['title', 'description', 'body'],
-                    attributesForFaceting: ['state', 'filterOnly(labels.name)'],
-                    customRanking: ['desc(updatedAt_timestamp)'],
-                });
-                labelIndex.setSettings({
-                    searchableAttributes: ['name', 'description'],
-                });
-                return [2 /*return*/];
-            });
-        });
-    },
-    uploadCheatsheets: function (cheatsheets) {
-        return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
-            return (0, tslib_1.__generator)(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.ensureInit()];
-                    case 1:
-                        _a.sent();
-                        issueIndex.saveObjects(cheatsheets, {
-                            autoGenerateObjectIDIfNotExist: true,
-                        });
-                        return [2 /*return*/];
-                }
-            });
-        });
-    },
-    uploadTags: function (tags) {
-        return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
-            return (0, tslib_1.__generator)(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.ensureInit()];
-                    case 1:
-                        _a.sent();
-                        labelIndex.saveObjects(tags, {
-                            autoGenerateObjectIDIfNotExist: true,
-                        });
-                        return [2 /*return*/];
-                }
-            });
-        });
-    },
-};
-
-
-/***/ }),
-
-/***/ 9135:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.github = exports.gql = void 0;
-var tslib_1 = __nccwpck_require__(8560);
-// TODO: fetch all issue labels
-var graphql_1 = __nccwpck_require__(7733);
-var dayjs_1 = (0, tslib_1.__importDefault)(__nccwpck_require__(3945));
-exports.gql = String.raw;
-var graphqlWithAuth = graphql_1.graphql.defaults({
-    headers: {
-        authorization: "token " + process.env.GITHUB_TOKEN,
-    },
-});
-exports.github = {
-    issueCount: function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-        var response;
-        return (0, tslib_1.__generator)(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, graphqlWithAuth("\n        query Issues($owner: String!, $name: String!) {\n          repository(owner: $owner, name: $name) {\n            issues {\n              totalCount\n            }\n          }\n        }\n      ", {
-                        owner: owner,
-                        name: name,
-                    })];
-                case 1:
-                    response = _a.sent();
-                    console.log(response);
-                    return [2 /*return*/, response.repository.issues.totalCount];
-            }
-        });
-    }); },
-    labelCount: function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-        var response;
-        return (0, tslib_1.__generator)(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, graphqlWithAuth("\n        query Issues($owner: String!, $name: String!) {\n          repository(owner: $owner, name: $name) {\n            labels {\n              totalCount\n            }\n          }\n        }\n      ", {
-                        owner: owner,
-                        name: name,
-                    })];
-                case 1:
-                    response = _a.sent();
-                    console.log(response);
-                    return [2 /*return*/, response.repository.labels.totalCount];
-            }
-        });
-    }); },
-    labels: function (owner, name, after) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-        var response, labels, pageInfo;
-        return (0, tslib_1.__generator)(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, graphqlWithAuth((0, exports.gql)(templateObject_1 || (templateObject_1 = (0, tslib_1.__makeTemplateObject)(["\n        query Labels($owner: String!, $name: String!, $after: String) {\n          repository(owner: $owner, name: $name) {\n            labels(first: 10, after: $after) {\n              edges {\n                node {\n                  id\n                  description\n                  name\n                  color\n                }\n              }\n              pageInfo {\n                endCursor\n                hasNextPage\n              }\n            }\n          }\n        }\n      "], ["\n        query Labels($owner: String!, $name: String!, $after: String) {\n          repository(owner: $owner, name: $name) {\n            labels(first: 10, after: $after) {\n              edges {\n                node {\n                  id\n                  description\n                  name\n                  color\n                }\n              }\n              pageInfo {\n                endCursor\n                hasNextPage\n              }\n            }\n          }\n        }\n      "]))), {
-                        owner: owner,
-                        name: name,
-                        after: after,
-                    })];
-                case 1:
-                    response = _a.sent();
-                    console.log(response);
-                    labels = response.repository.labels.edges.map(function (item) { return ((0, tslib_1.__assign)((0, tslib_1.__assign)({}, item.node), { 
-                        // date -> timestamp
-                        updatedAt_timestamp: (0, dayjs_1.default)(item.node.updatedAt).unix(), createdAt_timestamp: (0, dayjs_1.default)(item.node.createdAt).unix() })); });
-                    pageInfo = response.repository.labels.pageInfo;
-                    return [2 /*return*/, {
-                            labels: labels,
-                            pageInfo: pageInfo,
-                        }];
-            }
-        });
-    }); },
-    issues: function (owner, name, after) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-        var response, issues, pageInfo;
-        return (0, tslib_1.__generator)(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, graphqlWithAuth((0, exports.gql)(templateObject_2 || (templateObject_2 = (0, tslib_1.__makeTemplateObject)(["\n        query Issues($owner: String!, $name: String!, $after: String) {\n          repository(owner: $owner, name: $name) {\n            issues(first: 10, after: $after, states: OPEN) {\n              edges {\n                node {\n                  id\n                  number\n                  title\n                  body\n                  createdAt\n                  updatedAt\n                  state\n                  labels(last: 10) {\n                    edges {\n                      node {\n                        id\n                        color\n                        description\n                        name\n                        createdAt\n                        updatedAt\n                      }\n                    }\n                  }\n                }\n              }\n              pageInfo {\n                endCursor\n                hasNextPage\n              }\n            }\n          }\n        }\n      "], ["\n        query Issues($owner: String!, $name: String!, $after: String) {\n          repository(owner: $owner, name: $name) {\n            issues(first: 10, after: $after, states: OPEN) {\n              edges {\n                node {\n                  id\n                  number\n                  title\n                  body\n                  createdAt\n                  updatedAt\n                  state\n                  labels(last: 10) {\n                    edges {\n                      node {\n                        id\n                        color\n                        description\n                        name\n                        createdAt\n                        updatedAt\n                      }\n                    }\n                  }\n                }\n              }\n              pageInfo {\n                endCursor\n                hasNextPage\n              }\n            }\n          }\n        }\n      "]))), {
-                        owner: owner,
-                        name: name,
-                        after: after,
-                    })];
-                case 1:
-                    response = _a.sent();
-                    console.log(response.repository.issues.edges);
-                    issues = response.repository.issues.edges.map(function (item) { return ((0, tslib_1.__assign)((0, tslib_1.__assign)({}, item.node), { 
-                        // unzip labels
-                        labels: item.node.labels.edges.map(function (label) { return label.node; }), 
-                        // date -> timestamp
-                        updatedAt_timestamp: (0, dayjs_1.default)(item.node.updatedAt).unix(), createdAt_timestamp: (0, dayjs_1.default)(item.node.createdAt).unix() })); });
-                    pageInfo = response.repository.issues.pageInfo;
-                    return [2 /*return*/, {
-                            issues: issues,
-                            pageInfo: pageInfo,
-                        }];
-            }
-        });
-    }); },
-    issue: function (owner, name, number) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-        var response;
-        return (0, tslib_1.__generator)(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, graphqlWithAuth((0, exports.gql)(templateObject_3 || (templateObject_3 = (0, tslib_1.__makeTemplateObject)(["\n        query($owner: String!, $name: String!, $number: Int!) {\n          repository(owner: $owner, name: $name) {\n            issue(number: $number) {\n              id\n              number\n              title\n              body\n              createdAt\n              updatedAt\n              state\n              labels(last: 10) {\n                edges {\n                  node {\n                    id\n                    color\n                    description\n                    name\n                    createdAt\n                    updatedAt\n                  }\n                }\n              }\n            }\n          }\n        }\n      "], ["\n        query($owner: String!, $name: String!, $number: Int!) {\n          repository(owner: $owner, name: $name) {\n            issue(number: $number) {\n              id\n              number\n              title\n              body\n              createdAt\n              updatedAt\n              state\n              labels(last: 10) {\n                edges {\n                  node {\n                    id\n                    color\n                    description\n                    name\n                    createdAt\n                    updatedAt\n                  }\n                }\n              }\n            }\n          }\n        }\n      "]))), {
-                        owner: owner,
-                        name: name,
-                        number: number,
-                    })];
-                case 1:
-                    response = _a.sent();
-                    return [2 /*return*/, response.repository.issue];
-            }
-        });
-    }); },
-};
-var templateObject_1, templateObject_2, templateObject_3;
-
-
-/***/ }),
-
-/***/ 9486:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.api = void 0;
-var tslib_1 = __nccwpck_require__(8560);
-var algolia_1 = __nccwpck_require__(574);
-var github_1 = __nccwpck_require__(9135);
-var syncIssues = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-    var _a, issues, pageInfo, after, cheatsheets;
-    var _b;
-    return (0, tslib_1.__generator)(this, function (_c) {
-        switch (_c.label) {
-            case 0: return [4 /*yield*/, github_1.github.issues(owner, name)];
-            case 1:
-                _a = _c.sent(), issues = _a.issues, pageInfo = _a.pageInfo;
-                _c.label = 2;
-            case 2:
-                ;
-                return [4 /*yield*/, github_1.github.issues(owner, name, after)];
-            case 3:
-                (_b = _c.sent(), issues = _b.issues, pageInfo = _b.pageInfo);
-                cheatsheets = issues.map(function (item) {
-                    return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectID: item.id });
-                });
-                return [4 /*yield*/, algolia_1.algolia.uploadCheatsheets(cheatsheets)];
-            case 4:
-                _c.sent();
-                if (!pageInfo.hasNextPage) {
-                    return [3 /*break*/, 6];
-                }
-                _c.label = 5;
-            case 5:
-                after = pageInfo.endCursor;
-                return [3 /*break*/, 2];
-            case 6: return [2 /*return*/];
-        }
-    });
-}); };
-var syncLabels = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-    var _a, labels, pageInfo, after, tags;
-    var _b;
-    return (0, tslib_1.__generator)(this, function (_c) {
-        switch (_c.label) {
-            case 0: return [4 /*yield*/, github_1.github.labels(owner, name)];
-            case 1:
-                _a = _c.sent(), labels = _a.labels, pageInfo = _a.pageInfo;
-                _c.label = 2;
-            case 2:
-                ;
-                return [4 /*yield*/, github_1.github.labels(owner, name, after)];
-            case 3:
-                (_b = _c.sent(), labels = _b.labels, pageInfo = _b.pageInfo);
-                tags = labels.map(function (item) {
-                    return (0, tslib_1.__assign)((0, tslib_1.__assign)({}, item), { objectID: item.id });
-                });
-                return [4 /*yield*/, algolia_1.algolia.uploadTags(tags)];
-            case 4:
-                _c.sent();
-                if (!pageInfo.hasNextPage) {
-                    return [3 /*break*/, 6];
-                }
-                _c.label = 5;
-            case 5:
-                after = pageInfo.endCursor;
-                return [3 /*break*/, 2];
-            case 6: return [2 /*return*/];
-        }
-    });
-}); };
-exports.api = {
-    github: github_1.github,
-    algolia: algolia_1.algolia,
-    main: function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
-        return (0, tslib_1.__generator)(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, syncIssues(owner, name)];
-                case 1:
-                    _a.sent();
-                    return [4 /*yield*/, syncLabels(owner, name)];
-                case 2:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    }); },
-};
-
-
-/***/ }),
-
-/***/ 4167:
+/***/ 167:
 /***/ ((module) => {
 
 module.exports = eval("require")("encoding");
@@ -9237,7 +6304,7 @@ module.exports = eval("require")("encoding");
 
 /***/ }),
 
-/***/ 2357:
+/***/ 357:
 /***/ ((module) => {
 
 "use strict";
@@ -9245,15 +6312,7 @@ module.exports = require("assert");
 
 /***/ }),
 
-/***/ 6417:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("crypto");
-
-/***/ }),
-
-/***/ 8614:
+/***/ 614:
 /***/ ((module) => {
 
 "use strict";
@@ -9261,7 +6320,7 @@ module.exports = require("events");
 
 /***/ }),
 
-/***/ 5747:
+/***/ 747:
 /***/ ((module) => {
 
 "use strict";
@@ -9269,7 +6328,7 @@ module.exports = require("fs");
 
 /***/ }),
 
-/***/ 8605:
+/***/ 605:
 /***/ ((module) => {
 
 "use strict";
@@ -9277,7 +6336,7 @@ module.exports = require("http");
 
 /***/ }),
 
-/***/ 7211:
+/***/ 211:
 /***/ ((module) => {
 
 "use strict";
@@ -9285,7 +6344,7 @@ module.exports = require("https");
 
 /***/ }),
 
-/***/ 1631:
+/***/ 631:
 /***/ ((module) => {
 
 "use strict";
@@ -9293,7 +6352,7 @@ module.exports = require("net");
 
 /***/ }),
 
-/***/ 2087:
+/***/ 87:
 /***/ ((module) => {
 
 "use strict";
@@ -9301,7 +6360,7 @@ module.exports = require("os");
 
 /***/ }),
 
-/***/ 5622:
+/***/ 622:
 /***/ ((module) => {
 
 "use strict";
@@ -9309,7 +6368,7 @@ module.exports = require("path");
 
 /***/ }),
 
-/***/ 2413:
+/***/ 413:
 /***/ ((module) => {
 
 "use strict";
@@ -9317,7 +6376,7 @@ module.exports = require("stream");
 
 /***/ }),
 
-/***/ 4016:
+/***/ 16:
 /***/ ((module) => {
 
 "use strict";
@@ -9325,7 +6384,7 @@ module.exports = require("tls");
 
 /***/ }),
 
-/***/ 8835:
+/***/ 835:
 /***/ ((module) => {
 
 "use strict";
@@ -9333,7 +6392,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 1669:
+/***/ 669:
 /***/ ((module) => {
 
 "use strict";
@@ -9341,7 +6400,7 @@ module.exports = require("util");
 
 /***/ }),
 
-/***/ 8761:
+/***/ 761:
 /***/ ((module) => {
 
 "use strict";
@@ -9394,30 +6453,33 @@ var __webpack_exports__ = {};
 var exports = __webpack_exports__;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var tslib_1 = __nccwpck_require__(8560);
+var tslib_1 = __nccwpck_require__(560);
 var core = (0, tslib_1.__importStar)(__nccwpck_require__(703));
 var github = (0, tslib_1.__importStar)(__nccwpck_require__(445));
-var api_1 = __nccwpck_require__(9486);
+// import { api } from './api'
 // most @actions toolkit packages have async methods
 function run() {
     return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
-        var issue, error_1;
         return (0, tslib_1.__generator)(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, api_1.api.github.issue(github.context.issue.owner, github.context.issue.repo, github.context.issue.number)];
-                case 1:
-                    issue = _a.sent();
-                    console.log(issue);
-                    return [3 /*break*/, 3];
-                case 2:
-                    error_1 = _a.sent();
-                    console.log(error_1);
-                    core.setFailed(error_1.message);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+            try {
+                // https://docs.github.com/cn/developers/webhooks-and-events/events/github-event-types#issuesevent
+                // const issue = await api.github.issue(
+                //   github.context.issue.owner,
+                //   github.context.issue.repo,
+                //   github.context.issue.number,
+                // )
+                // console.log(issue)
+                console.log(github.context.eventName);
+                // const repo = process.env.GITHUB_REPOSITORY
+                // const [owner, name] = repo?.split('/') || []
+                // await syncIssues(owner, name)
+                // await syncLabels(owner, name)
             }
+            catch (error) {
+                console.log(error);
+                core.setFailed(error.message);
+            }
+            return [2 /*return*/];
         });
     });
 }
