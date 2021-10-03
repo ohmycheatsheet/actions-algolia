@@ -3,7 +3,7 @@ on:
   issues
 
 jobs:
-  # test action works running from the graph
+  # test action works running from the issue created/deleted etc...
   event:
     runs-on: ubuntu-latest
     steps:

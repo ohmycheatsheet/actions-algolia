@@ -2,11 +2,11 @@ name: "unit-test-cronjob"
 
 on:
   schedule:
-    - cron: '* * * * *'
+    - cron: "* * * * *"
 
 jobs:
-  # test action works running from the graph
-  event:
+  # test action works running from the schedule
+  cronjob:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
