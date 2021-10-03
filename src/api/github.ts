@@ -169,4 +169,41 @@ export const github = {
       pageInfo,
     }
   },
+  issue: async (owner: string, name: string, number: number) => {
+    const response: any = await graphqlWithAuth(
+      gql`
+        query($owner: String!, $name: String!, $number: Int!) {
+          repository(owner: $owner, name: $name) {
+            issue(number: $number) {
+              id
+              number
+              title
+              body
+              createdAt
+              updatedAt
+              state
+              labels(last: 10) {
+                edges {
+                  node {
+                    id
+                    color
+                    description
+                    name
+                    createdAt
+                    updatedAt
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+      {
+        owner,
+        name,
+        number,
+      },
+    )
+    return response.repository.issue
+  },
 }
