@@ -1,4 +1,3 @@
-// TODO: fetch all issue labels
 import { graphql } from '@octokit/graphql'
 import { Issue, Label } from '../types'
 import dayjs from 'dayjs'
