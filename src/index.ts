@@ -16,6 +16,10 @@ async function run() {
         )
         break
       case 'push':
+        if (core.getInput('debug')) {
+          api.schedule(github.context.issue.owner, github.context.issue.repo)
+        }
+        break
       case 'schedule':
         api.schedule(github.context.issue.owner, github.context.issue.repo)
         break
