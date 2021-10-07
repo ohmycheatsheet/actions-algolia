@@ -8974,7 +8974,7 @@ exports.algolia = {
                 issueIndex = issueClient.initIndex('actions_cheatsheet_issues');
                 issueIndex.setSettings({
                     searchableAttributes: ['title', 'description', 'body'],
-                    attributesForFaceting: ['state', 'filterOnly(labels.name)'],
+                    attributesForFaceting: ['state', 'filterOnly(labels.name)', 'filterOnly(labels.id)'],
                     customRanking: ['desc(updatedAt_timestamp)'],
                 });
                 labelIndex.setSettings({
