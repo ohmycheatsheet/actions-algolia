@@ -3,8 +3,57 @@
 
 ## usage
 
+In default, it will sync github issues to algolia index named `cheatsheets_issues` and `cheatsheets_labels`
+
 1. Create `.github/workflows/algolia.yml` file in your repo
 2. Add the following code to the `algolia.yml` file
+
+### `cronjob.yml`
+> sync all issues to algolia at special time
+
+```yml
+name: "cronjob"
+
+on:
+  schedule:
+    - cron: "0 23 * * *"
+
+jobs:
+  # test action works running from the schedule
+  cronjob:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ohmycheatsheet/actions-algolia@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ALGOLIA_APPID: ${{ secrets.ALGOLIA_APPID }}
+        ALGOLIA_APP_KEY: ${{ secrets.ALGOLIA_APP_KEY }}
+```
+
+### `issue.yml`
+> events type listed [here](https://docs.github.com/en/developers/webhooks-and-events/events/issue-event-types), will sync current issue to algolia
+
+```yml
+name: "issue"
+on:
+  issues
+
+jobs:
+  # test action works running from the issue created/deleted etc...
+  event:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ohmycheatsheet/actions-algolia@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ALGOLIA_APPID: ${{ secrets.ALGOLIA_APPID }}
+        ALGOLIA_APP_KEY: ${{ secrets.ALGOLIA_APP_KEY }}
+
+```
+
+
 ## variables
 
 |name|description|type|required|
