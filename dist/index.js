@@ -9145,6 +9145,7 @@ exports.api = void 0;
 var tslib_1 = __nccwpck_require__(8560);
 var algolia_1 = __nccwpck_require__(574);
 var github_1 = __nccwpck_require__(9135);
+var dayjs_1 = (0, tslib_1.__importDefault)(__nccwpck_require__(3945));
 var syncIssues = function (owner, name) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
     var _a, issues, pageInfo, after, cheatsheets;
     var _b;
@@ -9231,7 +9232,9 @@ exports.api = {
                 case 1:
                     issue = _a.sent();
                     cheatsheets = [
-                        (0, tslib_1.__assign)((0, tslib_1.__assign)({}, issue), { objectID: issue.id, labels: issue.labels.edges.map(function (label) { return label.node; }) }),
+                        (0, tslib_1.__assign)((0, tslib_1.__assign)({}, issue), { objectID: issue.id, labels: issue.labels.edges.map(function (label) { return label.node; }), 
+                            // date -> timestamp
+                            updatedAt_timestamp: (0, dayjs_1.default)(issue.updatedAt).unix(), createdAt_timestamp: (0, dayjs_1.default)(issue.createdAt).unix() }),
                     ];
                     console.log(issue);
                     return [4 /*yield*/, algolia_1.algolia.uploadCheatsheets(cheatsheets)];

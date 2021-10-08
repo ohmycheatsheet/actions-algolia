@@ -1,5 +1,6 @@
 import { algolia } from './algolia'
 import { github } from './github'
+import dayjs from 'dayjs'
 
 const syncIssues = async (owner: string, name: string) => {
   let { issues, pageInfo } = await github.issues(owner, name)
@@ -51,6 +52,9 @@ export const api = {
         ...issue,
         objectID: issue.id,
         labels: (issue.labels as any).edges.map((label: { node: any }) => label.node),
+        // date -> timestamp
+        updatedAt_timestamp: dayjs(issue.updatedAt).unix(),
+        createdAt_timestamp: dayjs(issue.createdAt).unix(),
       },
     ]
     console.log(issue)
