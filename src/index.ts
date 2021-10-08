@@ -7,7 +7,7 @@ async function run() {
   try {
     const eventName: AllowEvent = (github.context.eventName as unknown) as AllowEvent
     switch (eventName) {
-      case 'issue':
+      case 'issues':
         // https://docs.github.com/cn/developers/webhooks-and-events/events/github-event-types#issuesevent
         api.issue(
           github.context.issue.owner,

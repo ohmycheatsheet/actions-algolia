@@ -9422,7 +9422,7 @@ function run() {
             try {
                 eventName = github.context.eventName;
                 switch (eventName) {
-                    case 'issue':
+                    case 'issues':
                         // https://docs.github.com/cn/developers/webhooks-and-events/events/github-event-types#issuesevent
                         api_1.api.issue(github.context.issue.owner, github.context.issue.repo, github.context.issue.number);
                         break;
