@@ -45,6 +45,13 @@ export const api = {
     await syncLabels(owner, name)
   },
   issue: async (owner: string, name: string, number: number) => {
-    await api.github.issue(owner, name, number)
+    const issue = await api.github.issue(owner, name, number)
+    const cheatsheets = [
+      {
+        ...issue,
+        objectID: issue.id,
+      },
+    ]
+    await algolia.uploadCheatsheets(cheatsheets)
   },
 }

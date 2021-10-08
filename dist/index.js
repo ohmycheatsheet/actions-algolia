@@ -9224,10 +9224,17 @@ exports.api = {
         });
     }); },
     issue: function (owner, name, number) { return (0, tslib_1.__awaiter)(void 0, void 0, void 0, function () {
+        var issue, cheatsheets;
         return (0, tslib_1.__generator)(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, exports.api.github.issue(owner, name, number)];
                 case 1:
+                    issue = _a.sent();
+                    cheatsheets = [
+                        (0, tslib_1.__assign)((0, tslib_1.__assign)({}, issue), { objectID: issue.id }),
+                    ];
+                    return [4 /*yield*/, algolia_1.algolia.uploadCheatsheets(cheatsheets)];
+                case 2:
                     _a.sent();
                     return [2 /*return*/];
             }
