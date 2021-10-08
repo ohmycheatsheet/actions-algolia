@@ -8970,8 +8970,8 @@ exports.algolia = {
     ensureInit: function () {
         return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
             return (0, tslib_1.__generator)(this, function (_a) {
-                labelIndex = labelClient.initIndex('actions_cheatsheet_labels');
-                issueIndex = issueClient.initIndex('actions_cheatsheet_issues');
+                labelIndex = labelClient.initIndex('cheatsheets_labels');
+                issueIndex = issueClient.initIndex('cheatsheets_issues');
                 issueIndex.setSettings({
                     searchableAttributes: ['title', 'description', 'body'],
                     attributesForFaceting: ['state', 'filterOnly(labels.name)', 'filterOnly(labels.id)'],

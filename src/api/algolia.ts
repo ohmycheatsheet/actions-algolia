@@ -9,8 +9,8 @@ let labelIndex: SearchIndex
 
 export const algolia = {
   async ensureInit() {
-    labelIndex = labelClient.initIndex('actions_cheatsheet_labels')
-    issueIndex = issueClient.initIndex('actions_cheatsheet_issues')
+    labelIndex = labelClient.initIndex('cheatsheets_labels')
+    issueIndex = issueClient.initIndex('cheatsheets_issues')
     issueIndex.setSettings({
       searchableAttributes: ['title', 'description', 'body'],
       attributesForFaceting: ['state', 'filterOnly(labels.name)', 'filterOnly(labels.id)'],
