@@ -19,6 +19,7 @@ describe('test', () => {
   })
 
   it('sync single issue to algolia should work', async () => {
+    await api.algolia.ensureInit('actions-algolia')
     await api.issue('ohmycheatsheet', 'actions-algolia', 6)
   })
 })

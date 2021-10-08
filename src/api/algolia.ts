@@ -8,9 +8,14 @@ let issueIndex: SearchIndex
 let labelIndex: SearchIndex
 
 export const algolia = {
-  async ensureInit() {
-    labelIndex = labelClient.initIndex('cheatsheets_labels')
-    issueIndex = issueClient.initIndex('cheatsheets_issues')
+  prefix: 'cheatsheets',
+  async ensureInit(repo: string) {
+    this.prefix = repo || this.prefix
+    if (!this.prefix) {
+      console.error('algolia index prefix required')
+    }
+    labelIndex = labelClient.initIndex(`${this.prefix}_labels`)
+    issueIndex = issueClient.initIndex(`${this.prefix}_issues`)
     issueIndex.setSettings({
       searchableAttributes: ['title', 'description', 'body'],
       attributesForFaceting: ['state', 'filterOnly(labels.name)', 'filterOnly(labels.id)'],
@@ -21,13 +26,13 @@ export const algolia = {
     })
   },
   async uploadCheatsheets(cheatsheets: Issue[]) {
-    await this.ensureInit()
+    await this.ensureInit(this.prefix)
     issueIndex.saveObjects(cheatsheets, {
       autoGenerateObjectIDIfNotExist: true,
     })
   },
   async uploadTags(tags: Label[]) {
-    await this.ensureInit()
+    await this.ensureInit(this.prefix)
     labelIndex.saveObjects(tags, {
       autoGenerateObjectIDIfNotExist: true,
     })

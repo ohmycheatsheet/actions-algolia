@@ -8967,11 +8967,16 @@ var labelClient = (0, algoliasearch_1.default)(process.env.ALGOLIA_APPID, proces
 var issueIndex;
 var labelIndex;
 exports.algolia = {
-    ensureInit: function () {
+    prefix: 'cheatsheets',
+    ensureInit: function (repo) {
         return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
             return (0, tslib_1.__generator)(this, function (_a) {
-                labelIndex = labelClient.initIndex('cheatsheets_labels');
-                issueIndex = issueClient.initIndex('cheatsheets_issues');
+                this.prefix = repo || this.prefix;
+                if (!this.prefix) {
+                    console.error('algolia index prefix required');
+                }
+                labelIndex = labelClient.initIndex(this.prefix + "_labels");
+                issueIndex = issueClient.initIndex(this.prefix + "_issues");
                 issueIndex.setSettings({
                     searchableAttributes: ['title', 'description', 'body'],
                     attributesForFaceting: ['state', 'filterOnly(labels.name)', 'filterOnly(labels.id)'],
@@ -8988,7 +8993,7 @@ exports.algolia = {
         return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
             return (0, tslib_1.__generator)(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.ensureInit()];
+                    case 0: return [4 /*yield*/, this.ensureInit(this.prefix)];
                     case 1:
                         _a.sent();
                         issueIndex.saveObjects(cheatsheets, {
@@ -9003,7 +9008,7 @@ exports.algolia = {
         return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
             return (0, tslib_1.__generator)(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.ensureInit()];
+                    case 0: return [4 /*yield*/, this.ensureInit(this.prefix)];
                     case 1:
                         _a.sent();
                         labelIndex.saveObjects(tags, {
@@ -9420,33 +9425,40 @@ var github = (0, tslib_1.__importStar)(__nccwpck_require__(445));
 var api_1 = __nccwpck_require__(9486);
 function run() {
     return (0, tslib_1.__awaiter)(this, void 0, void 0, function () {
-        var eventName;
+        var eventName, error_1;
         return (0, tslib_1.__generator)(this, function (_a) {
-            try {
-                eventName = github.context.eventName;
-                switch (eventName) {
-                    case 'issues':
-                        // https://docs.github.com/cn/developers/webhooks-and-events/events/github-event-types#issuesevent
-                        api_1.api.issue(github.context.issue.owner, github.context.issue.repo, github.context.issue.number);
-                        break;
-                    case 'push':
-                        if (core.getInput('debug')) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    eventName = github.context.eventName;
+                    return [4 /*yield*/, api_1.api.algolia.ensureInit(github.context.repo.repo)];
+                case 1:
+                    _a.sent();
+                    switch (eventName) {
+                        case 'issues':
+                            // https://docs.github.com/cn/developers/webhooks-and-events/events/github-event-types#issuesevent
+                            api_1.api.issue(github.context.issue.owner, github.context.issue.repo, github.context.issue.number);
+                            break;
+                        case 'push':
+                            if (core.getInput('debug')) {
+                                api_1.api.schedule(github.context.issue.owner, github.context.issue.repo);
+                            }
+                            break;
+                        case 'schedule':
                             api_1.api.schedule(github.context.issue.owner, github.context.issue.repo);
-                        }
-                        break;
-                    case 'schedule':
-                        api_1.api.schedule(github.context.issue.owner, github.context.issue.repo);
-                        break;
-                    default:
-                        break;
-                }
-                console.log(github.context.eventName);
+                            break;
+                        default:
+                            break;
+                    }
+                    console.log(github.context.eventName);
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_1 = _a.sent();
+                    console.log(error_1);
+                    core.setFailed(error_1.message);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
-            catch (error) {
-                console.log(error);
-                core.setFailed(error.message);
-            }
-            return [2 /*return*/];
         });
     });
 }
