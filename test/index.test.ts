@@ -3,13 +3,13 @@ import { api } from '../src/api'
 describe('test', () => {
   it('fetch repo issues should work', async () => {
     const res = await api.github.issues('JiangWeixian', 'use-rematch')
-    expect(res.issues.length).not.toBe(0)
+    expect(res.issues).toMatchSnapshot()
     expect(res.pageInfo).toBeDefined()
   })
 
-  it('fetch repo issues should work', async () => {
+  it('fetch repo labels should work', async () => {
     const res = await api.github.labels('JiangWeixian', 'use-rematch')
-    expect(res.labels.length).not.toBe(0)
+    expect(res.labels).toMatchSnapshot()
     expect(res.pageInfo).toBeDefined()
   })
 
@@ -20,6 +20,7 @@ describe('test', () => {
 
   it('sync single issue to algolia should work', async () => {
     await api.algolia.ensureInit('actions-algolia')
-    await api.issue('ohmycheatsheet', 'actions-algolia', 6)
+    const issue = await api.issue('ohmycheatsheet', 'actions-algolia', 6)
+    expect(issue).toMatchSnapshot()
   })
 })

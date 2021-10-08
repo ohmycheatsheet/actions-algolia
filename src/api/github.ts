@@ -1,6 +1,6 @@
 import { graphql } from '@octokit/graphql'
 import { Issue, Label } from '../types'
-import dayjs from 'dayjs'
+import { normalize } from '../utils'
 
 export const gql = String.raw
 
@@ -88,12 +88,7 @@ export const github = {
       },
     )
     console.log(response)
-    const labels = response.repository.labels.edges.map((item: { node: any }) => ({
-      ...item.node,
-      // date -> timestamp
-      updatedAt_timestamp: dayjs(item.node.updatedAt).unix(),
-      createdAt_timestamp: dayjs(item.node.createdAt).unix(),
-    }))
+    const labels = normalize.labels(response.repository.labels.edges)
     const pageInfo = response.repository.labels.pageInfo
     return {
       labels,
@@ -153,16 +148,7 @@ export const github = {
         after,
       },
     )
-    console.log(response.repository.issues.edges)
-    const issues = response.repository.issues.edges.map((item: { node: any }) => ({
-      // unzip issue connection
-      ...item.node,
-      // unzip labels
-      labels: item.node.labels.edges.map((label: { node: any }) => label.node),
-      // date -> timestamp
-      updatedAt_timestamp: dayjs(item.node.updatedAt).unix(),
-      createdAt_timestamp: dayjs(item.node.createdAt).unix(),
-    }))
+    const issues = normalize.issues(response.repository.issues.edges)
     const pageInfo = response.repository.issues.pageInfo
     return {
       issues,

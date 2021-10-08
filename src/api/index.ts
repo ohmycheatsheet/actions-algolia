@@ -1,19 +1,13 @@
 import { algolia } from './algolia'
 import { github } from './github'
-import dayjs from 'dayjs'
+import { normalize } from '../utils'
 
 const syncIssues = async (owner: string, name: string) => {
   let { issues, pageInfo } = await github.issues(owner, name)
   let after
   for (; ; after = pageInfo.endCursor) {
     ;({ issues, pageInfo } = await github.issues(owner, name, after))
-    const cheatsheets = issues.map(item => {
-      return {
-        ...item,
-        objectID: item.id,
-      }
-    })
-    await algolia.uploadCheatsheets(cheatsheets)
+    await algolia.uploadCheatsheets(issues)
     if (!pageInfo.hasNextPage) {
       break
     }
@@ -25,13 +19,7 @@ const syncLabels = async (owner: string, name: string) => {
   let after
   for (; ; after = pageInfo.endCursor) {
     ;({ labels, pageInfo } = await github.labels(owner, name, after))
-    const tags = labels.map(item => {
-      return {
-        ...item,
-        objectID: item.id,
-      }
-    })
-    await algolia.uploadTags(tags)
+    await algolia.uploadTags(labels)
     if (!pageInfo.hasNextPage) {
       break
     }
@@ -47,17 +35,10 @@ export const api = {
   },
   issue: async (owner: string, name: string, number: number) => {
     const issue = await api.github.issue(owner, name, number)
-    const cheatsheets = [
-      {
-        ...issue,
-        objectID: issue.id,
-        labels: (issue.labels as any).edges.map((label: { node: any }) => label.node),
-        // date -> timestamp
-        updatedAt_timestamp: dayjs(issue.updatedAt).unix(),
-        createdAt_timestamp: dayjs(issue.createdAt).unix(),
-      },
-    ]
-    console.log(issue)
+    const tags = normalize.labels((issue.labels as any).edges)
+    const cheatsheets = [normalize.issue(issue)]
     await algolia.uploadCheatsheets(cheatsheets)
+    await algolia.uploadTags(tags)
+    return cheatsheets
   },
 }

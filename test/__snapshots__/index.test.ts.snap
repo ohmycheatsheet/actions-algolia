@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test fetch repo issues should work 1`] = `
+Array [
+  Object {
+    "body": "**will do**
+
+- [x] - 暴露出来的\`api\`需要规范统一
+- [ ] - 提供类似\`usepage or useloadmore\`这些模型",
+    "createdAt": "2020-08-02T13:56:49Z",
+    "createdAt_timestamp": 1596376609,
+    "id": "MDU6SXNzdWU2NzE2MjEwMDg=",
+    "labels": Array [
+      Object {
+        "color": "0052cc",
+        "createdAt": "2021-09-27T01:19:01Z",
+        "description": "feature in mind",
+        "id": "LA_kwDODtXGfs7KMCSr",
+        "name": "rfc",
+        "updatedAt": "2021-09-27T01:19:01Z",
+      },
+    ],
+    "number": 10,
+    "objectID": "MDU6SXNzdWU2NzE2MjEwMDg=",
+    "state": "OPEN",
+    "title": "rfc",
+    "updatedAt": "2021-09-27T01:20:14Z",
+    "updatedAt_timestamp": 1632705614,
+  },
+  Object {
+    "body": "builtin partial update reducers like
+
+\`\`\`ts
+const model = createModel({
+  state: {
+    position
+  } as State,
+})
+
+const { state, dispatch } = useRematch(model)
+\`\`\`
+
+this model will auto contain \`dispatch.update\` to partial update state, such as \`position\`",
+    "createdAt": "2021-09-27T01:18:30Z",
+    "createdAt_timestamp": 1632705510,
+    "id": "I_kwDODtXGfs48DnMT",
+    "labels": Array [
+      Object {
+        "color": "0052cc",
+        "createdAt": "2021-09-27T01:19:01Z",
+        "description": "feature in mind",
+        "id": "LA_kwDODtXGfs7KMCSr",
+        "name": "rfc",
+        "updatedAt": "2021-09-27T01:19:01Z",
+      },
+    ],
+    "number": 45,
+    "objectID": "I_kwDODtXGfs48DnMT",
+    "state": "OPEN",
+    "title": "[rfc] auto builtin useful reducers",
+    "updatedAt": "2021-09-27T01:20:58Z",
+    "updatedAt_timestamp": 1632705658,
+  },
+]
+`;
+
+exports[`test fetch repo labels should work 1`] = `
+Array [
+  Object {
+    "color": "d73a4a",
+    "createdAt_timestamp": 1633708274,
+    "description": "Something isn't working",
+    "id": "MDU6TGFiZWwxOTIzOTEyNjI1",
+    "name": "bug",
+    "objectID": "MDU6TGFiZWwxOTIzOTEyNjI1",
+    "updatedAt_timestamp": 1633708274,
+  },
+  Object {
+    "color": "0075ca",
+    "createdAt_timestamp": 1633708274,
+    "description": "Improvements or additions to documentation",
+    "id": "MDU6TGFiZWwxOTIzOTEyNjI4",
+    "name": "documentation",
+    "objectID": "MDU6TGFiZWwxOTIzOTEyNjI4",
+    "updatedAt_timestamp": 1633708274,
+  },
+  Object {
+    "color": "cfd3d7",
+    "createdAt_timestamp": 1633708274,
+    "description": "This issue or pull request already exists",
+    "id": "MDU6TGFiZWwxOTIzOTEyNjMy",
+    "name": "duplicate",
+    "objectID": "MDU6TGFiZWwxOTIzOTEyNjMy",
+    "updatedAt_timestamp": 1633708274,
+  },
+  Object {
+    "color": "a2eeef",
+    "createdAt_timestamp": 1633708274,
+    "description": "New feature or request",
+    "id": "MDU6TGFiZWwxOTIzOTEyNjM2",
+    "name": "enhancement",
+    "objectID": "MDU6TGFiZWwxOTIzOTEyNjM2",
+    "updatedAt_timestamp": 1633708274,
+  },
+  Object {
+    "color": "008672",
+    "createdAt_timestamp": 1633708274,
+    "description": "Extra attention is needed",
+    "id": "MDU6TGFiZWwxOTIzOTEyNjM4",
+    "name": "help wanted",
+    "objectID": "MDU6TGFiZWwxOTIzOTEyNjM4",
+    "updatedAt_timestamp": 1633708274,
+  },
+  Object {
+    "color": "7057ff",
+    "createdAt_timestamp": 1633708274,
+    "description": "Good for newcomers",
+    "id": "MDU6TGFiZWwxOTIzOTEyNjQx",
+    "name": "good first issue",
+    "objectID": "MDU6TGFiZWwxOTIzOTEyNjQx",
+    "updatedAt_timestamp": 1633708274,
+  },
+  Object {
+    "color": "e4e669",
+    "createdAt_timestamp": 1633708274,
+    "description": "This doesn't seem right",
+    "id": "MDU6TGFiZWwxOTIzOTEyNjQz",
+    "name": "invalid",
+    "objectID": "MDU6TGFiZWwxOTIzOTEyNjQz",
+    "updatedAt_timestamp": 1633708274,
+  },
+  Object {
+    "color": "d876e3",
+    "createdAt_timestamp": 1633708274,
+    "description": "Further information is requested",
+    "id": "MDU6TGFiZWwxOTIzOTEyNjQ1",
+    "name": "question",
+    "objectID": "MDU6TGFiZWwxOTIzOTEyNjQ1",
+    "updatedAt_timestamp": 1633708274,
+  },
+  Object {
+    "color": "ffffff",
+    "createdAt_timestamp": 1633708274,
+    "description": "This will not be worked on",
+    "id": "MDU6TGFiZWwxOTIzOTEyNjQ2",
+    "name": "wontfix",
+    "objectID": "MDU6TGFiZWwxOTIzOTEyNjQ2",
+    "updatedAt_timestamp": 1633708274,
+  },
+  Object {
+    "color": "0366d6",
+    "createdAt_timestamp": 1633708274,
+    "description": "Pull requests that update a dependency file",
+    "id": "MDU6TGFiZWwxOTM3ODMxNTQ0",
+    "name": "dependencies",
+    "objectID": "MDU6TGFiZWwxOTM3ODMxNTQ0",
+    "updatedAt_timestamp": 1633708274,
+  },
+]
+`;
+
+exports[`test sync single issue to algolia should work 1`] = `
+Array [
+  Object {
+    "body": "how actions aloglia work",
+    "createdAt": "2021-09-18T01:12:44Z",
+    "createdAt_timestamp": 1631927564,
+    "id": "I_kwDOGC3jsM47l_0t",
+    "labels": Array [
+      Object {
+        "color": "0075ca",
+        "createdAt": "2021-09-12T14:14:11Z",
+        "description": "Improvements or additions to documentation",
+        "id": "MDU6TGFiZWwzMzQ2NTIxNTQ3",
+        "name": "documentation",
+        "updatedAt": "2021-09-12T14:14:11Z",
+      },
+      Object {
+        "color": "7057ff",
+        "createdAt": "2021-09-12T14:14:11Z",
+        "description": "Good for newcomers",
+        "id": "MDU6TGFiZWwzMzQ2NTIxNTU3",
+        "name": "good first issue",
+        "updatedAt": "2021-09-12T14:14:11Z",
+      },
+    ],
+    "number": 6,
+    "objectID": "I_kwDOGC3jsM47l_0t",
+    "state": "CLOSED",
+    "title": "Test issue",
+    "updatedAt": "2021-09-30T01:53:36Z",
+    "updatedAt_timestamp": 1632966816,
+  },
+]
+`;
