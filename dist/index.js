@@ -9231,8 +9231,9 @@ exports.api = {
                 case 1:
                     issue = _a.sent();
                     cheatsheets = [
-                        (0, tslib_1.__assign)((0, tslib_1.__assign)({}, issue), { objectID: issue.id }),
+                        (0, tslib_1.__assign)((0, tslib_1.__assign)({}, issue), { objectID: issue.id, labels: issue.labels.edges.map(function (label) { return label.node; }) }),
                     ];
+                    console.log(issue);
                     return [4 /*yield*/, algolia_1.algolia.uploadCheatsheets(cheatsheets)];
                 case 2:
                     _a.sent();

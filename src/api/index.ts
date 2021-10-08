@@ -50,8 +50,10 @@ export const api = {
       {
         ...issue,
         objectID: issue.id,
+        labels: (issue.labels as any).edges.map((label: { node: any }) => label.node),
       },
     ]
+    console.log(issue)
     await algolia.uploadCheatsheets(cheatsheets)
   },
 }

@@ -17,4 +17,8 @@ describe('test', () => {
     const res = await api.github.issue('ohmycheatsheet', 'actions-algolia', 6)
     expect(res.number).toBe(6)
   })
+
+  it('sync single issue to algolia should work', async () => {
+    await api.issue('ohmycheatsheet', 'actions-algolia', 6)
+  })
 })
