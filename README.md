@@ -5,8 +5,8 @@
 
 In default, it will sync github issues to algolia index named `cheatsheets_issues` and `cheatsheets_labels`
 
-1. Create `.github/workflows/algolia.yml` file in your repo
-2. Add the following code to the `algolia.yml` file
+1. Create `.github/workflows/cronjob.yml` and `.github/workflows/issue.yml` file in your repo
+2. Add the following code to the `cronjob.yml` or `issue.yml` file
 
 ### `cronjob.yml`
 > sync all issues to algolia at special time
