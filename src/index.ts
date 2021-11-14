@@ -6,6 +6,7 @@ import { AllowEvent } from './types'
 async function run() {
   try {
     const eventName: AllowEvent = (github.context.eventName as unknown) as AllowEvent
+    console.log(github.context)
     await api.algolia.ensureInit(github.context.repo.repo)
     switch (eventName) {
       case 'issues':

@@ -10946,6 +10946,7 @@ function run() {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
                     eventName = github.context.eventName;
+                    console.log(github.context);
                     return [4 /*yield*/, api_1.api.algolia.ensureInit(github.context.repo.repo)];
                 case 1:
                     _a.sent();
