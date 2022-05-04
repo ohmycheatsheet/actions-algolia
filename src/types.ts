@@ -20,4 +20,4 @@ export type Label = {
   updatedAt: string
 }
 
-export type AllowEvent = 'push' | 'issues' | 'schedule'
+export type AllowEvent = 'push' | 'issues' | 'schedule' | 'label'
