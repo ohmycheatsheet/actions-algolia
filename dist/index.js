@@ -10960,6 +10960,7 @@ function run() {
                                 api_1.api.schedule(github.context.issue.owner, github.context.issue.repo);
                             }
                             break;
+                        case 'label':
                         case 'schedule':
                             api_1.api.schedule(github.context.issue.owner, github.context.issue.repo);
                             break;
