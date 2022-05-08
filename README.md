@@ -32,12 +32,16 @@ jobs:
 ```
 
 ### `issue.yml`
-> events type listed [here](https://docs.github.com/en/developers/webhooks-and-events/events/issue-event-types), will sync current issue to algolia
+> events type listed [here](https://docs.github.com/en/developers/webhooks-and-events/events/issue-event-types)
+
+- `event: issue` will sync current(created/edited/deleted) issue to algolia
+- `event: label` will sync all issue and labels to algolia
 
 ```yml
 name: "issue"
 on:
   issues
+  label
 
 jobs:
   # test action works running from the issue created/deleted etc...
